@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-10-28T01:55:00+03:00">
+  <shop>
+    <name>Тёплый Кадр</name>
+    <company>Студия создания ИИ-мультфильмов и видеоподарков «Тёплый Кадр» (Тепло Кадр)</company>
+    <url>https://teplo-kadr.ru/</url>
+    <Email>teplo_kadr@mail.ru</Email>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="1">Создание ИИ-мультфильмов на заказ</category>
+      <category id="2">Оживление старых и архивных фотографий</category>
+      <category id="3">ИИ-Рилсы (Reels) и лёгкий видеомонтаж</category>
+      <category id="4">Семейные портреты в 9 вселенных и ИИ-фотосессия</category>
+      <category id="5">Живые 3D Видео-Приглашения с озвучкой</category>
+    </categories>
+    <offers>
+      <offer id="cartoon-mini" available="true">
+        <url>https://teplo-kadr.ru/cartoon</url>
+        <price>9900</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://teplo-kadr.ru/pixar_poster_1080p.jpg</picture>
+        <name>Персональный 3D ИИ-мультфильм по фото и биографии (Тариф «Мини-Мульт»)</name>
+        <vendor>Тёплый Кадр (Тепло Кадр)</vendor>
+        <description>Студия создания ИИ-мультфильмов «Тёплый Кадр»: сюжетный 3D-мультфильм (Disney/Pixar, Аниме, Плюшевый мир или GTA) на 1–1,5 минуты со 100% сходством лиц, дикторской озвучкой и музыкой.</description>
+      </offer>
+
+      <offer id="cartoon-hit" available="true">
+        <url>https://teplo-kadr.ru/cartoon</url>
+        <price>14900</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://teplo-kadr.ru/pixar_poster_1080p.jpg</picture>
+        <name>Биографический 3D ИИ-мультфильм на Юбилей и Свадьбу (Тариф «Семейный Фильм» 2,5 мин)</name>
+        <vendor>Тёплый Кадр (Тепло Кадр)</vendor>
+        <description>Флагманский подарок от студии «Тёплый Кадр» (Тепло Кадр): 12–15 сцен жизни именинника (Детство, Школа, Любовь, Друзья, Юбилей) со 100% узнаваемостью всех гостей, озвучкой и персональной подарочной страницей.</description>
+      </offer>
+
+      <offer id="photo-alive-start" available="true">
+        <url>https://teplo-kadr.ru/photo-alive</url>
+        <price>1500</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>2</categoryId>
+        <picture>https://teplo-kadr.ru/media/avito_photo_alive_cover_16x9.png</picture>
+        <name>Оживление старых и архивных фотографий нейросетью (3 фото + реставрация)</name>
+        <vendor>Тёплый Кадр (Тепло Кадр)</vendor>
+        <description>Бережная реставрация трещин, раскрашивание и оживление чёрно-белых и цветных фотографий родителей, бабушек и дедушек с естественной улыбкой и объятиями в студии «Тёплый Кадр».</description>
+      </offer>
+
+      <offer id="photo-alive-film" available="true">
+        <url>https://teplo-kadr.ru/photo-alive</url>
+        <price>4900</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>2</categoryId>
+        <picture>https://teplo-kadr.ru/media/avito_photo_alive_cover_16x9.png</picture>
+        <name>Фильм «Семейная летопись» из 10 оживших архивных фотографий под музыку</name>
+        <vendor>Тёплый Кадр (Тепло Кадр)</vendor>
+        <description>Трогательный видеоподарок родителям на юбилей или годовщину: реставрация и оживление 10 архивных снимков в единый фильм Full HD под любимую песню семьи.</description>
+      </offer>
+
+      <offer id="reels-single" available="true">
+        <url>https://teplo-kadr.ru/video-edit</url>
+        <price>990</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>3</categoryId>
+        <picture>https://teplo-kadr.ru/media/avito_video_magic_cover_16x9.png</picture>
+        <name>ИИ-Рилс (Reels / Shorts / ВК Клип) с преображением с 2-й секунды или нарезкой под бит</name>
+        <vendor>Тёплый Кадр (Тепло Кадр)</vendor>
+        <description>Голливудское ИИ-преображение вашего видео с телефона прямо в движении с 2-й секунды (Королевский зал, Вечернее платье на ходу, Северное сияние, Сакура) или динамичная склейка под бит за 2–4 часа.</description>
+      </offer>
+
+      <offer id="reels-pack3" available="true">
+        <url>https://teplo-kadr.ru/video-edit</url>
+        <price>2490</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>3</categoryId>
+        <picture>https://teplo-kadr.ru/media/avito_video_magic_cover_16x9.png</picture>
+        <name>Пакет «3 ИИ-Рилса» с спецэффектами и лёгким монтажом под бит</name>
+        <vendor>Тёплый Кадр (Тепло Кадр)</vendor>
+        <description>3 разных вертикальных ролика 9:16 Full HD для праздника, отпуска или соцсетей с разными ИИ-эффектами и трендовым саунд-дизайном от студии «Тёплый Кадр».</description>
+      </offer>
+
+      <offer id="portrait-single" available="true">
+        <url>https://teplo-kadr.ru/photoshoot</url>
+        <price>1500</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>4</categoryId>
+        <picture>https://teplo-kadr.ru/media/avito_cover_16x9.png</picture>
+        <name>Семейный портрет по фото в выбранной вселенной (Pixar, Шарж, GTA, Плюшевый мир, Аниме) 4K</name>
+        <vendor>Тёплый Кадр (Тепло Кадр)</vendor>
+        <description>Превратим обычное домашнее фото в картину 4K для печати на холсте со 100% сохранением черт лица, причёсок, улыбок и любимой одежды или объединим родных с разных фото.</description>
+      </offer>
+
+      <offer id="portrait-9styles" available="true">
+        <url>https://teplo-kadr.ru/photoshoot</url>
+        <price>2900</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>4</categoryId>
+        <picture>https://teplo-kadr.ru/media/avito_cover_16x9.png</picture>
+        <name>Пакет «Семейный портрет во всех 9 вселенных + Видео-преображение»</name>
+        <vendor>Тёплый Кадр (Тепло Кадр)</vendor>
+        <description>9 портретов высокого разрешения 4K (3D Pixar, Аниме Миядзаки, Плюшевый мир, Выразительный шарж, GTA, 90-е VHS, Королевский замок, Каменный век, 16-Bit) + видеоролик преображения.</description>
+      </offer>
+
+      <offer id="invite-3d-popup" available="true">
+        <url>https://teplo-kadr.ru/invitations</url>
+        <price>1490</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>https://teplo-kadr.ru/media/avito_invitations_cover_16x9.png</picture>
+        <name>Живое 3D Видео-Приглашение с озвучкой (Свадьба Pop-Up, Юбилей 50 лет, 1 годик малышу)</name>
+        <vendor>Тёплый Кадр (Тепло Кадр)</vendor>
+        <description>Вертикальное 3D видео-приглашение 9:16 с вашими именами, датой, адресом и персональной голосовой озвучкой для рассылки гостям в WhatsApp и Telegram за 2–4 часа.</description>
+      </offer>
+
+      <offer id="invite-ghost-rider" available="true">
+        <url>https://teplo-kadr.ru/invitations</url>
+        <price>1990</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>5</categoryId>
+        <picture>https://teplo-kadr.ru/media/avito_invitations_cover_16x9.png</picture>
+        <name>Видео-приглашение с героем у вашего реального ресторана (Призрачный Гонщик / Тралалело 6-7)</name>
+        <vendor>Тёплый Кадр (Тепло Кадр)</vendor>
+        <description>Призрачный Гонщик на огненном чоппере подъезжает к реальному фасаду вашего ресторана с Яндекс/Google Карт и басом приглашает ваших гостей, либо детский мем-хит Тралалело Тралала и 6-7!</description>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>
