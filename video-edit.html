@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Умный монтаж семейных архивов и Reels/Shorts — Студия «Тёплый Кадр»</title>
+  <title>ИИ-Рилсы и Лёгкий Монтаж Клипов — Студия «Тёплый Кадр»</title>
   <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
@@ -22,8 +22,8 @@
         <a href="/">Все услуги</a>
         <a href="/cartoon">1. 3D-Мультфильм</a>
         <a href="/photo-alive">2. Оживление фото</a>
-        <a href="/video-edit" class="active">3. ИИ-Видео и Reels</a>
-        <a href="/photoshoot">4. Портреты 7 стилей</a>
+        <a href="/video-edit" class="active">3. ИИ-Рилсы</a>
+        <a href="/photoshoot">4. Портреты 9 стилей</a>
         <a href="/invitations">5. Видео-приглашения</a>
         <a href="/gift-max30" class="gift-link">🎁 Демо подарка</a>
       </nav>
@@ -42,40 +42,55 @@
   </header>
 
   <div class="container breadcrumbs">
-    <a href="/">Главная (Все услуги)</a> <span>→</span> <strong>Услуга №3: ИИ-Магия в ваших видео и Reels / Умный монтаж</strong>
+    <a href="/">Главная</a> <span>→</span> <strong>Услуга №3: ИИ-Рилсы и Лёгкий Монтаж Клипов</strong>
   </div>
 
   <!-- HERO УСЛУГИ 3 -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="pill-tag">✨ Услуга №3 • ИИ-спецэффекты в ваших видео + Монтаж семейных фильмов и Reels</span>
-        <h1>Добавим голливудскую <span>ИИ-магию</span> в ваши обычные видео с телефона!</h1>
+        <span class="pill-tag">✨ Услуга №3 • Залипательные Reels, Shorts и ВК Клипы за 2–4 часа</span>
+        <h1>Просто клипаем крутые <span>ИИ-Рилсики</span> из ваших видео с телефона!</h1>
         <p class="lead">
-          Первые 2 секунды зритель видит вашу обычную съёмку с телефона, а затем золотая волна света прямо в движении превращает комнату в королевский бальный зал, повседневный костюм — в сияющее вечернее платье, а небо — в северное сияние!
+          Никаких скучных получасовых архивов! Вы скидываете короткое видео с телефона — а мы делаем из него сочный вертикальный клип под бит с голливудским ИИ-преображением прямо в движении!
         </p>
         <ul class="hero-benefits">
           <li>
             <span class="check-icon">✓</span>
-            <span><strong>Бесшовный переход с 2-й секунды:</strong> 5 хитовых ИИ-эффектов (Королевский зал, Вечернее платье на ходу, Северное сияние, Цветущая сакура, Неоновый океан).</span>
+            <span><strong>Вау-эффект с 2-й секунды:</strong> первые 2 секунды — ваш обычный кадр, а дальше вспышка света превращает комнату во дворец, куртку — в вечернее платье, а небо — в северное сияние!</span>
           </li>
           <li>
             <span class="check-icon">✓</span>
-            <span><strong>Семейные фильмы из архивов:</strong> соберём видео-тосты родственников и кадры с телефона в единый фильм к юбилею или свадьбе.</span>
+            <span><strong>Лёгкая нарезка под бит:</strong> склеим 3–10 ваших лучших телефонных видео с отпуска, тусовки или дня рождения в бодрый Рилс.</span>
           </li>
           <li>
             <span class="check-icon">✓</span>
-            <span><strong>Вирусные Reels / Shorts / VK Клипы:</strong> максимальное удержание внимания с первых секунд и трендовый саунд-дизайн.</span>
+            <span><strong>Быстро и доступно:</strong> от 990 ₽ за готовый ролик со звуком и спецэффектами день в день!</span>
           </li>
         </ul>
+
+        <!-- БЫСТРЫЙ ПЕРЕКЛЮЧАТЕЛЬ 5 ЭФФЕКТОВ В ПЛЕЕРЕ -->
+        <div style="background: #FFFDFB; border: 1px solid var(--border); border-radius: 18px; padding: 16px; margin-bottom: 22px;">
+          <div style="font-size: 13px; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 10px;">
+            🎬 Пощёлкайте 5 ИИ-эффектов прямо в нашем демо-ролике справа:
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <button type="button" class="btn btn-outline btn-sm" onclick="seekReelsDemo(0)">1. Королевский бал (0:00)</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="seekReelsDemo(8.5)">2. Платье на ходу (0:08)</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="seekReelsDemo(17)">3. Северное сияние (0:17)</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="seekReelsDemo(25.5)">4. Цветущая сакура (0:25)</button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="seekReelsDemo(34)">5. Неоновый океан (0:34)</button>
+          </div>
+        </div>
+
         <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <button class="btn btn-primary" onclick="openOrderModal('ИИ-Магия в видео и Reels', 'Расчёт стоимости ролика')">Заказать ИИ-преображение видео</button>
-          <a href="#pricing" class="btn btn-outline">Смотреть тарифы (от 1 900 ₽) ↓</a>
+          <button class="btn btn-primary" onclick="openOrderModal('ИИ-Рилсы и Лёгкий Монтаж', '1 ИИ-Рилс под ключ', '990 ₽')">Заказать Рилс за 990 ₽</button>
+          <a href="#pricing" class="btn btn-outline">Смотреть тарифы (от 990 ₽) ↓</a>
         </div>
       </div>
 
-      <div class="video-showcase-card" style="max-width: 350px; margin: 0 auto;">
-        <video controls playsinline preload="metadata" poster="media/avito_video_magic_cover_16x9.png" style="aspect-ratio: 9/16; object-fit: cover; border-radius: 18px;">
+      <div class="video-showcase-card" style="max-width: 340px; margin: 0 auto;">
+        <video id="reelsMainVideo" controls playsinline preload="metadata" poster="media/video_magic_reels_poster_9x16.jpg" style="aspect-ratio: 9/16; object-fit: cover; border-radius: 18px;">
           <source src="media/video_magic_reels_9x16.mp4" type="video/mp4" />
         </video>
         <div class="video-caption">
@@ -85,123 +100,119 @@
     </div>
   </section>
 
-  <!-- 2 НАПРАВЛЕНИЯ ВИДЕОМОНТАЖА -->
+  <!-- КАКИЕ РИЛСЫ МЫ КЛИПАЕМ -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2>Два направления нашей монтажной студии</h2>
-        <p>Работаем как с тёплыми семейными архивами, так и с коммерческими роликами для соцсетей</p>
+        <h2>Какие ролики мы делаем?</h2>
+        <p>Два простых и понятных формата для соцсетей, сторис и семейных чатов</p>
       </div>
 
-      <div class="services-grid">
+      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
         <div class="service-card">
           <div>
-            <div class="service-num">Направление А • Для семьи и праздников</div>
-            <h3>Семейные фильмы из архивов телефона и видеопоздравлений</h3>
-            <p>Вы просто загружаете папку с телефона на Яндекс.Диск или в Telegram — всю рутину по отбору лучших дублей мы берём на себя:</p>
+            <div class="service-num">Формат №1 • ИИ-Трансформация</div>
+            <h3>Вау-преображение с 2-й секунды</h3>
+            <p>Вы присылаете всего 1 исходное видео с телефона (5–15 секунд): танец дома, прогулка по улице или тост за столом.</p>
             <ul class="service-features">
-              <li>✓ <strong>Фильм «Первый год малыша» / «Взросление ребёнка»</strong></li>
-              <li>✓ <strong>Фильм-путешествие из отпуска</strong> с картой маршрута и музыкой</li>
-              <li>✓ <strong>Сборный фильм-сюрприз от друзей и родных</strong> на юбилей или свадьбу</li>
-              <li>✓ <strong>Выравнивание звука и цвета:</strong> убираем шум ветра и дрожание рук</li>
-              <li>✓ <strong>ИИ-перебивки и ожившие фото</strong> между видеофрагментами</li>
+              <li>✓ <strong>Первые 2 секунды — реальное видео</strong>, чтобы все узнали вас и место съёмки</li>
+              <li>✓ <strong>На 2-й секунде — вспышка света</strong> и переход в любую вселенную прямо в движении!</li>
+              <li>✓ Меняем интерьер, переодеваем в роскошные наряды или переносим на берег океана</li>
+              <li>✓ Подкладываем трендовый бит и сочные звуковые эффекты</li>
             </ul>
           </div>
           <div class="service-footer">
-            <div class="price-tag">от 4 900 ₽ <small>Полный фильм 3–7 мин — 6 900 ₽</small></div>
-            <button class="btn btn-primary btn-sm" onclick="openOrderModal('Монтаж семейного фильма', 'Семейный фильм из архивов телефона', '6 900 ₽')">Заказать семейный фильм</button>
+            <div class="price-tag">990 ₽ <small>Готовность за 2–4 часа</small></div>
+            <button class="btn btn-primary btn-sm" onclick="openOrderModal('ИИ-Рилс с преображением', '1 ИИ-Рилс с 2-й секунды', '990 ₽')">Заказать ИИ-Рилс</button>
           </div>
         </div>
 
         <div class="service-card">
           <div>
-            <div class="service-num">Направление Б • Для блога, бизнеса и Авито</div>
-            <h3>Динамичный монтаж Reels / Shorts / VK Клипов и видео для Авито</h3>
-            <p>Создаём ролики, которые удерживают взгляд с первых 2 секунд и приводят клиентов из соцсетей и Авито:</p>
+            <div class="service-num">Формат №2 • Лёгкий динамичный монтаж</div>
+            <h3>Бодрая нарезка ваших лучших моментов под бит</h3>
+            <p>Накопилось 5–10 классных вертикальных видео с праздника, девичника, отпуска или прогулки с ребёнком? Склеим их в стильный клип!</p>
             <ul class="service-features">
-              <li>✓ <strong>Продающее видео для карточки Авито</strong> (повышает конверсию в 2,5 раза)</li>
-              <li>✓ <strong>Экспертные Reels / Shorts</strong> с вырезкой пауз, зумами и саунд-дизайном</li>
-              <li>✓ <strong>Генерация ИИ-фонов и B-roll вставок</strong> под вашу речь</li>
-              <li>✓ <strong>Стильные плашки в стиле Apple Glass</strong> и чистая графика</li>
-              <li>✓ Выгодные пакеты по 5, 10 и 20 роликов на месяц</li>
+              <li>✓ <strong>Никакой тягомотины:</strong> оставляем только самые живые улыбки и движение</li>
+              <li>✓ <strong>Динамичная склейка ровно под бит</strong> вашей любимой или трендовой песни</li>
+              <li>✓ Добавим стильные титры, плашки и пару ИИ-переходов для вау-эффекта</li>
+              <li>✓ Идеально для публикации в Instagram Reels, VK Клипах, Shorts или отправки друзьям</li>
             </ul>
           </div>
           <div class="service-footer">
-            <div class="price-tag">от 2 500 ₽ <small>Пакет 10 Reels — 19 900 ₽</small></div>
-            <button class="btn btn-outline btn-sm" onclick="openOrderModal('Монтаж Reels / Видео для Авито', 'Ролик Reels или Авито', '2 500 ₽')">Заказать коммерческий ролик</button>
+            <div class="price-tag">990 ₽ <small>Пакет из 3 клипов — 2 490 ₽</small></div>
+            <button class="btn btn-outline btn-sm" onclick="openOrderModal('Лёгкий монтаж Reels', 'Динамичный клип под бит', '990 ₽')">Заказать нарезку</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ТАРИФЫ НА МОНТАЖ -->
+  <!-- ТАРИФЫ НА ЛЁГКИЙ МОНТАЖ И ИИ-РИЛСЫ -->
   <section class="section" id="pricing">
     <div class="container">
       <div class="section-header">
-        <h2>Тарифы на умный видеомонтаж</h2>
-        <p>Выберите разовый ролик, большой семейный фильм или пакет роликов для соцсетей</p>
+        <h2>Простые и честные тарифы на Рилсы</h2>
+        <p>Никаких переплат за «большое кино» — платите только за быстрые и эффектные ролики!</p>
       </div>
 
       <div class="pricing-grid">
         <div class="pricing-card">
           <div>
-            <div class="service-num">Тариф 1 • Короткий формат</div>
-            <h3>Reels / Клип / Видео для Авито</h3>
-            <div class="pricing-price">2 500 ₽</div>
+            <div class="service-num">Тариф 1 • Попробовать магию</div>
+            <h3>«1 ИИ-Рилс / Клип»</h3>
+            <div class="pricing-price">990 ₽</div>
             <ul class="pricing-list">
-              <li>✓ Длительность: <strong>до 60–90 секунд</strong></li>
-              <li>✓ Динамичная склейка лучших кадров</li>
-              <li>✓ Чистка звука, музыка и саунд-эффекты</li>
-              <li>✓ Фирменные стеклянные плашки или титры</li>
-              <li>✓ Срок готовности: <strong>24 часа</strong></li>
+              <li>✓ <strong>1 готовый вертикальный ролик 9:16</strong> (10–30 сек)</li>
+              <li>✓ ИИ-преображение с 2-й секунды ИЛИ бодрая склейка до 10 видео под бит</li>
+              <li>✓ Трендовая музыка, саунд-дизайн и сочный цвет</li>
+              <li>✓ Срок готовности: <strong>2–4 часа</strong></li>
             </ul>
           </div>
-          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Умный видеомонтаж', 'Тариф «Reels / Клип до 90 сек»', '2 500 ₽')">Заказать ролик</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('ИИ-Рилсы и Лёгкий Монтаж', 'Тариф «1 ИИ-Рилс / Клип»', '990 ₽')">Заказать 1 Рилс (990 ₽)</button>
         </div>
 
         <div class="pricing-card popular">
           <div>
-            <div class="service-num">★ Хит для подарка и семейного архива</div>
-            <h3>«Семейный Фильм под ключ»</h3>
-            <div class="pricing-price">6 900 ₽</div>
+            <div class="service-num">★ Хит для праздника и отпуска</div>
+            <h3>Пакет «3 ИИ-Рилса»</h3>
+            <div class="pricing-price">2 490 ₽</div>
             <ul class="pricing-list">
-              <li>✓ Длительность готового фильма: <strong>3–7 минут</strong></li>
-              <li>✓ Разбор до 100 ваших исходных видео и фото с телефона</li>
-              <li>✓ <strong>В подарок: оживление 5 архивных фото или 2 ИИ-сцены!</strong></li>
-              <li>✓ Закадровый голос диктора или склейка тостов гостей</li>
-              <li>✓ <strong>Именная Подарочная Веб-Страница в подарок!</strong></li>
+              <li>✓ <strong>3 разных вертикальных ролика</strong> (выгода 480 ₽!)</li>
+              <li>✓ 3 разных ИИ-эффекта (например: Дворец, Вечерний образ и Сакура)</li>
+              <li>✓ Или 3 динамичных клипа с вашего праздника / поездки</li>
+              <li>✓ Трендовая музыка и стильные подписи</li>
+              <li>✓ Срок готовности: <strong>в день обращения</strong></li>
             </ul>
           </div>
-          <button class="btn btn-primary" style="width: 100%;" onclick="openOrderModal('Умный видеомонтаж', 'Тариф «Семейный Фильм под ключ» (3–7 мин)', '6 900 ₽')">Заказать «Семейный Фильм»</button>
+          <button class="btn btn-primary" style="width: 100%;" onclick="openOrderModal('ИИ-Рилсы и Лёгкий Монтаж', 'Пакет «3 ИИ-Рилса»', '2 490 ₽')">Заказать 3 Рилса (2 490 ₽)</button>
         </div>
 
         <div class="pricing-card">
           <div>
-            <div class="service-num">Тариф 3 • Для экспертов и бизнеса</div>
-            <h3>Пакет «10 роликов Reels / Shorts»</h3>
-            <div class="pricing-price">19 900 ₽</div>
+            <div class="service-num">Тариф 3 • Максимальная выгода (по 780 ₽/шт)</div>
+            <h3>Контент-пак «5 Рилсов»</h3>
+            <div class="pricing-price">3 900 ₽</div>
             <ul class="pricing-list">
-              <li>✓ <strong>10 готовых вертикальных роликов</strong> (выгода 5 100 ₽)</li>
-              <li>✓ Сценарии хуков (первых 3 секунд) для удержания</li>
-              <li>✓ ИИ-вставки, анимация плашек, цветокоррекция</li>
-              <li>✓ Адаптация под Reels, YouTube Shorts, VK Клипы и Rutube</li>
-              <li>✓ Персональный монтажёр на связи в чате</li>
+              <li>✓ <strong>5 готовых вертикальных клипов Full HD</strong> (выгода 1 050 ₽!)</li>
+              <li>✓ Любой микс: ИИ-трансформации + бодрая нарезка под бит</li>
+              <li>✓ Готовый контент на неделю для блога, бизнеса или серии сторис</li>
+              <li>✓ Приоритетная скорость и бесплатные правки</li>
             </ul>
           </div>
-          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Умный видеомонтаж', 'Пакет «10 роликов Reels / Shorts»', '19 900 ₽')">Заказать пакет 10 роликов</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('ИИ-Рилсы и Лёгкий Монтаж', 'Контент-пак «5 Рилсов»', '3 900 ₽')">Заказать 5 Рилсов (3 900 ₽)</button>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- ПОДВАЛ САЙТА -->
+  <!-- ПОДВАЛ САЙТА -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
           <strong style="color: #fff; font-size: 22px; display: block; margin-bottom: 10px;">Студия семейного кино «Тёплый Кадр»</strong>
-          <p style="margin-bottom: 12px;">Создаём персональные 3D-мультфильмы, бережно оживляем архивные фотографии родителей и монтируем семейные фильмы по всей России.</p>
+          <p style="margin-bottom: 12px;">Создаём персональные 3D-мультфильмы, бережно оживляем архивные фотографии, делаем 3D видео-приглашения и клипаем яркие ИИ-Рилсы.</p>
           <p style="margin-bottom: 14px; color: #FFD166; font-weight: 700; font-size: 15px;">
             📞 WhatsApp / MAX: +7 (914) 717-31-32 &nbsp;•&nbsp; ✈️ Telegram: @teplo_kadr
           </p>
@@ -214,18 +225,19 @@
         <div>
           <strong style="color: #fff; display: block; margin-bottom: 12px;">Все услуги студии:</strong>
           <ul class="footer-links">
-            <li><a href="/cartoon">1. 3D-Мультфильм по биографии</a></li>
+            <li><a href="/cartoon">1. Мультфильм в любой вселенной</a></li>
             <li><a href="/photo-alive">2. Оживление старых фотографий</a></li>
-            <li><a href="/video-edit">3. Умный монтаж архивов и Reels</a></li>
-            <li><a href="/photoshoot">4. Портреты в 7 стилях и фотосессия</a></li>
+            <li><a href="/video-edit">3. ИИ-Рилсы и лёгкий монтаж</a></li>
+            <li><a href="/photoshoot">4. Портреты в 9 стилях и фотосессия</a></li>
+            <li><a href="/invitations">5. Живые 3D Видео-приглашения</a></li>
           </ul>
         </div>
         <div>
           <strong style="color: #fff; display: block; margin-bottom: 12px;">Примеры для клиентов:</strong>
           <ul class="footer-links">
             <li><a href="/gift-max30">🎁 Подарочная страница именинника (Демо)</a></li>
-            <li><a href="/cartoon#templates">🎨 6 шаблонов оформления фильма</a></li>
-            <li><a href="/photoshoot#gallery">🖼 Интерактивная галерея 7 стилей</a></li>
+            <li><a href="/cartoon#templates">🌌 Выбор вселенной и сюжета мультфильма</a></li>
+            <li><a href="/photoshoot#gallery">🖼 Интерактивная галерея 9 стилей</a></li>
           </ul>
         </div>
       </div>
@@ -239,32 +251,27 @@
   <div class="modal-backdrop" id="orderModal">
     <div class="modal-card">
       <button class="modal-close" onclick="closeOrderModal()">✕</button>
-      <span class="pill-tag" style="margin-bottom: 8px;">Расчёт стоимости за 15 минут</span>
-      <h3 id="modalTitle" style="font-size: 26px; margin-bottom: 6px;">Умный видеомонтаж</h3>
+      <span class="pill-tag" style="margin-bottom: 8px;">Готовность за 2–4 часа</span>
+      <h3 id="modalTitle" style="font-size: 26px; margin-bottom: 6px;">ИИ-Рилсы и Лёгкий Монтаж</h3>
       <p id="modalSub" style="color: var(--text-muted); font-size: 15px; margin-bottom: 18px;">Тариф</p>
 
-      <input type="hidden" id="modalService" value="Умный видеомонтаж" />
-      <input type="hidden" id="modalTariff" value="Семейный Фильм" />
+      <input type="hidden" id="modalService" value="ИИ-Рилсы и Лёгкий Монтаж" />
+      <input type="hidden" id="modalTariff" value="1 ИИ-Рилс (990 ₽)" />
 
       <div class="calc-control">
         <label>Как к вам обращаться?</label>
         <input type="text" id="modalClientName" placeholder="Ваше имя" />
       </div>
       <div class="calc-control">
-        <label>Какой ролик нужно смонтировать?</label>
-        <select id="modalOccasion">
-          <option value="Фильм на юбилей / свадьбу из поздравлений и архивов">🎂 Фильм на юбилей / свадьбу из поздравлений и архивов</option>
-          <option value="Семейный фильм из отпуска или про ребёнка">🏖 Семейный фильм из отпуска или про ребёнка</option>
-          <option value="Продающее видео для Авито / Бизнеса">💼 Продающее видео для Авито / Бизнеса</option>
-          <option value="Пакет Reels / Shorts для блога">📱 Монтаж Reels / Shorts для блога</option>
-        </select>
+        <label>По какому поводу или на какую тему ролик?</label>
+        <input type="text" id="modalOccasion" placeholder="Например: День рождения, отпуск, танец с подругой, для блога..." />
       </div>
       <div class="calc-control">
-        <label>Опишите задачу (сколько исходников, к какой дате нужно):</label>
-        <textarea id="modalComment" rows="2" placeholder="Например: есть 40 коротких видео с телефона и 15 фото..."></textarea>
+        <label>Какой эффект или нарезку хотите?</label>
+        <textarea id="modalComment" rows="2" placeholder="Например: хочу превращение в вечернее платье на 2-й секунде..."></textarea>
       </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
         <button class="btn btn-whatsapp btn-sm" onclick="sendLeadToWhatsApp()"><svg class="msg-icon" width="18" height="18" style="width:18px;height:18px;flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.25-5.01-4.45-.15-.2-1.2-1.59-1.2-3.04 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.58.82 2.01.89 2.16.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.36 1.45.3.15.47.13.65-.07.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2 .95.3.15.49.22.57.35.07.12.07.72-.17 1.4z"/></svg> WhatsApp</button>
         <button class="btn btn-max btn-sm" onclick="sendLeadToMax()"><svg class="msg-icon" width="18" height="18" style="width:18px;height:18px;flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.88 1.42 5.45 3.65 7.15L4.5 22l4.12-1.76c1.07.33 2.2.51 3.38.51 5.52 0 10-4.14 10-9.25S17.52 2 12 2zm4.85 12.75h-1.9v-4.2l-2.25 3.1h-1.4l-2.25-3.1v4.2h-1.9v-7.5h1.95l2.9 4.05 2.9-4.05h1.95v7.5z"/></svg> MAX</button>
         <button class="btn btn-telegram btn-sm" onclick="sendLeadToTelegram()"><svg class="msg-icon" width="18" height="18" style="width:18px;height:18px;flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor"><path d="M11.94 2C6.45 2 2 6.45 2 11.94s4.45 9.94 9.94 9.94 9.94-4.45 9.94-9.94S17.43 2 11.94 2zm4.66 6.81l-1.69 7.97c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.63 4.78-4.32c.21-.18-.05-.29-.32-.11L8.36 13.4l-2.55-.8c-.55-.17-.56-.55.12-.82l9.96-3.84c.46-.17.86.11.71.87z"/></svg> Telegram</button>
@@ -275,6 +282,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>

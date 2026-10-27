@@ -6,10 +6,10 @@ if (window.location.protocol.startsWith("http") && window.location.pathname.ends
 
 /**
  * Интерактивная логика сайта «Тёплый Кадр»:
- * 1. Модальное окно заказа с формированием готовой заявки в WhatsApp / Telegram
- * 2. Калькуляторы стоимости на страницах услуг
- * 3. Переключатели 7 стилей портретов и 6 шаблонов оформления фильма
- * 4. Ползунок «До / После» и FAQ-аккордеоны
+ * 1. Модальное окно заказа с формированием готовой заявки в WhatsApp / MAX / Telegram
+ * 2. Интерактивный пульт на Главной (Hero Switcher, 9 вселенных, 9:16 плееры, До/После)
+ * 3. Переключатели вселенных на странице Мультфильма и 9 стилей на странице Фотосессии
+ * 4. Быстрый переход по таймкодам в ИИ-Рилсах и калькулятор оживления фото
  */
 
 const STUDIO_CONTACTS = {
@@ -119,44 +119,155 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
+
+  // Когда включается любое видео на странице — ставим на паузу остальные, чтобы звук не накладывался
+  const allVideos = document.querySelectorAll("video");
+  allVideos.forEach((vid) => {
+    vid.addEventListener("play", () => {
+      allVideos.forEach((other) => {
+        if (other !== vid && !other.paused) {
+          other.pause();
+        }
+      });
+    });
+  });
 });
 
-// Переключатель 6 шаблонов оформления на странице Мультфильма
-function switchTemplatePreview(tplIdx, btnEl) {
-  const templates = [
+// Интерактивный переключатель 5 направлений в Первом экране Главной страницы (index.html)
+function switchHeroShowcase(idx, btnEl) {
+  const items = [
     {
-      img: "media/style_templates/tpl_05_glass_timeline.png",
-      title: "Шаблон №5: Apple Frosted Glass + Таймлайн Жизни (Хит выбора!)",
-      desc: "Полупрозрачное матовое стекло в стиле iOS и нижняя шкала эпох жизни именинника (1996 Детство → 2005 Школа → 2014 Универ → 2022 Любовь → 2026 Юбилей). Не перекрывает кадр и смотрится как дорогой фильм на Apple TV.",
+      video: "media/pixar_max30_1080p.mp4",
+      poster: "pixar_poster_1080p.jpg",
+      badge: "🎬 1. Мультфильм по вашей истории (от 9 900 ₽)",
+      caption: "Мультфильм в любой вселенной (Pixar, Аниме, GTA, Плюшевый мир) со 100% сходством лиц!",
+      linkUrl: "/cartoon",
+      linkText: "Вселенная и сюжеты →",
     },
     {
-      img: "media/style_templates/tpl_01_storybook.png",
-      title: "Шаблон №1: Тёплая Золотая Сказка Disney",
-      desc: "Классическое сказочное оформление с тёплым золотым свечением и мягкой виньеткой — идеально для детских праздников и душевных семейных историй.",
+      video: "media/photo_alive_1080p.mp4",
+      poster: "media/avito_photo_alive_cover_16x9.png",
+      badge: "🎞 2. Оживление старых фото (от 1 500 ₽)",
+      caption: "Реставрируем и бережно оживляем архивные снимки родителей, бабушек и дедушек",
+      linkUrl: "/photo-alive",
+      linkText: "Калькулятор фото →",
     },
     {
-      img: "media/style_templates/tpl_02_cinema.png",
-      title: "Шаблон №2: Голливудская Киноплёнка (Widescreen 21:9)",
-      desc: "Кинематографичные каше-полосы сверху и снизу с элегантной золотой подписью главы — превращает мультфильм в настоящий голливудский трейлер.",
+      video: "media/slideshow_7styles_1080p.mp4",
+      poster: "media/avito_cover_16x9.png",
+      badge: "🎨 3. 1 фото → 9 вселенных (от 1 500 ₽)",
+      caption: "Превращаем обычное фото с дивана в 9 крутых вселенных (Pixar, Плюш, Шарж, GTA, Аниме и др.)",
+      linkUrl: "/photoshoot",
+      linkText: "Пощёлкать 9 стилей →",
     },
     {
-      img: "media/style_templates/tpl_03_album.png",
-      title: "Шаблон №3: Семейный Фотоальбом (Polaroid Frame)",
-      desc: "Уютная светлая рамка семейного альбома с архивным штампом года — вызывает тёплую ностальгию у родителей, бабушек и дедушек.",
+      video: "media/video_magic_reels_9x16.mp4",
+      poster: "media/avito_video_magic_cover_16x9.png",
+      badge: "✨ 4. ИИ-Рилсы с 2-й секунды (990 ₽)",
+      caption: "Лёгкий монтаж и голливудское ИИ-преображение ваших видео с телефона прямо в движении!",
+      linkUrl: "/video-edit",
+      linkText: "Смотреть ИИ-Рилсы →",
     },
     {
-      img: "media/style_templates/tpl_04_pop_comedy.png",
-      title: "Шаблон №4: Яркий Комедийный Ситком",
-      desc: "Сочные контрастные плашки для весёлых юбилеев, корпоративов и дружеских компаний с искромётным юмором.",
-    },
-    {
-      img: "media/style_templates/tpl_06_luxury_gold.png",
-      title: "Шаблон №6: Премиум Юбилей (Тёмный Бархат и Золото)",
-      desc: "Торжественная тонкая золотая рамка для показа на большом экране в ресторане или банкетном зале на 50, 60 и 70 лет.",
+      video: "media/invitations/01_rider_hth.mp4",
+      poster: "media/avito_invitations_cover_16x9.png",
+      badge: "💌 5. Живые 3D Видео-Приглашения (от 1 490 ₽)",
+      caption: "Говорящие герои у вашего реального ресторана с Карт и 3D Pop-Up открытки на свадьбу и юбилей!",
+      linkUrl: "/invitations",
+      linkText: "Лента приглашений →",
     },
   ];
 
-  const data = templates[tplIdx];
+  const item = items[idx];
+  if (!item) return;
+
+  const vidEl = document.getElementById("heroMainVideo");
+  const badgeEl = document.getElementById("heroVideoBadge");
+  const capEl = document.getElementById("heroVideoCaption");
+  const linkEl = document.getElementById("heroVideoLink");
+
+  if (vidEl) {
+    vidEl.pause();
+    vidEl.poster = item.poster;
+    vidEl.src = item.video;
+    vidEl.load();
+    vidEl.play().catch(() => {});
+  }
+  if (badgeEl) badgeEl.textContent = item.badge;
+  if (capEl) capEl.textContent = item.caption;
+  if (linkEl) {
+    linkEl.href = item.linkUrl;
+    linkEl.textContent = item.linkText;
+  }
+
+  document.querySelectorAll(".hero-switch-btn").forEach((b) => b.classList.remove("active"));
+  if (btnEl) btnEl.classList.add("active");
+}
+
+// Быстрый переход по 5 эффектам в видео ИИ-Рилсов (на главной и на video-edit.html)
+function seekReelsDemo(sec, videoId = "reelsMainVideo") {
+  const vid = document.getElementById(videoId);
+  if (!vid) return;
+  vid.currentTime = sec;
+  vid.play().catch(() => {});
+}
+
+// Переключатель рок-хита у Призрачного Гонщика на главной странице
+function switchHomeRiderTrack(src, btnEl) {
+  const vid = document.getElementById("homeRiderVideo");
+  if (!vid) return;
+  vid.pause();
+  vid.src = src;
+  vid.load();
+  vid.play().catch(() => {});
+  const parent = btnEl.parentElement;
+  if (parent) {
+    parent.querySelectorAll("button").forEach((b) => b.classList.remove("active"));
+  }
+  btnEl.classList.add("active");
+}
+
+// Переключатель вселенных и сюжетов на странице Мультфильма (cartoon.html)
+function switchTemplatePreview(tplIdx, btnEl) {
+  const universes = [
+    {
+      img: "media/family_styles/style_06.png",
+      title: "1. Вселенная 3D Disney / Pixar — Биография, Любовь и Семья",
+      desc: "Любой сюжет: от реальной биографии именинника (Детство → Школа → Универ → Свадьба → Юбилей) до исполнения заветной мечты, полёта в космос или кругосветного путешествия всей семьёй!",
+    },
+    {
+      img: "media/family_styles/style_05.png",
+      title: "2. Вселенная Аниме (Хаяо Миядзаки) — Романтика и Волшебство",
+      desc: "Нежная и трогательная история знакомства пары, годовщины свадьбы или семейного уюта в живописной рисовке Studio Ghibli с тёплым ветром, лепестками и волшебной атмосферой.",
+    },
+    {
+      img: "media/family_styles/style_08.png",
+      title: "3. Плюшевый и Вязаный Мир — Уютная Семейная Сказка",
+      desc: "Уникальный кукольно-плюшевый мультфильм, где ваши близкие и домашние питомцы оживают в мире из мягкого войлока и тёплой пряжи. Идеально для детских праздников и подарка маме или бабушке!",
+    },
+    {
+      img: "media/family_styles/style_10.png",
+      title: "4. Вселенная GTA / Боевик / Форсаж — Драйв и Дружеский Юмор",
+      desc: "Дерзкий сюжет для мужа, брата, друга или босса: крутые тачки, погони, рок-саундтрек и фирменный стиль Rockstar, где именинник — главный герой криминального или экшен-блокбастера!",
+    },
+    {
+      img: "media/family_styles/style_03.png",
+      title: "5. Королевское Фэнтези и Рыцарские Хроники",
+      desc: "Эпическая сага о главе вашей семейной династии: замки, рыцарские турниры, коронация юбиляра и пир на весь мир!",
+    },
+    {
+      img: "media/family_styles/style_04.png",
+      title: "6. Машина Времени: Ламповые 90-е и СССР",
+      desc: "Ностальгический сюжет о молодости родителей или друзей: дворы детства, кассетные магнитофоны, первые свидания и атмосфера любимой эпохи.",
+    },
+    {
+      img: "media/family_styles/style_02.png",
+      title: "7. Комедия в Каменном Веке или Любая Ваша Идея!",
+      desc: "Хотите комедийный ситком, пиратское приключение, супергеройское кино Marvel или фантастику? Мы напишем сценарий и снимем мультфильм в абсолютно любой вселенной по вашим фактам!",
+    },
+  ];
+
+  const data = universes[tplIdx];
   if (!data) return;
 
   const imgEl = document.getElementById("tplPreviewImg");
@@ -170,7 +281,7 @@ function switchTemplatePreview(tplIdx, btnEl) {
   if (btnEl) btnEl.classList.add("active");
 }
 
-// Переключатель 7 стилей портретов на странице Фотосессии
+// Переключатель 10 стилей портретов (9 вселенных + исходное фото) — работает и на Главной, и на photoshoot.html
 function switchStyleGallery(styleIdx, btnEl) {
   const styles = [
     {
@@ -184,28 +295,43 @@ function switchStyleGallery(styleIdx, btnEl) {
       desc: "Нежная акварельная рисовка и солнечный уют — идеальный вариант для истории любви, годовщины свадьбы и печати на холсте.",
     },
     {
+      img: "media/family_styles/style_08.png",
+      title: "3. Плюшевый и Вязаный Мир (Felt & Plush World)",
+      desc: "Невероятно тёплый и тактильный образ: вся семья, домашний котик, свитера и даже кружка на столе созданы из мягкого войлока, шерсти и уютной пряжи!",
+    },
+    {
+      img: "media/family_styles/style_09.png",
+      title: "4. Добрый Художественный Шарж (Выразительные черты!)",
+      desc: "Классический дружеский шарж с крупными выразительными чертами лица, харизматичными улыбками и яркой рисовкой — идеальный подарок на праздник!",
+    },
+    {
+      img: "media/family_styles/style_10.png",
+      title: "5. Стиль GTA V и Стрит-Арт Граффити",
+      desc: "Культовая рисовка в стиле загрузочных экранов Rockstar GTA с дерзким контуром, закатным светом и ярким граффити позади героев!",
+    },
+    {
       img: "media/family_styles/style_04.png",
-      title: "3. Ностальгия 90-х (Кассета VHS и тот самый ковёр)",
+      title: "6. Ностальгия 90-х (Кассета VHS и тот самый ковёр)",
       desc: "Перенесём вашу семью в ламповую атмосферу 90-х с настенным ковром, свитерами Boys и датой съёмки на плёнке!",
     },
     {
       img: "media/family_styles/style_03.png",
-      title: "4. Королевская Династия и Рыцарский Замок",
+      title: "7. Королевская Династия и Рыцарский Замок",
       desc: "Глава семьи в сияющих доспехах, супруга в королевском бархате, и даже кот в рыцарском мини-шлеме — роскошный подарок на юбилей.",
     },
     {
       img: "media/family_styles/style_02.png",
-      title: "5. Каменный Век (Добрый семейный юмор)",
+      title: "8. Каменный Век (Добрый семейный юмор)",
       desc: "Пещерный уют, меха и саблезубый домашний котик — вызывает бурю восторга и смеха у гостей на празднике.",
     },
     {
       img: "media/family_styles/style_01.png",
-      title: "6. Пиксель-Арт 16-Bit (Ретро-приставка Sega / Dendy)",
+      title: "9. Пиксель-Арт 16-Bit (Ретро-приставка Sega / Dendy)",
       desc: "Ностальгический стиль классических видеоигр 90-х — крутой подарок для мужа, брата, друга или IT-специалиста.",
     },
     {
       img: "media/family_styles/style_07.png",
-      title: "7. Исходное домашнее фото семьи",
+      title: "10. Исходное домашнее фото семьи",
       desc: "Вот с такого обычного снимка на диване мы начали работу — без студийного света и позирования.",
     },
   ];
@@ -237,7 +363,6 @@ function updatePhotoAliveCalc() {
   const count = parseInt(countEl.value, 10);
   if (countLabel) countLabel.textContent = `${count} фото`;
 
-  // Базовая цена за кадр снижается при объёме
   let perPhoto = 500;
   if (count >= 10) perPhoto = 450;
   if (count >= 20) perPhoto = 400;

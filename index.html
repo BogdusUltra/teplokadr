@@ -3,12 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Тёплый Кадр — Студия семейных мультфильмов, оживления фото и видеоподарков</title>
+  <title>Тёплый Кадр — Интерактивная студия мультфильмов, оживления фото, ИИ-Рилсов и 3D-приглашений</title>
   <link rel="stylesheet" href="styles.css?v=5" />
+  <style>
+    /* Дополнительные стили для интерактивной главной страницы */
+    .hero-switch-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .hero-switch-btn {
+      background: #FFFDFB;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .hero-switch-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .hero-switch-btn.active {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-warm) 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 6px 16px rgba(232, 93, 42, 0.28);
+    }
+    .mini-phones-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+    .mini-phone-card {
+      background: #181310;
+      border-radius: 26px;
+      padding: 12px;
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(31, 22, 16, 0.16);
+      border: 2px solid rgba(255, 209, 102, 0.22);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .mini-phone-video-wrap {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+      background: #000;
+      margin-bottom: 12px;
+    }
+    .mini-phone-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .mini-phone-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 209, 102, 0.18);
+      color: #FFD166;
+      margin-bottom: 6px;
+    }
+    .mini-phone-card h4 {
+      font-size: 17px;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+    .mini-phone-card p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.76);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .mini-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    .mini-chip-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .mini-chip-btn:hover,
+    .mini-chip-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .quick-nav-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .quick-nav-tile {
+      background: #FFFDFB;
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .quick-nav-tile:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+    .quick-nav-tile strong {
+      font-size: 15px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .quick-nav-tile span {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 800;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ШАПКА САЙТА (ЕДИНАЯ НАВИГАЦИЯ ПО УСЛУГАМ) -->
+  <!-- ШАПКА САЙТА -->
   <header>
     <div class="container header-inner">
       <a href="/" class="logo">
@@ -22,8 +163,8 @@
         <a href="/" class="active">Все услуги</a>
         <a href="/cartoon">1. 3D-Мультфильм</a>
         <a href="/photo-alive">2. Оживление фото</a>
-        <a href="/video-edit">3. ИИ-Видео и Reels</a>
-        <a href="/photoshoot">4. Портреты 7 стилей</a>
+        <a href="/video-edit">3. ИИ-Рилсы</a>
+        <a href="/photoshoot">4. Портреты 9 стилей</a>
         <a href="/invitations">5. Видео-приглашения</a>
         <a href="/gift-max30" class="gift-link">🎁 Демо подарка</a>
       </nav>
@@ -41,259 +182,288 @@
     </div>
   </header>
 
-  <!-- ПЕРВЫЙ ЭКРАН -->
-  <section class="hero">
+  <!-- 1. ПЕРВЫЙ ЭКРАН: МЕГА-ПРОСТОЙ ИНТЕРАКТИВНЫЙ ПУЛЬТ СТУДИИ -->
+  <section class="hero" style="padding-bottom: 36px;">
     <div class="container hero-grid">
       <div>
-        <span class="pill-tag">✨ Подарок на Юбилей, День Рождения, Свадьбу и Годовщину</span>
-        <h1>Превратим фотографии и историю вашей семьи в <span>настоящий мультфильм</span> или живое кино!</h1>
-        <p class="lead">
-          Выберите одно из 5 направлений нашей студии: от оживления старого родительского снимка и живых 3D видео-приглашений до биографического 3D-мультфильма в стиле Disney/Pixar со студийной озвучкой за 1–2 дня.
+        <span class="pill-tag">✨ Пощёлкайте примеры прямо здесь — без скучного текста!</span>
+        <h1>Превращаем ваши фото и видео в <span>мультфильмы, живые истории</span> и вау-открытки!</h1>
+        <p class="lead" style="margin-bottom: 18px;">
+          От 3D-приглашений с говорящими героями у вашего ресторана и сочных ИИ-Рилсов за <strong>990 ₽</strong> до большого мультфильма по вашей истории со 100% сходством лиц.
         </p>
-        <ul class="hero-benefits">
-          <li>
-            <span class="check-icon">✓</span>
-            <span><strong>100% узнаваемость лица и характера:</strong> передаём родную улыбку, фирменную мимику, комплекцию, привычки и любимую одежду каждого героя!</span>
-          </li>
-          <li>
-            <span class="check-icon">✓</span>
-            <span><strong>Бесплатный пробный кадр до оплаты:</strong> пришлите 1 фото, и мы бесплатно покажем образ вашего именинника.</span>
-          </li>
-          <li>
-            <span class="check-icon">✓</span>
-            <span><strong>Именная Подарочная Страница:</strong> готовый фильм оформляется на красивой личной странице для отправки гостям и родным!</span>
-          </li>
-        </ul>
-        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <a href="#services" class="btn btn-primary">Выбрать услугу (5 направлений) ↓</a>
-          <a href="/invitations" class="btn btn-outline">🔥 Новинка: 3D Видео-приглашения →</a>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 22px;">
+          <button class="btn btn-primary" onclick="openOrderModal('Бесплатная проба по фото', 'Подбор подарка за 15 минут')">🎁 Прислать фото на бесплатную пробу</button>
+          <a href="#interactive-styles" class="btn btn-outline">Пощёлкать 9 вселенных ↓</a>
+        </div>
+
+        <!-- 5 БЫСТРЫХ ПЛИТОК-ПЕРЕХОДОВ -->
+        <div class="quick-nav-strip">
+          <a href="/cartoon" class="quick-nav-tile">
+            <strong>🎬 1. 3D-Мультфильм</strong>
+            <span>Любой сюжет • от 9 900 ₽ →</span>
+          </a>
+          <a href="/photo-alive" class="quick-nav-tile">
+            <strong>🎞 2. Оживление фото</strong>
+            <span>Старые снимки • от 1 500 ₽ →</span>
+          </a>
+          <a href="/video-edit" class="quick-nav-tile">
+            <strong>✨ 3. ИИ-Рилсики</strong>
+            <span>Магия с 2-й сек • 990 ₽ →</span>
+          </a>
+          <a href="/photoshoot" class="quick-nav-tile">
+            <strong>🎨 4. Портрет 9 стилей</strong>
+            <span>Холст + видео • от 1 500 ₽ →</span>
+          </a>
+          <a href="/invitations" class="quick-nav-tile">
+            <strong>💌 5. 3D Приглашения</strong>
+            <span>С озвучкой • от 1 490 ₽ →</span>
+          </a>
         </div>
       </div>
 
-      <!-- ГЛАВНЫЙ ВИДЕОПЛЕЕР С НАШИМ МУЛЬТИКОМ 1080p -->
-      <div class="video-showcase-card">
-        <video controls preload="metadata" poster="pixar_poster_1080p.jpg">
-          <source src="media/pixar_max30_1080p.mp4" type="video/mp4" />
-        </video>
-        <div class="video-caption">
-          <span>🎬 <strong>Флагманский кейс:</strong> Мультфильм на 30-летие Максима (Full HD 1080p)</span>
-          <a href="/cartoon">Подробнее о 3D-мультфильмах →</a>
+      <!-- ИНТЕРАКТИВНЫЙ ТЕЛЕВИЗОР С ПЕРЕКЛЮЧАТЕЛЕМ 5 НАПРАВЛЕНИЙ -->
+      <div>
+        <div class="hero-switch-bar">
+          <button type="button" class="hero-switch-btn active" onclick="switchHeroShowcase(0, this)">🎬 Мультик</button>
+          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(1, this)">🎞 Оживление фото</button>
+          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(2, this)">🎨 9 вселенных</button>
+          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(3, this)">✨ ИИ-Рилсы</button>
+          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(4, this)">💌 3D Приглашения</button>
+        </div>
+
+        <div class="video-showcase-card">
+          <video id="heroMainVideo" controls playsinline preload="metadata" poster="pixar_poster_1080p.jpg">
+            <source src="media/pixar_max30_1080p.mp4" type="video/mp4" />
+          </video>
+          <div class="video-caption" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <div>
+              <strong id="heroVideoBadge" style="display: block; color: #FFD166; font-size: 14px;">🎬 1. Мультфильм по вашей истории (от 9 900 ₽)</strong>
+              <span id="heroVideoCaption" style="font-size: 13px; opacity: 0.9;">Мультфильм в любой вселенной (Pixar, Аниме, GTA, Плюшевый мир) со 100% сходством лиц!</span>
+            </div>
+            <a id="heroVideoLink" href="/cartoon" class="btn btn-primary btn-sm" style="white-space: nowrap;">Вселенная и сюжеты →</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- КАТАЛОГ ВСЕХ 5 УСЛУГ (КЛИКАБЕЛЬНЫЕ КАРТОЧКИ С ПЕРЕХОМ НА ВНУТРЕННИЕ СТРАНИЦЫ) -->
-  <section class="section section-alt" id="services">
+  <!-- 2. ИНТЕРАКТИВ №1: ПОЩЁЛКАЙТЕ 9 ВСЕЛЕННЫХ ОДНОГО ФОТО + ПОЛЗУНОК ДО/ПОСЛЕ -->
+  <section class="section section-alt" id="interactive-styles">
     <div class="container">
-      <div class="section-header">
-        <h2>Все 5 услуг студии «Тёплый Кадр»</h2>
-        <p>Нажмите на любую услугу, чтобы перейти на её страницу, посмотреть видео-примеры, калькулятор стоимости и подробные тарифы</p>
+      <div class="section-header" style="margin-bottom: 24px;">
+        <span class="pill-tag">🎨 Поиграйте прямо сейчас • Нажимайте на кнопки вселенных и двигайте ползунок!</span>
+        <h2>1 обычное фото с дивана → 9 волшебных вселенных</h2>
+        <p>Передаём 100% узнаваемость лиц, улыбок, причёсок, любимого свитера и даже домашнего кота!</p>
       </div>
 
-      <div class="services-grid">
-        <!-- УСЛУГА 1: МУЛЬТФИЛЬМ -->
-        <a href="/cartoon" class="service-card featured">
-          <span class="badge-hit">★ ХИТ ПОДАРКОВ НА ЮБИЛЕЙ</span>
+      <!-- КНОПКИ 9 ВСЕЛЕННЫХ + 1 ОРИГИНАЛ -->
+      <div class="style-tabs" style="margin-bottom: 22px;">
+        <button class="style-tab-btn active" onclick="switchStyleGallery(0, this)">1. 3D Pixar</button>
+        <button class="style-tab-btn" onclick="switchStyleGallery(1, this)">2. Аниме Миядзаки</button>
+        <button class="style-tab-btn" onclick="switchStyleGallery(2, this)">3. Плюшевый мир 🧸</button>
+        <button class="style-tab-btn" onclick="switchStyleGallery(3, this)">4. Выразительный Шарж 🎨</button>
+        <button class="style-tab-btn" onclick="switchStyleGallery(4, this)">5. Стиль GTA 🔥</button>
+        <button class="style-tab-btn" onclick="switchStyleGallery(5, this)">6. 90-е VHS</button>
+        <button class="style-tab-btn" onclick="switchStyleGallery(6, this)">7. Рыцарский замок</button>
+        <button class="style-tab-btn" onclick="switchStyleGallery(7, this)">8. Каменный век</button>
+        <button class="style-tab-btn" onclick="switchStyleGallery(8, this)">9. 16-Bit Игры</button>
+        <button class="style-tab-btn" onclick="switchStyleGallery(9, this)">📸 10. Оригинал фото</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; align-items: stretch;">
+        <!-- ЛЕВАЯ КАРТОЧКА: ИНТЕРАКТИВНЫЙ ПРОСМОТР ВЫБРАННОЙ ВСЕЛЕННОЙ -->
+        <div style="background: #FFFDFB; border: 1px solid var(--border); border-radius: 24px; padding: 18px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
           <div>
-            <div class="service-thumb">
-              <img src="pixar_poster_1080p.jpg" alt="Персональный 3D мультфильм по фото" />
-              <span class="service-thumb-badge">🎬 Сюжетное кино 1–4 мин • 6 шаблонов</span>
+            <div style="border-radius: 16px; overflow: hidden; margin-bottom: 14px; border: 1px solid var(--border);">
+              <img id="stylePreviewImg" src="media/family_styles/style_06.png" alt="Стиль семейного портрета" style="width: 100%; display: block;" />
             </div>
-            <div class="service-num">Услуга №1 • Биографический мультфильм</div>
-            <h3>Персональный 3D-мультфильм (Disney / Pixar) по вашей истории</h3>
-            <p>Создаём полноценный фильм о жизни именинника: Детство, Школа, Универ, Встреча любви, Друзья и Юбилей со 100% сходством лиц и характера.</p>
-            <ul class="service-features">
-              <li>✓ Сохраняем черты лица, комплекцию, мимику и любимую одежду</li>
-              <li>✓ Профессиональный голос рассказчика и музыка по эпохам</li>
-              <li>✓ Оформление Apple Glass со шкалой годов жизни</li>
-            </ul>
+            <h3 id="stylePreviewTitle" style="font-size: 21px; margin-bottom: 6px;">1. 3D Мультфильм Disney / Pixar (Хит заказов!)</h3>
+            <p id="stylePreviewDesc" style="color: var(--text-muted); font-size: 15px; margin-bottom: 16px;">
+              Объёмный кино-стиль: 100% узнаваемость лиц, добрый взгляд, фирменная улыбка, причёски, любимый свитер и даже ваш домашний питомец.
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-sm" onclick="openOrderModal('Портрет в 9 вселенных', 'Пакет 9 стилей + Видео (2 900 ₽)', '2 900 ₽')">Хочу так же по нашему фото!</button>
+            <a href="/photoshoot" class="btn btn-outline btn-sm">Подробнее (от 1 500 ₽) →</a>
+          </div>
+        </div>
+
+        <!-- ПРАВАЯ КАРТОЧКА: ПОЛЗУНОК ДО / ПОСЛЕ -->
+        <div style="background: #FFFDFB; border: 1px solid var(--border); border-radius: 24px; padding: 18px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="ba-container" style="margin-bottom: 14px;">
+              <img src="media/family_styles/style_06.png" alt="После: 3D Pixar портрет" />
+              <div class="ba-overlay">
+                <img src="media/family_styles/style_07.png" alt="До: Обычное домашнее фото" />
+              </div>
+              <span class="ba-label left">ДО: Фото с телефона</span>
+              <span class="ba-label right">ПОСЛЕ: 3D Pixar 4K</span>
+              <input type="range" min="5" max="95" value="50" class="ba-slider-input" aria-label="Сравнение До и После" />
+            </div>
+            <h3 style="font-size: 21px; margin-bottom: 6px;">Потяните ползунок влево-вправо ↔</h3>
+            <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 16px;">
+              В любой из этих 9 вселенных мы можем сделать как <strong>портрет для печати на холсте 4K</strong>, так и <strong>полноценный сюжетный мультфильм</strong>!
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="/cartoon#templates" class="btn btn-outline btn-sm">🎬 Снять мультфильм в этих стилях →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ИНТЕРАКТИВ №2: ВЕРТИКАЛЬНАЯ ВИТРИНА (3D ПРИГЛАШЕНИЯ + ИИ-РИЛСИКИ) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 26px;">
+        <span class="pill-tag">📱 Вертикальные хиты 9:16 • Включайте со звуком!</span>
+        <h2>Живые 3D Видео-Приглашения и ИИ-Рилсы</h2>
+        <p>Готовность за 2–4 часа! Нажмите Play на любом смартфоне ниже, чтобы послушать озвучку и увидеть спецэффекты</p>
+      </div>
+
+      <div class="mini-phones-grid">
+        <!-- СМАРТФОН 1: ПРИЗРАЧНЫЙ ГОНЩИК -->
+        <div class="mini-phone-card">
+          <div>
+            <div class="mini-phone-video-wrap">
+              <video id="homeRiderVideo" controls playsinline preload="metadata">
+                <source src="media/invitations/01_rider_hth.mp4#t=0.1" type="video/mp4" />
+              </video>
+            </div>
+            <span class="mini-phone-tag">🔥 Хит мужских юбилеев</span>
+            <h4>Призрачный Гонщик у вашего реального ресторана!</h4>
+            <p>Берём реальное фото входа в ваш ресторан с Карт + хриплый бас героя и легендарный рок!</p>
+            <div class="mini-chip-row">
+              <button type="button" class="mini-chip-btn active" onclick="switchHomeRiderTrack('media/invitations/01_rider_hth.mp4', this)">🎸 AC/DC</button>
+              <button type="button" class="mini-chip-btn" onclick="switchHomeRiderTrack('media/invitations/01_rider_sdm.mp4', this)">🕶 ZZ Top</button>
+            </div>
+          </div>
+          <a href="/invitations" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">Все 5 приглашений (от 1 490 ₽) →</a>
+        </div>
+
+        <!-- СМАРТФОН 2: СВАДЬБА 3D POP-UP -->
+        <div class="mini-phone-card">
+          <div>
+            <div class="mini-phone-video-wrap">
+              <video controls playsinline preload="metadata">
+                <source src="media/invitations/02_wedding.mp4#t=0.1" type="video/mp4" />
+              </video>
+            </div>
+            <span class="mini-phone-tag">💍 Свадьба и Годовщина</span>
+            <h4>Живая 3D Pop-Up открытка с золотым тиснением</h4>
+            <p>Объёмный бумажный замок вырастает из страниц книги под тёплый голос диктора с вашими именами и датой.</p>
+          </div>
+          <a href="/invitations" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center; color: #fff; border-color: rgba(255,255,255,0.3);">Заказать за 1 490 ₽ →</a>
+        </div>
+
+        <!-- СМАРТФОН 3: ТРАЛАЛЕЛО 6-7 -->
+        <div class="mini-phone-card">
+          <div>
+            <div class="mini-phone-video-wrap">
+              <video controls playsinline preload="metadata">
+                <source src="media/invitations/03_tralalero.mp4#t=0.1" type="video/mp4" />
+              </video>
+            </div>
+            <span class="mini-phone-tag">🦈 Детский праздник (6–13 лет)</span>
+            <h4>Тралалело Тралала, Тун Тун Сахур и мем 6-7!</h4>
+            <p>Любимые мем-герои детей в кроссовках Nike зовут друзей именинника прыгать на батутах и есть торт!</p>
+          </div>
+          <a href="/invitations" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center; color: #fff; border-color: rgba(255,255,255,0.3);">Смотреть в ленте →</a>
+        </div>
+
+        <!-- СМАРТФОН 4: ИИ-РИЛСЫ С 2-Й СЕКУНДЫ -->
+        <div class="mini-phone-card">
+          <div>
+            <div class="mini-phone-video-wrap">
+              <video id="homeReelsVideo" controls playsinline preload="metadata" poster="media/video_magic_reels_poster_9x16.jpg">
+                <source src="media/video_magic_reels_9x16.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="mini-phone-tag">✨ Лёгкий монтаж • 990 ₽</span>
+            <h4>ИИ-Рилсики: магия с 2-й секунды в ваших видео!</h4>
+            <p>Нажмите на кнопку ниже, чтобы переключить спецэффект прямо в плеере:</p>
+            <div class="mini-chip-row">
+              <button type="button" class="mini-chip-btn" onclick="seekReelsDemo(0, 'homeReelsVideo')">1. Дворец</button>
+              <button type="button" class="mini-chip-btn" onclick="seekReelsDemo(8.5, 'homeReelsVideo')">2. Платье</button>
+              <button type="button" class="mini-chip-btn" onclick="seekReelsDemo(17, 'homeReelsVideo')">3. Сияние</button>
+              <button type="button" class="mini-chip-btn" onclick="seekReelsDemo(25.5, 'homeReelsVideo')">4. Сакура</button>
+              <button type="button" class="mini-chip-btn" onclick="seekReelsDemo(34, 'homeReelsVideo')">5. Океан</button>
+            </div>
+          </div>
+          <a href="/video-edit" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">Тарифы на Рилсы (990 ₽) →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ИНТЕРАКТИВ №3: ТРОГАТЕЛЬНОЕ СЕМЕЙНОЕ КИНО (МУЛЬТФИЛЬМ + ОЖИВЛЕНИЕ СТАРЫХ ФОТО) -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 24px;">
+        <span class="pill-tag">🎬 Подарки до слёз радости • Для юбилея, свадьбы и родителей</span>
+        <h2>Большое семейное кино по вашей истории и архивным снимкам</h2>
+        <p>Сравните два наших главных подарочных формата — мультфильм в любой вселенной и живую летопись из старых фото</p>
+      </div>
+
+      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+        <!-- КАРТОЧКА МУЛЬТФИЛЬМА -->
+        <div class="service-card featured">
+          <span class="badge-hit">★ ХИТ НА ЮБИЛЕЙ И СВАДЬБУ</span>
+          <div>
+            <div style="border-radius: 16px; overflow: hidden; margin-bottom: 14px; background: #000;">
+              <video controls playsinline preload="metadata" poster="pixar_poster_1080p.jpg" style="width: 100%; display: block;">
+                <source src="media/pixar_max30_1080p.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="service-num">Услуга №1 • Любая вселенная и любой сюжет</div>
+            <h3>Персональный мультфильм про вашу семью или друзей</h3>
+            <p>Снимем фильм по биографии (Детство → Школа → Любовь → Юбилей) или придумаем любой фантастический сюжет в стиле Pixar, Аниме Миядзаки, Плюшевого мира или GTA!</p>
           </div>
           <div class="service-footer">
-            <div class="price-tag">от 9 900 ₽ <small>Хит «Стандарт 2,5 мин» — 14 900 ₽</small></div>
-            <span class="btn btn-primary btn-sm">Открыть страницу услуги →</span>
+            <div class="price-tag">от 9 900 ₽ <small>С озвучкой и Подарочной страницей</small></div>
+            <a href="/cartoon" class="btn btn-primary btn-sm">Выбрать вселенную →</a>
           </div>
-        </a>
+        </div>
 
-        <!-- УСЛУГА 2: ОЖИВЛЕНИЕ ФОТО -->
-        <a href="/photo-alive" class="service-card">
+        <!-- КАРТОЧКА ОЖИВЛЕНИЯ ФОТО -->
+        <div class="service-card">
           <div>
-            <div class="service-thumb">
-              <img src="media/avito_photo_alive_cover_16x9.png" alt="Оживление старых и архивных фотографий" />
-              <span class="service-thumb-badge">🎞 Реставрация + Живые эмоции</span>
+            <div style="border-radius: 16px; overflow: hidden; margin-bottom: 14px; background: #000;">
+              <video controls playsinline preload="metadata" poster="media/avito_photo_alive_cover_16x9.png" style="width: 100%; display: block;">
+                <source src="media/photo_alive_1080p.mp4" type="video/mp4" />
+              </video>
             </div>
-            <div class="service-num">Услуга №2 • Живая Память Семьи</div>
-            <h3>Оживление старых и архивных фотографий</h3>
-            <p>Бережно реставрируем, раскрашиваем и оживляем чёрно-белые и цветные снимки родителей, бабушек и дедушек в трогательный фильм.</p>
-            <ul class="service-features">
-              <li>✓ Удаление трещин, пятен и восстановление чёткости лиц</li>
-              <li>✓ Естественная улыбка, тёплый взгляд и объятия без искажений</li>
-              <li>✓ Сборка фильма «Семейная летопись» под любимую песню родителей</li>
-            </ul>
+            <div class="service-num">Услуга №2 • Реставрация + Живые объятия и улыбки</div>
+            <h3>Оживление старых и архивных фотографий родителей</h3>
+            <p>Бережно убираем трещины, восстанавливаем чёткость лиц и превращаем чёрно-белые снимки молодости бабушек, дедушек и родителей в живой фильм под любимую песню.</p>
           </div>
           <div class="service-footer">
             <div class="price-tag">от 1 500 ₽ <small>Фильм из 10 фото — 4 900 ₽</small></div>
-            <span class="btn btn-outline btn-sm">Открыть страницу услуги →</span>
+            <a href="/photo-alive" class="btn btn-outline btn-sm">Посчитать на калькуляторе →</a>
           </div>
-        </a>
-
-        <!-- УСЛУГА 3: ИИ-МАГИЯ В ВИДЕО И REELS -->
-        <a href="/video-edit" class="service-card">
-          <div>
-            <div class="service-thumb">
-              <img src="media/avito_video_magic_cover_16x9.png" alt="ИИ-Магия в ваших видео и Reels" />
-              <span class="service-thumb-badge">✨ ИИ-спецэффекты с 2-й секунды + Монтаж</span>
-            </div>
-            <div class="service-num">Услуга №3 • ИИ-Магия в видео и Reels</div>
-            <h3>Преображение ваших обычных видео с телефона и умный монтаж</h3>
-            <p>Первые 2 секунды — ваше реальное видео, а затем бесшовная вспышка света превращает комнату во дворец, одежду — в роскошное платье, а небо — в северное сияние!</p>
-            <ul class="service-features">
-              <li>✓ Голливудские ИИ-трансформации прямо в движении (Reels / Shorts)</li>
-              <li>✓ Сборка семейных фильмов из архивов телефона с ИИ-досъёмкой</li>
-              <li>✓ Трендовый саунд-дизайн и высокая конверсия в соцсетях</li>
-            </ul>
-          </div>
-          <div class="service-footer">
-            <div class="price-tag">от 1 900 ₽ <small>Пакет 5 ИИ-Reels — 7 900 ₽</small></div>
-            <span class="btn btn-outline btn-sm">Открыть страницу услуги →</span>
-          </div>
-        </a>
-
-        <!-- УСЛУГА 4: ИИ-ФОТОСЕССИЯ И 7 СТИЛЕЙ -->
-        <a href="/photoshoot" class="service-card">
-          <div>
-            <div class="service-thumb">
-              <img src="media/avito_cover_16x9.png" alt="Семейный портрет в 7 стилях и нейро-фотосессия" />
-              <span class="service-thumb-badge">🎨 7 вселенных + Холст 4K</span>
-            </div>
-            <div class="service-num">Услуга №4 • Портреты и Образы</div>
-            <h3>Семейный портрет в 7 стилях и ИИ-фотосессия по фото</h3>
-            <p>Превратим обычное домашнее фото в картину для печати на холсте, соберём родных с разных снимков вместе или проведём фотосессию без студии.</p>
-            <ul class="service-features">
-              <li>✓ 7 стилей: 3D Pixar, Аниме Миядзаки, 90-е VHS, Рыцари, Каменный век</li>
-              <li>✓ Объединение родственников из разных городов на одном портрете</li>
-              <li>✓ Разрешение 4K для печати на холсте + видео-преображение</li>
-            </ul>
-          </div>
-          <div class="service-footer">
-            <div class="price-tag">от 1 500 ₽ <small>Пакет «7 стилей + видео» — 2 900 ₽</small></div>
-            <span class="btn btn-outline btn-sm">Открыть страницу услуги →</span>
-          </div>
-        </a>
-
-        <!-- УСЛУГА 5: ЖИВЫЕ 3D ВИДЕО-ПРИГЛАШЕНИЯ -->
-        <a href="/invitations" class="service-card featured">
-          <span class="badge-hit">🔥 НОВИНКА • ГОТОВНОСТЬ ЗА 2–4 ЧАСА</span>
-          <div>
-            <div class="service-thumb">
-              <img src="media/avito_invitations_cover_16x9.png" alt="Видео-приглашения с озвучкой и Живые 3D Открытки" />
-              <span class="service-thumb-badge">💌 Озвучка голосом + 3D Pop-Up и Рестораны</span>
-            </div>
-            <div class="service-num">Услуга №5 • Видео-приглашения в WhatsApp / Telegram</div>
-            <h3>Живые 3D Видео-Приглашения и говорящие герои у вашего ресторана</h3>
-            <p>От раскрывающейся свадебной 3D-открытки с золотым тиснением до Призрачного Гонщика у дверей вашего реального ресторана с Карт или Тралалело Тралала в батутном центре!</p>
-            <ul class="service-features">
-              <li>✓ Реальный фасад вашего ресторана с Карт + озвучка басом героя</li>
-              <li>✓ 3D открытки Pop-Up на свадьбу, золотой юбилей и 1 годик малышу</li>
-              <li>✓ Детские мем-приглашения (Тралалело Тралала, Тун Тун Сахур, 6-7)</li>
-            </ul>
-          </div>
-          <div class="service-footer">
-            <div class="price-tag">от 1 490 ₽ <small>Герой у вашего ресторана — 1 990 ₽</small></div>
-            <span class="btn btn-primary btn-sm">Смотреть ленту приглашений →</span>
-          </div>
-        </a>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- БАННЕР САРАФАННОЙ ПОДАРОЧНОЙ СТРАНИЦЫ -->
-  <section class="section">
-    <div class="container">
-      <div style="background: linear-gradient(135deg, #FFF5E4 0%, #FFE4D6 100%); border: 2px solid #F5A623; border-radius: 24px; padding: 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap;">
+      <!-- КОМПАКТНЫЙ БАННЕР ПОДАРОЧНОЙ СТРАНИЦЫ -->
+      <div style="margin-top: 26px; background: linear-gradient(135deg, #FFF5E4 0%, #FFE4D6 100%); border: 2px solid #F5A623; border-radius: 22px; padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
         <div style="max-width: 680px;">
-          <span class="pill-tag" style="margin-bottom: 10px;">🎁 Эксклюзивная фишка студии «Тёплый Кадр»</span>
-          <h3 style="font-size: 28px; margin-bottom: 10px;">Каждому клиенту — именная Подарочная Веб-Страница!</h3>
-          <p style="color: var(--text-muted); font-size: 18px;">
-            Мы не просто присылаем файл. Мы создаём для вашего именинника персональную страницу с поздравлением и плеером Full HD (открывается на любом телефоне и телевизоре за 1 секунду). Именинник пересылает ссылку гостям в WhatsApp/Telegram, и все родные могут посмотреть фильм и скачать его на память!
-          </p>
+          <strong style="font-size: 20px; display: block; margin-bottom: 4px;">🎁 Бонус: Персональная Подарочная Веб-Страница именинника!</strong>
+          <span style="color: var(--text-muted); font-size: 15px;">Открывается на любом телефоне и телевизоре за 1 секунду — удобно переслать всем гостям в WhatsApp и Telegram.</span>
         </div>
-        <div>
-          <a href="/gift-max30" class="btn btn-primary btn-lg">Открыть пример страницы Максима →</a>
-        </div>
+        <a href="/gift-max30" class="btn btn-primary btn-sm">Посмотреть демо-страницу Максима →</a>
       </div>
     </div>
   </section>
 
-  <!-- КАК МЫ РАБОТАЕМ -->
-  <section class="section" style="padding-top: 10px;">
-    <div class="container">
-      <div class="section-header">
-        <h2>Как проходит работа — 4 простых шага</h2>
-        <p>Понятно и удобно даже для тех, кто заказывает такой подарок впервые</p>
-      </div>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h4>Выбираете услугу и присылаете фото</h4>
-          <p>Отправляете нам в WhatsApp или Telegram обычные фотографии с телефона.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h4>Бесплатная проба образа</h4>
-          <p>До начала большой работы мы бесплатно делаем пробный кадр или концепт сюжета.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h4>Утверждаете героев и историю</h4>
-          <p>Согласовываем внешность, комплекцию, привычки и любимую одежду персонажей.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">4</div>
-          <h4>Получаете фильм и страницу за 1–2 дня</h4>
-          <p>Отдаём оригинал в Full HD 1080p и персональную подарочную ссылку для всей семьи!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ЧАСТЫЕ ВОПРОСЫ (FAQ) -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>Частые вопросы наших заказчиков</h2>
-        <p>Нажмите на вопрос, чтобы прочитать подробный ответ</p>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item open">
-          <button class="faq-question">Похожи ли герои мультфильма на реальных людей из нашей семьи? <span>▾</span></button>
-          <div class="faq-answer">
-            Да! В отличие от шаблонных приложений, мы создаём индивидуальную карточку каждого героя по вашим фото: сохраняем не только черты лица и причёску, но и комплекцию (рост, полноту), фирменную мимику, привычки и даже любимый свитер или пиджак из жизни. Сначала вы утверждаете портреты всех героев, и только после этого мы приступаем к анимации сцен.
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Что если у нас сохранились только старые или нечёткие фотографии? <span>▾</span></button>
-          <div class="faq-answer">
-            Это абсолютно нормально! Вы можете просто перефотографировать старый бумажный снимок из альбома на телефон у окна при дневном свете. Мы сами бережно уберём блики, трещины и восстановим чёткость лиц.
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Как мы сможем включить фильм на юбилее в ресторане или дома на телевизоре? <span>▾</span></button>
-          <div class="faq-answer">
-            Вы получаете и чистый видеофайл <code>.mp4</code> в максимальном качестве Full HD 1920×1080 (для флешки или ноутбука ведущего), и именную Подарочную веб-страницу, которую можно открыть прямо на Smart TV или переслать всем гостям в семейный чат.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <!-- ПОДВАЛ САЙТА -->
+  <!-- ПОДВАЛ САЙТА -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
           <strong style="color: #fff; font-size: 22px; display: block; margin-bottom: 10px;">Студия семейного кино «Тёплый Кадр»</strong>
-          <p style="margin-bottom: 12px;">Создаём персональные 3D-мультфильмы, бережно оживляем архивные фотографии родителей и монтируем семейные фильмы по всей России.</p>
+          <p style="margin-bottom: 12px;">Создаём персональные мультфильмы в любой вселенной, бережно оживляем архивные фотографии, делаем 3D видео-приглашения и клипаем яркие ИИ-Рилсы.</p>
           <p style="margin-bottom: 14px; color: #FFD166; font-weight: 700; font-size: 15px;">
             📞 WhatsApp / MAX: +7 (914) 717-31-32 &nbsp;•&nbsp; ✈️ Telegram: @teplo_kadr
           </p>
@@ -306,18 +476,19 @@
         <div>
           <strong style="color: #fff; display: block; margin-bottom: 12px;">Все услуги студии:</strong>
           <ul class="footer-links">
-            <li><a href="/cartoon">1. 3D-Мультфильм по биографии</a></li>
-            <li><a href="/photo-alive">2. Оживление старых фотографий</a></li>
-            <li><a href="/video-edit">3. Умный монтаж архивов и Reels</a></li>
-            <li><a href="/photoshoot">4. Портреты в 7 стилях и фотосессия</a></li>
+            <li><a href="/cartoon">1. Мультфильм в любой вселенной (от 9 900 ₽)</a></li>
+            <li><a href="/photo-alive">2. Оживление старых фотографий (от 1 500 ₽)</a></li>
+            <li><a href="/video-edit">3. ИИ-Рилсы и лёгкий монтаж (от 990 ₽)</a></li>
+            <li><a href="/photoshoot">4. Портреты в 9 стилях (от 1 500 ₽)</a></li>
+            <li><a href="/invitations">5. Живые 3D Видео-приглашения (от 1 490 ₽)</a></li>
           </ul>
         </div>
         <div>
-          <strong style="color: #fff; display: block; margin-bottom: 12px;">Примеры для клиентов:</strong>
+          <strong style="color: #fff; display: block; margin-bottom: 12px;">Быстрые ссылки:</strong>
           <ul class="footer-links">
             <li><a href="/gift-max30">🎁 Подарочная страница именинника (Демо)</a></li>
-            <li><a href="/cartoon#templates">🎨 6 шаблонов оформления фильма</a></li>
-            <li><a href="/photoshoot#gallery">🖼 Интерактивная галерея 7 стилей</a></li>
+            <li><a href="/cartoon#templates">🌌 Выбор вселенной и сюжета мультфильма</a></li>
+            <li><a href="/photoshoot#gallery">🖼 Интерактивная галерея 9 стилей</a></li>
           </ul>
         </div>
       </div>
@@ -344,23 +515,17 @@
       </div>
       <div class="calc-control">
         <label>По какому поводу готовим подарок?</label>
-        <select id="modalOccasion">
-          <option value="Юбилей / День рождения">🎂 Юбилей / День рождения</option>
-          <option value="Память семьи / Родителям">🎞 Память семьи / Подарок родителям</option>
-          <option value="Свадьба / Годовщина">💍 Свадьба / Годовщина</option>
-          <option value="Корпоратив / Друзьям">🎉 Подарок другу или руководителю</option>
-          <option value="Для себя / Блог Reels">📱 Для себя / Монтаж Reels</option>
-        </select>
+        <input type="text" id="modalOccasion" placeholder="Например: Юбилей 50 лет, Свадьба, День рождения в ресторане..." />
       </div>
       <div class="calc-control">
         <label>Кратко напишите ваши пожелания (по желанию):</label>
-        <textarea id="modalComment" rows="2" placeholder="Например: нужен мультик мужу на 45 лет к пятнице..."></textarea>
+        <textarea id="modalComment" rows="2" placeholder="Например: нужен мультик мужу на 45 лет или 3D приглашение..."></textarea>
       </div>
 
       <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">
         Выберите удобный мессенджер — откроется диалог с уже заполненной заявкой, куда вы сможете прикрепить фото:
       </p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
         <button class="btn btn-whatsapp btn-sm" onclick="sendLeadToWhatsApp()"><svg class="msg-icon" width="18" height="18" style="width:18px;height:18px;flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.25-5.01-4.45-.15-.2-1.2-1.59-1.2-3.04 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.58.82 2.01.89 2.16.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.36 1.45.3.15.47.13.65-.07.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2 .95.3.15.49.22.57.35.07.12.07.72-.17 1.4z"/></svg> WhatsApp</button>
         <button class="btn btn-max btn-sm" onclick="sendLeadToMax()"><svg class="msg-icon" width="18" height="18" style="width:18px;height:18px;flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.88 1.42 5.45 3.65 7.15L4.5 22l4.12-1.76c1.07.33 2.2.51 3.38.51 5.52 0 10-4.14 10-9.25S17.52 2 12 2zm4.85 12.75h-1.9v-4.2l-2.25 3.1h-1.4l-2.25-3.1v4.2h-1.9v-7.5h1.95l2.9 4.05 2.9-4.05h1.95v7.5z"/></svg> MAX</button>
         <button class="btn btn-telegram btn-sm" onclick="sendLeadToTelegram()"><svg class="msg-icon" width="18" height="18" style="width:18px;height:18px;flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor"><path d="M11.94 2C6.45 2 2 6.45 2 11.94s4.45 9.94 9.94 9.94 9.94-4.45 9.94-9.94S17.43 2 11.94 2zm4.66 6.81l-1.69 7.97c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.63 4.78-4.32c.21-.18-.05-.29-.32-.11L8.36 13.4l-2.55-.8c-.55-.17-.56-.55.12-.82l9.96-3.84c.46-.17.86.11.71.87z"/></svg> Telegram</button>
@@ -371,6 +536,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>

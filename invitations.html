@@ -245,7 +245,7 @@
         <a href="/cartoon">1. 3D-Мультфильм</a>
         <a href="/photo-alive">2. Оживление фото</a>
         <a href="/video-edit">3. ИИ-Видео и Reels</a>
-        <a href="/photoshoot">4. Портреты 7 стилей</a>
+        <a href="/photoshoot">4. Портреты 9 стилей</a>
         <a href="/invitations" class="active">5. Видео-приглашения</a>
         <a href="/gift-max30" class="gift-link">🎁 Демо подарка</a>
       </nav>
@@ -485,7 +485,7 @@
             <li><a href="/cartoon">1. 3D-Мультфильм по биографии</a></li>
             <li><a href="/photo-alive">2. Оживление старых фотографий</a></li>
             <li><a href="/video-edit">3. ИИ-Магия в видео и Reels</a></li>
-            <li><a href="/photoshoot">4. Портреты в 7 стилях и фотосессия</a></li>
+            <li><a href="/photoshoot">4. Портреты в 9 стилях и фотосессия</a></li>
             <li><a href="/invitations">5. Видео-приглашения и 3D открытки</a></li>
           </ul>
         </div>
@@ -494,7 +494,7 @@
           <ul class="footer-links">
             <li><a href="/gift-max30">🎁 Подарочная страница именинника (Демо)</a></li>
             <li><a href="/cartoon#templates">🎨 6 шаблонов оформления фильма</a></li>
-            <li><a href="/photoshoot#gallery">🖼 Интерактивная галерея 7 стилей</a></li>
+            <li><a href="/photoshoot#gallery">🖼 Интерактивная галерея 9 стилей</a></li>
           </ul>
         </div>
       </div>
@@ -521,13 +521,7 @@
       </div>
       <div class="calc-control">
         <label>На какое событие нужно приглашение?</label>
-        <select id="modalOccasion">
-          <option value="Вечеринка / День рождения в ресторане (Призрачный Гонщик или герой)">🔥 Вечеринка / ДР в ресторане (Призрачный Гонщик у фасада)</option>
-          <option value="Свадебная 3D открытка-раскладушка">💍 Свадебная 3D открытка-раскладушка</option>
-          <option value="Детский праздник (Тралалело Тралала / 6-7 / Pixar)">🦈 Детский праздник (Тралалело Тралала / 6-7 / Батуты)</option>
-          <option value="Золотой Юбилей (Бархатный конверт)">👑 Статусный Юбилей (Бархатный конверт)</option>
-          <option value="1 годик малышу (Плюшевый мишка)">🧸 1 годик малышу (Плюшевый мишка)</option>
-        </select>
+        <input type="text" id="modalOccasion" placeholder="Например: Юбилей 50 лет, Свадьба, День рождения в ресторане..." />
       </div>
       <div class="calc-control">
         <label>Имена, дата, время и адрес ресторана / места:</label>
@@ -545,7 +539,7 @@
     </div>
   </div>
 
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=5"></script>
   <script>
     // Логика умной карусели отдельных видео: играет активное видео, по окончании автоматически перелистывает на следующее!
     const totalCards = 5;
