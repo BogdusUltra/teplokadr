@@ -56,8 +56,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
+  flex-wrap: nowrap;
+  gap: 10px;
 }
 
 .logo {
@@ -84,9 +84,10 @@ header {
 
 .logo-text strong {
   display: block;
-  font-size: 22px;
+  font-size: 19px;
   letter-spacing: -0.3px;
   line-height: 1.15;
+  white-space: nowrap;
 }
 
 .logo-text span {
@@ -191,7 +192,8 @@ header {
 
 .header-phone {
   font-weight: 800;
-  font-size: 16px;
+  font-size: 14px;
+  white-space: nowrap;
   color: var(--text-main);
   text-decoration: none;
   display: flex;
@@ -927,6 +929,9 @@ footer {
   color: #FFD166;
 }
 
+@media (max-width: 1120px) {
+  .header-inner { flex-wrap: wrap; }
+}
 @media (max-width: 960px) {
   .hero-grid,
   .services-grid,
