@@ -1,3 +1,8 @@
+// Автоматически перенаправляем с HTTP на защищённый HTTPS (сертификат Let's Encrypt уже выпущен!)
+if (window.location.protocol === "http:" && window.location.hostname.endsWith("teplo-kadr.ru")) {
+  window.location.replace("https://" + window.location.host + window.location.pathname + window.location.search + window.location.hash);
+}
+
 // Автоматически убираем .html из адресной строки браузера
 if (window.location.protocol.startsWith("http") && window.location.pathname.endsWith(".html")) {
   const cleanPath = window.location.pathname.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
