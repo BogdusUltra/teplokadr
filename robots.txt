@@ -4,6 +4,12 @@ Allow: /
 User-agent: Yandex
 Allow: /
 
+User-agent: YandexFavicons
+Allow: /
+
+User-agent: YandexImages
+Allow: /
+
 User-agent: Googlebot
 Allow: /
 
