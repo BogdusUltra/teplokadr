@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Тёплый Кадр — Интерактивная студия мультфильмов, оживления фото, ИИ-Рилсов и 3D-приглашений</title>
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
   <style>
     /* Дополнительные стили для интерактивной главной страницы */
     .hero-switch-bar {
@@ -144,6 +144,86 @@
       font-size: 13px;
       color: var(--accent);
       font-weight: 800;
+    }
+    @media (max-width: 768px) {
+      .hero-switch-bar {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 6px;
+        margin-bottom: 8px;
+        padding-bottom: 2px;
+      }
+      .hero-switch-bar::-webkit-scrollbar {
+        display: none;
+      }
+      .hero-switch-btn {
+        padding: 6px 11px;
+        font-size: 11.5px;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .quick-nav-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 7px;
+        margin-top: 12px;
+      }
+      .quick-nav-tile {
+        padding: 9px 10px;
+        border-radius: 12px;
+      }
+      .quick-nav-tile strong {
+        font-size: 12.5px;
+        margin-bottom: 2px;
+      }
+      .quick-nav-tile span {
+        font-size: 11px;
+      }
+      /* На телефоне ставим по 2 вертикальных смартфона в ряд — видно сразу в 2 раза больше! */
+      .mini-phones-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .mini-phone-card {
+        padding: 8px;
+        border-radius: 16px;
+      }
+      .mini-phone-video-wrap {
+        border-radius: 12px;
+        margin-bottom: 7px;
+      }
+      .mini-phone-tag {
+        font-size: 9.5px;
+        padding: 2px 7px;
+        margin-bottom: 4px;
+      }
+      .mini-phone-card h4 {
+        font-size: 12.5px;
+        margin-bottom: 4px;
+        line-height: 1.2;
+      }
+      .mini-phone-card p {
+        font-size: 11px;
+        line-height: 1.25;
+        margin-bottom: 6px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .mini-chip-row {
+        gap: 3px;
+        margin-bottom: 6px;
+      }
+      .mini-chip-btn {
+        font-size: 9.5px;
+        padding: 3px 6px;
+      }
+      .mini-phone-card .btn-sm {
+        padding: 6px 8px;
+        font-size: 11px;
+      }
     }
   </style>
 </head>
@@ -536,6 +616,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>

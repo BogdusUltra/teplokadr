@@ -9,8 +9,11 @@
   --accent-gold: #F5A623;
   --accent-gold-light: #FFF0D4;
   --accent-warm: #E05A47;
+  --accent: #E05A47;
   --accent-green: #22A06B;
   --border-soft: #E6DFD3;
+  --border: #E6DFD3;
+  --shadow-sm: 0 6px 18px rgba(22, 27, 38, 0.06);
   --shadow-card: 0 12px 32px rgba(22, 27, 38, 0.08);
   --shadow-hover: 0 20px 44px rgba(22, 27, 38, 0.14);
   --radius-lg: 24px;
@@ -557,7 +560,8 @@ header {
 }
 
 /* INTERACTIVE TABS & GALLERIES */
-.tabs-bar {
+.tabs-bar,
+.style-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -565,7 +569,8 @@ header {
   margin-bottom: 28px;
 }
 
-.tab-btn {
+.tab-btn,
+.style-tab-btn {
   padding: 12px 22px;
   border-radius: 40px;
   border: 2px solid var(--border-soft);
@@ -578,11 +583,13 @@ header {
   font-family: inherit;
 }
 
-.tab-btn:hover {
+.tab-btn:hover,
+.style-tab-btn:hover {
   border-color: var(--accent-gold);
 }
 
-.tab-btn.active {
+.tab-btn.active,
+.style-tab-btn.active {
   background: var(--bg-dark);
   color: #FFD166;
   border-color: var(--bg-dark);
@@ -932,6 +939,7 @@ footer {
 @media (max-width: 1120px) {
   .header-inner { flex-wrap: wrap; }
 }
+
 @media (max-width: 960px) {
   .hero-grid,
   .services-grid,
@@ -949,3 +957,459 @@ footer {
     transform: none;
   }
 }
+
+/* =========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ (СМАРТФОНЫ ДО 768px):
+   1. Ультра-компактная шапка в 1 ленту вкладок (не закрывает экран!)
+   2. Плотная подача контента (в 2.5 раза больше пользы на 1 экран)
+   ========================================================= */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  /* КОМПАКТНАЯ ШАПКА НА ТЕЛЕФОНЕ */
+  header {
+    padding: 6px 0;
+    transition: padding 0.2s ease, transform 0.25s ease;
+  }
+
+  .header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px 8px;
+  }
+
+  /* 1-я строка шапки: мини-логотип слева + иконки связи справа */
+  .logo {
+    order: 1;
+    gap: 7px;
+  }
+
+  .logo-badge {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    font-size: 13px;
+  }
+
+  .logo-text strong {
+    font-size: 15px;
+  }
+
+  .logo-text span {
+    display: none; /* Скрываем подзаголовок логотипа на телефоне */
+  }
+
+  .header-cta {
+    order: 2;
+    gap: 6px;
+    margin-left: auto;
+  }
+
+  .header-phone {
+    font-size: 12px;
+  }
+
+  .header-phone small {
+    display: none; /* Скрываем мелкую подпись под телефоном */
+  }
+
+  .header-messengers {
+    gap: 4px;
+  }
+
+  .header-messengers .icon-pill {
+    width: 28px;
+    height: 28px;
+  }
+
+  .header-messengers .icon-pill svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  /* 2-я строка шапки: горизонтальная свайп-лента всех услуг В ОДНУ СТРОКУ */
+  .nav-links {
+    order: 3;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 5px;
+    padding: 2px 0;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    padding: 5px 11px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  /* При прокрутке вниз на телефоне прячем 1-ю строку шапки, оставляя только тонкую полоску меню 34px! */
+  header.header-scrolled {
+    padding: 4px 0;
+  }
+  header.header-scrolled .logo,
+  header.header-scrolled .header-cta {
+    display: none;
+  }
+
+  /* ХЛЕБНЫЕ КРОШКИ */
+  .breadcrumbs {
+    padding: 8px 12px 0;
+    font-size: 11.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ПЕРВЫЙ ЭКРАН (HERO) — КОМПАКТНО И НАГЛЯДНО */
+  .hero {
+    padding: 12px 0 20px !important;
+  }
+
+  .hero-grid {
+    gap: 14px;
+  }
+
+  .pill-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+    line-height: 1.18;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .hero p.lead {
+    font-size: 13.5px;
+    line-height: 1.38;
+    margin-bottom: 12px !important;
+  }
+
+  .hero-benefits {
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .hero-benefits li {
+    font-size: 13px;
+    gap: 8px;
+    line-height: 1.32;
+  }
+
+  .check-icon {
+    width: 19px;
+    height: 19px;
+    font-size: 11px;
+    margin-top: 1px;
+  }
+
+  /* КНОПКИ */
+  .btn {
+    padding: 10px 16px;
+    font-size: 13.5px;
+    border-radius: 30px;
+  }
+
+  .btn-sm {
+    padding: 8px 12px;
+    font-size: 12.5px;
+  }
+
+  .btn-lg {
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+
+  /* ВИДЕОПЛЕЕРЫ И КАРТОЧКИ ШОУКЕЙСА */
+  .video-showcase-card {
+    padding: 10px;
+    border-radius: 18px;
+    border-width: 2px;
+  }
+
+  .video-showcase-card video,
+  .video-showcase-card img {
+    border-radius: 12px;
+  }
+
+  .video-caption {
+    padding: 8px 4px 2px;
+    font-size: 12.5px;
+    gap: 8px;
+  }
+
+  /* СЕКЦИИ И ЗАГОЛОВКИ */
+  .section {
+    padding: 22px 0;
+  }
+
+  .section-header {
+    margin-bottom: 14px !important;
+  }
+
+  .section-header h2 {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .section-header p {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  /* ГОРИЗОНТАЛЬНЫЕ ТАБЫ СТИЛЕЙ И ВСЕЛЕННЫХ В 1 СТРОКУ (СВАЙП ПАЛЬЦЕМ) */
+  .tabs-bar,
+  .style-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px;
+    margin-bottom: 12px !important;
+    padding-bottom: 2px;
+  }
+
+  .tabs-bar::-webkit-scrollbar,
+  .style-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-btn,
+  .style-tab-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    border-width: 1.5px;
+  }
+
+  .interactive-stage {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .stage-grid {
+    gap: 12px;
+  }
+
+  .interactive-stage h3 {
+    font-size: 18px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .interactive-stage p {
+    font-size: 13px !important;
+    margin-bottom: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* ПОЛЗУНОК ДО / ПОСЛЕ */
+  .ba-label {
+    top: 8px;
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+  .ba-label.left { left: 8px; }
+  .ba-label.right { right: 8px; }
+
+  /* КАРТОЧКИ УСЛУГ И ТАРИФОВ — В 2 РАЗА КОМПАКТНЕЕ */
+  .services-grid,
+  .pricing-grid {
+    gap: 12px;
+  }
+
+  .service-card,
+  .pricing-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .service-thumb {
+    height: 145px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+  }
+
+  .service-thumb-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    bottom: 8px;
+    left: 8px;
+  }
+
+  .badge-hit {
+    top: -10px;
+    right: 14px;
+    font-size: 10.5px;
+    padding: 3px 10px;
+  }
+
+  .service-num {
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+
+  .service-card h3,
+  .pricing-card h3 {
+    font-size: 17px;
+    margin-bottom: 5px;
+    line-height: 1.22;
+  }
+
+  .service-card p {
+    font-size: 13px;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+
+  .service-features,
+  .pricing-list {
+    font-size: 12.5px;
+    gap: 4px;
+    margin-bottom: 12px;
+    line-height: 1.32;
+  }
+
+  .pricing-price {
+    font-size: 22px;
+    margin: 4px 0 8px;
+  }
+
+  .service-footer {
+    padding-top: 10px;
+    gap: 8px;
+  }
+
+  .price-tag {
+    font-size: 18px;
+  }
+
+  .price-tag small {
+    font-size: 11px;
+  }
+
+  /* ШАГИ РАБОТЫ — СЕТКА 2x2 ВМЕСТО 4 ОГРОМНЫХ БЛОКОВ */
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .step-card {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .step-number {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+  }
+
+  .step-card h4 {
+    font-size: 14px;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .step-card p {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  /* КАЛЬКУЛЯТОР И FAQ */
+  .calc-box {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .calc-grid {
+    gap: 14px;
+  }
+
+  .calc-control {
+    margin-bottom: 12px;
+  }
+
+  .calc-control label {
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+
+  .calc-control select,
+  .calc-control input[type="text"],
+  .calc-control input[type="tel"],
+  .calc-control textarea {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .calc-result {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .calc-total {
+    font-size: 26px;
+    margin: 6px 0 10px;
+  }
+
+  .faq-question {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .faq-answer {
+    padding: 0 14px 12px;
+    font-size: 13px;
+  }
+
+  /* МОДАЛЬНОЕ ОКНО И ПОДВАЛ */
+  .modal-backdrop {
+    padding: 10px;
+  }
+
+  .modal-card {
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+
+  .modal-card h3 {
+    font-size: 20px !important;
+  }
+
+  footer {
+    padding: 28px 0 22px;
+    margin-top: 28px;
+    font-size: 13px;
+  }
+
+  .footer-grid {
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+}
+

@@ -131,6 +131,36 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  // Мобильная шапка: авто-прокрутка активной вкладки в видимую зону + компактный режим при скролле вниз
+  const navBar = document.querySelector(".nav-links");
+  const activeNav = navBar?.querySelector("a.active");
+  if (navBar && activeNav && window.innerWidth <= 768) {
+    const scrollTarget = activeNav.offsetLeft - navBar.clientWidth / 2 + activeNav.clientWidth / 2;
+    navBar.scrollTo({ left: Math.max(0, scrollTarget), behavior: "instant" });
+  }
+
+  const headerEl = document.querySelector("header");
+  if (headerEl) {
+    let lastScrollY = window.scrollY;
+    window.addEventListener(
+      "scroll",
+      () => {
+        const currentY = window.scrollY;
+        if (window.innerWidth <= 768) {
+          if (currentY > 55 && currentY >= lastScrollY) {
+            headerEl.classList.add("header-scrolled");
+          } else if (currentY < 30 || lastScrollY - currentY > 25) {
+            headerEl.classList.remove("header-scrolled");
+          }
+        } else {
+          headerEl.classList.remove("header-scrolled");
+        }
+        lastScrollY = currentY;
+      },
+      { passive: true }
+    );
+  }
 });
 
 // Интерактивный переключатель 5 направлений в Первом экране Главной страницы (index.html)
