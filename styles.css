@@ -28,6 +28,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -36,10 +38,24 @@ body {
   color: var(--text-main);
   line-height: 1.58;
   font-size: 18px;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.hero-grid > *,
+.services-grid > *,
+.stage-grid > *,
+.steps-grid > *,
+.pricing-grid > *,
+.calc-grid > *,
+.footer-grid > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .container {
   max-width: 1340px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 24px;
 }

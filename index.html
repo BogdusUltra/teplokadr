@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Тёплый Кадр — Интерактивная студия мультфильмов, оживления фото, ИИ-Рилсов и 3D-приглашений</title>
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <style>
     /* Дополнительные стили для интерактивной главной страницы */
     .hero-switch-bar {
@@ -145,7 +145,33 @@
       color: var(--accent);
       font-weight: 800;
     }
+    #heroMainVideo {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 390px;
+      object-fit: contain;
+      background: #000;
+    }
+    .styles-compare-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    .styles-compare-grid > *,
+    .mini-phones-grid > *,
+    .quick-nav-strip > * {
+      min-width: 0;
+      max-width: 100%;
+    }
     @media (max-width: 768px) {
+      #heroMainVideo {
+        max-height: 215px;
+      }
+      .styles-compare-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
       .hero-switch-bar {
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -154,6 +180,8 @@
         gap: 6px;
         margin-bottom: 8px;
         padding-bottom: 2px;
+        width: 100%;
+        max-width: 100%;
       }
       .hero-switch-bar::-webkit-scrollbar {
         display: none;
@@ -351,7 +379,7 @@
         <button class="style-tab-btn" onclick="switchStyleGallery(9, this)">📸 10. Оригинал фото</button>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; align-items: stretch;">
+      <div class="styles-compare-grid">
         <!-- ЛЕВАЯ КАРТОЧКА: ИНТЕРАКТИВНЫЙ ПРОСМОТР ВЫБРАННОЙ ВСЕЛЕННОЙ -->
         <div style="background: #FFFDFB; border: 1px solid var(--border); border-radius: 24px; padding: 18px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
           <div>
@@ -487,7 +515,7 @@
         <p>Сравните два наших главных подарочных формата — мультфильм в любой вселенной и живую летопись из старых фото</p>
       </div>
 
-      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+      <div class="services-grid">
         <!-- КАРТОЧКА МУЛЬТФИЛЬМА -->
         <div class="service-card featured">
           <span class="badge-hit">★ ХИТ НА ЮБИЛЕЙ И СВАДЬБУ</span>
@@ -616,6 +644,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
