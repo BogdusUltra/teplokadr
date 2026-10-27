@@ -1,3 +1,9 @@
+// Автоматически убираем .html из адресной строки браузера
+if (window.location.protocol.startsWith("http") && window.location.pathname.endsWith(".html")) {
+  const cleanPath = window.location.pathname.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
+  window.history.replaceState(null, "", cleanPath + window.location.search + window.location.hash);
+}
+
 /**
  * Интерактивная логика сайта «Тёплый Кадр»:
  * 1. Модальное окно заказа с формированием готовой заявки в WhatsApp / Telegram
