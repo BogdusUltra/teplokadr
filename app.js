@@ -10,7 +10,7 @@ const STUDIO_CONTACTS = {
   whatsappPhone: "79147173132", // Реальный номер WhatsApp и MAX: +7 914 717-31-32
   maxPhoneDisplay: "+7 (914) 717-31-32",
   maxUrl: "https://max.ru", // Мессенджер MAX
-  telegramUser: "teplyi_kadr_studio", // Замените после покупки аккаунта Telegram
+  telegramUser: "teplo_kadr", // Реальный Telegram: @teplo_kadr
 };
 
 function openOrderModal(serviceName = "Консультация по подарку", tariffName = "Подбор тарифа", price = "") {
