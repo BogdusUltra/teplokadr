@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Семейный портрет в 7 стилях и ИИ-фотосессия по фото — Студия «Тёплый Кадр»</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ШАПКА САЙТА -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-badge">ТК</div>
+        <div class="logo-text">
+          <strong>Тёплый Кадр</strong>
+          <span>Студия семейного кино и подарков</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Все услуги</a>
+        <a href="cartoon.html">1. 3D-Мультфильм</a>
+        <a href="photo-alive.html">2. Оживление фото</a>
+        <a href="video-edit.html">3. Видеомонтаж</a>
+        <a href="photoshoot.html" class="active">4. Портреты 7 стилей</a>
+        <a href="gift-max30.html" class="gift-link">🎁 Демо подарка</a>
+      </nav>
+      <div class="header-cta">
+        <a href="https://wa.me/79147173132" target="_blank" class="header-phone">
+          +7 (914) 717-31-32
+          <small>WhatsApp • MAX • Звонки</small>
+        </a>
+        <button class="btn btn-primary btn-sm" onclick="openOrderModal('Портрет / ИИ-фотосессия', '1 пробный кадр бесплатно')">1 пробный кадр бесплатно</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container breadcrumbs">
+    <a href="index.html">Главная (Все услуги)</a> <span>→</span> <strong>Услуга №4: Семейный портрет в 7 стилях, ИИ-фотосессия и ретушь</strong>
+  </div>
+
+  <!-- HERO УСЛУГИ 4 -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill-tag">🎨 Услуга №4 • Портреты для печати на холсте и фотосессия без похода в студию</span>
+        <h1>Превратим ваше домашнее фото в <span>7 художественных вселенных</span> со 100% сходством!</h1>
+        <p class="lead">
+          Не нужно уговаривать мужа и детей ехать в фотостудию! Пришлите обычное домашнее фото с дивана или разные селфи — мы сохраним черты лица, улыбку, фигуру, привычки и любимую одежду каждого члена семьи.
+        </p>
+        <ul class="hero-benefits">
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>Бесплатный тест до оплаты:</strong> пришлите 1 фото в чат, и мы бесплатно сделаем пробный кадр в выбранном стиле!</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>Объединение родных с разных фото:</strong> соберём всю большую семью из разных городов на одном общем парадном портрете.</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>Сверхвысокое разрешение 4K:</strong> файлы полностью готовы для широкоформатной печати на холсте в подарок на юбилей или годовщину.</span>
+          </li>
+        </ul>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <button class="btn btn-primary" onclick="openOrderModal('Портрет по фото / ИИ-фотосессия', 'Бесплатный пробный кадр по фото')">Получить 1 пробный кадр бесплатно</button>
+          <a href="#gallery" class="btn btn-outline">Посмотреть все 7 стилей ↓</a>
+        </div>
+      </div>
+
+      <!-- ВИДЕО-СЛАЙДШОУ APPLE GLASS -->
+      <div class="video-showcase-card">
+        <video controls preload="metadata" poster="media/avito_cover_16x9.png">
+          <source src="media/slideshow_7styles_1080p.mp4" type="video/mp4" />
+        </video>
+        <div class="video-caption">
+          <span>▶ <strong>Видео-преображение (Apple Glass):</strong> Как одно домашнее фото превращается в 7 вселенных</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ИНТЕРАКТИВНАЯ ГАЛЕРЕЯ «1 СЕМЬЯ — 7 ВСЕЛЕННЫХ» -->
+  <section class="section section-alt" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <h2>Интерактивная витрина: 1 семья — 7 стилей</h2>
+        <p>Нажимайте на кнопки стилей ниже, чтобы детально рассмотреть, как сохраняются лица, эмоции и даже рыжий кот в каждой вселенной</p>
+      </div>
+
+      <div class="tabs-bar">
+        <button class="tab-btn style-tab-btn active" onclick="switchStyleGallery(0, this)">1. 3D Disney / Pixar</button>
+        <button class="tab-btn style-tab-btn" onclick="switchStyleGallery(1, this)">2. Аниме Миядзаки</button>
+        <button class="tab-btn style-tab-btn" onclick="switchStyleGallery(2, this)">3. Ностальгия 90-х VHS</button>
+        <button class="tab-btn style-tab-btn" onclick="switchStyleGallery(3, this)">4. Королевский Замок</button>
+        <button class="tab-btn style-tab-btn" onclick="switchStyleGallery(4, this)">5. Каменный Век</button>
+        <button class="tab-btn style-tab-btn" onclick="switchStyleGallery(5, this)">6. 16-Bit Игра</button>
+        <button class="tab-btn style-tab-btn" onclick="switchStyleGallery(6, this)">📸 Исходное фото</button>
+      </div>
+
+      <div class="interactive-stage">
+        <div class="stage-grid">
+          <div class="stage-media">
+            <img id="stylePreviewImg" src="media/family_styles/style_06.png" alt="Пример семейного портрета" />
+          </div>
+          <div>
+            <span class="pill-tag">100% сохранение лиц, комплекции и одежды</span>
+            <h3 id="stylePreviewTitle" style="font-size: 28px; margin-bottom: 14px;">1. 3D Мультфильм Disney / Pixar (Хит заказов!)</h3>
+            <p id="stylePreviewDesc" style="color: #D0D7E6; font-size: 18px; margin-bottom: 24px;">
+              Объёмный кино-стиль: 100% узнаваемость лиц, добрый взгляд, фирменная улыбка, причёски, любимый свитер и даже ваш домашний питомец.
+            </p>
+            <div style="display: grid; gap: 12px;">
+              <button class="btn btn-primary" onclick="openOrderModal('Семейный портрет по фото', document.getElementById('stylePreviewTitle').textContent)">Заказать пробный кадр в этом стиле</button>
+              <a href="cartoon.html" class="btn btn-dark" style="text-align: center;">🎬 Хочу целый мультфильм в этом стиле →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОЛЗУНОК «ДО / ПОСЛЕ» -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Сравните исходное фото и результат (потяните ползунок)</h2>
+        <p>Обратите внимание на детали: зелёный свитер папы, полосатая футболка сына, бежевый кардиган мамы и рыжий кот остались на своих местах!</p>
+      </div>
+
+      <div style="max-width: 920px; margin: 0 auto;">
+        <div class="ba-container">
+          <img src="media/family_styles/style_06.png" alt="После: 3D Pixar портрет" />
+          <div class="ba-overlay" style="width: 50%;">
+            <img src="media/family_styles/style_07.png" alt="До: Обычное домашнее фото" />
+          </div>
+          <input type="range" min="5" max="95" value="50" class="ba-slider-input" aria-label="Сравнение До и После" />
+          <span class="ba-label left">ДО: Обычное фото с телефона</span>
+          <span class="ba-label right">ПОСЛЕ: 3D Портрет Pixar 4K</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТАРИФЫ НА ПОРТРЕТЫ И ФОТОСЕССИЮ -->
+  <section class="section section-alt" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Тарифы на портреты, ретушь и ИИ-фотосессию</h2>
+        <p>Сначала делаем бесплатный пробный эскиз — оплата только если вам нравится результат!</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div>
+            <div class="service-num">Пакет 1 • На пробу или аватарку</div>
+            <h3>«Стильный Портрет»</h3>
+            <div class="pricing-price">1 500 ₽</div>
+            <ul class="pricing-list">
+              <li>✓ <strong>3 готовых портрета</strong> в 1–2 выбранных стилях</li>
+              <li>✓ 100% сохранение черт лица, фигуры и одежды</li>
+              <li>✓ Профессиональная ретушь и расширение до 4K</li>
+              <li>✓ Подходит для печати на холсте и соцсетей</li>
+              <li>✓ Готовность: <strong>за 2–4 часа</strong></li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Семейный портрет по фото', 'Пакет «Стильный Портрет» (3 кадра)', '1 500 ₽')">Заказать за 1 500 ₽</button>
+        </div>
+
+        <div class="pricing-card popular">
+          <div>
+            <div class="service-num">★ Хит для подарка всей семье</div>
+            <h3>«Семья в 7 Вселенных + Видео»</h3>
+            <div class="pricing-price">2 900 ₽</div>
+            <ul class="pricing-list">
+              <li>✓ <strong>Все 7 художественных стилей</strong> вашей семьи или пары</li>
+              <li>✓ Возможность объединить родственников с разных фото</li>
+              <li>✓ <strong>Бонус: видео-слайдшоу преображения в стиле Apple Glass</strong> с музыкой!</li>
+              <li>✓ Файлы 4K для печати картины на холсте</li>
+              <li>✓ <strong>Оживление 1 лучшего портрета в подарок!</strong></li>
+            </ul>
+          </div>
+          <button class="btn btn-primary" style="width: 100%;" onclick="openOrderModal('Семейный портрет по фото', 'Хит-пакет «7 Вселенных + Видео»', '2 900 ₽')">Заказать пакет «7 Вселенных»</button>
+        </div>
+
+        <div class="pricing-card">
+          <div>
+            <div class="service-num">Пакет 3 • Нейро-фотосессия под ключ</div>
+            <h3>«Большая ИИ-Фотосессия»</h3>
+            <div class="pricing-price">5 900 ₽</div>
+            <ul class="pricing-list">
+              <li>✓ <strong>20–25 реалистичных студийных и художественных фото</strong></li>
+              <li>✓ Деловые образы, вечерние наряды, путешествия без студии</li>
+              <li>✓ Полное сохранение вашей реальной внешности и комплекции</li>
+              <li>✓ Глубокая журнальная ретушь каждого кадра</li>
+              <li>✓ Видео-ролик из оживших кадров для Reels / Stories</li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('ИИ-фотосессия по фото', 'Пакет «Большая ИИ-Фотосессия» (20–25 кадров)', '5 900 ₽')">Заказать ИИ-фотосессию</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong style="color: #fff; font-size: 22px; display: block; margin-bottom: 10px;">Студия «Тёплый Кадр»</strong>
+          <p>Семейные портреты в 7 стилях, ИИ-фотосессии, оживление фото и 3D-мультфильмы.</p>
+        </div>
+        <div>
+          <strong style="color: #fff; display: block; margin-bottom: 12px;">Другие услуги студии:</strong>
+          <ul class="footer-links">
+            <li><a href="cartoon.html">→ Услуга №1: 3D-Мультфильм по биографии</a></li>
+            <li><a href="photo-alive.html">→ Услуга №2: Оживление старых фото</a></li>
+            <li><a href="video-edit.html">→ Услуга №3: Видеомонтаж и Reels</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: #fff; display: block; margin-bottom: 12px;">Бесплатный тест:</strong>
+          <button class="btn btn-primary btn-sm" onclick="openOrderModal('Портрет по фото', 'Бесплатный пробный кадр')">Прислать 1 фото на пробу</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО ЗАКАЗА -->
+  <div class="modal-backdrop" id="orderModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeOrderModal()">✕</button>
+      <span class="pill-tag" style="margin-bottom: 8px;">1 пробный кадр по вашему фото — бесплатно!</span>
+      <h3 id="modalTitle" style="font-size: 26px; margin-bottom: 6px;">Семейный портрет / Фотосессия</h3>
+      <p id="modalSub" style="color: var(--text-muted); font-size: 15px; margin-bottom: 18px;">Тариф</p>
+
+      <input type="hidden" id="modalService" value="Семейный портрет / ИИ-фотосессия" />
+      <input type="hidden" id="modalTariff" value="Семья в 7 Вселенных" />
+
+      <div class="calc-control">
+        <label>Как к вам обращаться?</label>
+        <input type="text" id="modalClientName" placeholder="Ваше имя" />
+      </div>
+      <div class="calc-control">
+        <label>Какой стиль хотите попробовать бесплатно?</label>
+        <select id="modalOccasion">
+          <option value="3D Мультфильм Disney / Pixar">✨ 3D Мультфильм Disney / Pixar</option>
+          <option value="Аниме Хаяо Миядзаки (Ghibli)">🌸 Аниме Хаяо Миядзаки (Ghibli)</option>
+          <option value="Ностальгия 90-х VHS с ковром">📼 Ностальгия 90-х VHS с ковром</option>
+          <option value="Королевский Замок / Рыцари">👑 Королевский Замок / Рыцари</option>
+          <option value="Реалистичная ИИ-фотосессия">📸 Реалистичная студийная фотосессия</option>
+        </select>
+      </div>
+      <div class="calc-control">
+        <label>Комментарий (сколько человек на фото, нужно ли объединить с разных снимков):</label>
+        <textarea id="modalComment" rows="2" placeholder="Например: семья из 4 человек + кот..."></textarea>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+        <button class="btn btn-whatsapp btn-sm" onclick="sendLeadToWhatsApp()">WhatsApp</button>
+        <button class="btn btn-max btn-sm" onclick="sendLeadToMax()">MAX</button>
+        <button class="btn btn-telegram btn-sm" onclick="sendLeadToTelegram()">Telegram</button>
+      </div>
+      <div style="text-align: center; margin-top: 10px; font-size: 14px; color: var(--text-muted);">
+        Номер для <strong>WhatsApp и MAX</strong>: <strong>+7 (914) 717-31-32</strong>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

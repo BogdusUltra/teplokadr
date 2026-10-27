@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎁 С 30-летием, наш главный герой Макс! — Студия «Тёплый Кадр»</title>
+  <style>
+    :root {
+      --bg-dark: #111520;
+      --bg-card: #1C2234;
+      --accent-gold: #F5A623;
+      --accent-warm: #E05A47;
+      --text-white: #FFFFFF;
+      --text-muted: #B8C2D6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at top, #1F2740 0%, #0E121B 100%);
+      color: var(--text-white);
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .studio-brand {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .studio-brand strong {
+      color: #FFD166;
+    }
+
+    .gift-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .gift-pill {
+      display: inline-block;
+      background: rgba(245, 166, 35, 0.18);
+      border: 1px solid #F5A623;
+      color: #FFD166;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 6px 18px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+    }
+
+    .gift-header h1 {
+      font-size: 38px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .gift-header p {
+      color: var(--text-muted);
+      font-size: 19px;
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .player-wrapper {
+      background: #000;
+      border-radius: 24px;
+      padding: 12px;
+      border: 3px solid var(--accent-gold);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      margin-bottom: 24px;
+    }
+
+    .player-wrapper video {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-card);
+      padding: 20px 26px;
+      border-radius: 20px;
+      margin-bottom: 42px;
+      flex-wrap: wrap;
+      gap: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 26px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-download {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #F5A623 0%, #E67E22 100%);
+      color: #111520;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .btn-max {
+      background: linear-gradient(135deg, #7B3FE4 0%, #3B82F6 100%);
+      color: #fff;
+    }
+
+    .viral-guest-card {
+      background: linear-gradient(135deg, #232B42 0%, #181E30 100%);
+      border: 2px solid var(--accent-gold);
+      border-radius: 26px;
+      padding: 40px 36px;
+      text-align: center;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .viral-guest-card h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+      color: #FFD166;
+    }
+
+    .viral-guest-card p {
+      font-size: 18px;
+      color: #DCE3F2;
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    .promo-box {
+      display: inline-block;
+      background: rgba(245, 166, 35, 0.15);
+      border: 2px dashed #F5A623;
+      padding: 12px 28px;
+      border-radius: 14px;
+      font-size: 18px;
+      margin-bottom: 28px;
+      color: #fff;
+    }
+
+    .promo-box strong {
+      color: #FFD166;
+      font-size: 21px;
+      letter-spacing: 1px;
+    }
+
+    .services-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .mini-item {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 18px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      text-decoration: none;
+      display: block;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .mini-item:hover {
+      transform: translateY(-3px);
+      border-color: #F5A623;
+    }
+
+    .mini-item h4 {
+      color: #FFD166;
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .mini-item p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .gift-header h1 {
+        font-size: 28px;
+      }
+      .services-mini-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="top-bar">
+      <a href="index.html" class="studio-brand">
+        <span>🎬 Создано в студии семейного кино <strong>«Тёплый Кадр»</strong> • +7 (914) 717-31-32</span>
+      </a>
+      <a href="index.html" class="btn btn-download" style="padding: 8px 18px; font-size: 14px;">← На главный сайт студии</a>
+    </div>
+
+    <!-- ПЕРСОНАЛЬНОЕ ПОЗДРАВЛЕНИЕ ДЛЯ ИМЕНИННИКА -->
+    <div class="gift-header">
+      <span class="gift-pill">🎉 Персональный фильм-подарок • 2026 год</span>
+      <h1>С 30-летием, наш главный герой Макс!</h1>
+      <p>От маленьких шагов в шлеме космонавта и маминых пирожков — до верных друзей, студенческих пельменей в чайнике и большой любви. С любовью от жены Ани, родителей Виктора и Елены и друзей!</p>
+    </div>
+
+    <!-- ГЛАВНЫЙ ПЛЕЕР -->
+    <div class="player-wrapper">
+      <video controls autoplay playsinline poster="pixar_poster_1080p.jpg">
+        <source src="media/pixar_max30_1080p.mp4" type="video/mp4" />
+        Ваш браузер не поддерживает видео.
+      </video>
+    </div>
+
+    <!-- КНОПКИ СКАЧИВАНИЯ ОРИГИНАЛА -->
+    <div class="action-bar">
+      <div>
+        <strong style="display: block; font-size: 18px;">Сохраните фильм в семейный архив на память</strong>
+        <span style="color: var(--text-muted); font-size: 14px;">Качество Full HD 1920×1080 • Длительность 2 мин 37 сек</span>
+      </div>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="media/pixar_max30_1080p.mp4" download class="btn btn-download">⬇ Скачать оригинал фильма (MP4)</a>
+      </div>
+    </div>
+
+    <!-- САРАФАННЫЙ МАГНИТ ДЛЯ ВСЕХ ГОСТЕЙ И РОДСТВЕННИКОВ -->
+    <div class="viral-guest-card">
+      <h2>Понравился фильм-подарок для Макса? 🎁</h2>
+      <p>
+        Мы создали этот персональный фильм в студии <strong>«Тёплый Кадр»</strong> специально по фотографиям и реальным историям из семейного альбома! Хотите так же растрогать и удивить своих близких на ближайший день рождения, юбилей родителей или свадьбу?
+      </p>
+
+      <div class="promo-box">
+        Всем друзьям, гостям и родственникам Макса — <strong>скидка 1 500 ₽</strong> по промокоду: <strong>МАКС30</strong>
+      </div>
+
+      <div class="services-mini-grid">
+        <a href="cartoon.html" class="mini-item">
+          <h4>🎬 1. 3D-Мультфильм по биографии →</h4>
+          <p>История жизни именинника в стиле Disney/Pixar со 100% сходством лиц, характера и студийной озвучкой.</p>
+        </a>
+        <a href="photo-alive.html" class="mini-item">
+          <h4>🎞 2. Оживление старых фотографий →</h4>
+          <p>Вернём к жизни старые снимки родителей, бабушек и дедушек и соберём фильм памяти до слёз.</p>
+        </a>
+        <a href="video-edit.html" class="mini-item">
+          <h4>✂️ 3. Умный монтаж архивов и Reels →</h4>
+          <p>Соберём фильм из видео в вашем телефоне, тостов гостей и доснимем недостающие кадры с ИИ.</p>
+        </a>
+        <a href="photoshoot.html" class="mini-item">
+          <h4>🎨 4. Семейный портрет в 7 стилях →</h4>
+          <p>Превратим ваше фото в 7 ярких картин (Pixar, Аниме, 90-е, Рыцари) для печати на холсте.</p>
+        </a>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <a href="index.html" class="btn btn-gold">Все услуги на сайте →</a>
+        <a href="https://wa.me/79147173132?text=Здравствуйте! Увидел(а) подарок для Макса (промокод МАКС30), хочу заказать такой же подарок для близких!" target="_blank" class="btn btn-whatsapp">💬 Написать в WhatsApp</a>
+        <button class="btn btn-max" onclick="navigator.clipboard.writeText('Здравствуйте! Увидел(а) подарок для Макса (промокод МАКС30), хочу заказать такой же подарок для близких!'); alert('Текст скопирован! Наш номер в MAX: +7 (914) 717-31-32'); window.open('https://max.ru', '_blank');">📱 Написать в MAX (+7 (914) 717-31-32)</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

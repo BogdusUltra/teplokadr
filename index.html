@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тёплый Кадр — Студия семейных мультфильмов, оживления фото и видеоподарков</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ШАПКА САЙТА (ЕДИНАЯ НАВИГАЦИЯ ПО УСЛУГАМ) -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-badge">ТК</div>
+        <div class="logo-text">
+          <strong>Тёплый Кадр</strong>
+          <span>Студия семейного кино и подарков</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Все услуги</a>
+        <a href="cartoon.html">1. 3D-Мультфильм</a>
+        <a href="photo-alive.html">2. Оживление фото</a>
+        <a href="video-edit.html">3. Видеомонтаж</a>
+        <a href="photoshoot.html">4. Портреты 7 стилей</a>
+        <a href="gift-max30.html" class="gift-link">🎁 Демо подарка</a>
+      </nav>
+      <div class="header-cta">
+        <a href="https://wa.me/79147173132" target="_blank" class="header-phone">
+          +7 (914) 717-31-32
+          <small>WhatsApp • MAX • Звонки</small>
+        </a>
+        <button class="btn btn-primary btn-sm" onclick="openOrderModal('Подбор подарка', 'Бесплатный расчёт сюжета')">Бесплатная проба по фото</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ПЕРВЫЙ ЭКРАН -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill-tag">✨ Подарок на Юбилей, День Рождения, Свадьбу и Годовщину</span>
+        <h1>Превратим фотографии и историю вашей семьи в <span>настоящий мультфильм</span> или живое кино!</h1>
+        <p class="lead">
+          Выберите одно из 4 направлений нашей студии: от оживления старого родительского снимка до биографического 3D-мультфильма в стиле Disney/Pixar со студийной озвучкой за 1–2 дня.
+        </p>
+        <ul class="hero-benefits">
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>100% узнаваемость лица и характера:</strong> передаём родную улыбку, фирменную мимику, комплекцию, привычки и любимую одежду каждого героя!</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>Бесплатный пробный кадр до оплаты:</strong> пришлите 1 фото, и мы бесплатно покажем образ вашего именинника.</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>Именная Подарочная Страница:</strong> готовый фильм оформляется на красивой личной странице для отправки гостям и родным!</span>
+          </li>
+        </ul>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="#services" class="btn btn-primary">Выбрать услугу (4 направления) ↓</a>
+          <a href="gift-max30.html" class="btn btn-outline">Как выглядит подарок клиента →</a>
+        </div>
+      </div>
+
+      <!-- ГЛАВНЫЙ ВИДЕОПЛЕЕР С НАШИМ МУЛЬТИКОМ 1080p -->
+      <div class="video-showcase-card">
+        <video controls preload="metadata" poster="pixar_poster_1080p.jpg">
+          <source src="media/pixar_max30_1080p.mp4" type="video/mp4" />
+        </video>
+        <div class="video-caption">
+          <span>🎬 <strong>Флагманский кейс:</strong> Мультфильм на 30-летие Максима (Full HD 1080p)</span>
+          <a href="cartoon.html">Подробнее о 3D-мультфильмах →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАТАЛОГ ВСЕХ 4 УСЛУГ (КЛИКАБЕЛЬНЫЕ КАРТОЧКИ С ПЕРЕХОДОМ НА ВНУТРЕННИЕ СТРАНИЦЫ) -->
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Все услуги студии «Тёплый Кадр»</h2>
+        <p>Нажмите на любую услугу, чтобы перейти на её страницу, посмотреть видео-примеры, калькулятор стоимости и подробные тарифы</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- УСЛУГА 1: МУЛЬТФИЛЬМ -->
+        <a href="cartoon.html" class="service-card featured">
+          <span class="badge-hit">★ ХИТ ПОДАРКОВ НА ЮБИЛЕЙ</span>
+          <div>
+            <div class="service-thumb">
+              <img src="pixar_poster_1080p.jpg" alt="Персональный 3D мультфильм по фото" />
+              <span class="service-thumb-badge">🎬 Сюжетное кино 1–4 мин • 6 шаблонов</span>
+            </div>
+            <div class="service-num">Услуга №1 • Биографический мультфильм</div>
+            <h3>Персональный 3D-мультфильм (Disney / Pixar) по вашей истории</h3>
+            <p>Создаём полноценный фильм о жизни именинника: Детство, Школа, Универ, Встреча любви, Друзья и Юбилей со 100% сходством лиц и характера.</p>
+            <ul class="service-features">
+              <li>✓ Сохраняем черты лица, комплекцию, мимику и любимую одежду</li>
+              <li>✓ Профессиональный голос рассказчика и музыка по эпохам</li>
+              <li>✓ Оформление Apple Glass со шкалой годов жизни</li>
+            </ul>
+          </div>
+          <div class="service-footer">
+            <div class="price-tag">от 9 900 ₽ <small>Хит «Стандарт 2,5 мин» — 14 900 ₽</small></div>
+            <span class="btn btn-primary btn-sm">Открыть страницу услуги →</span>
+          </div>
+        </a>
+
+        <!-- УСЛУГА 2: ОЖИВЛЕНИЕ ФОТО -->
+        <a href="photo-alive.html" class="service-card">
+          <div>
+            <div class="service-thumb">
+              <img src="media/avito_photo_alive_cover_16x9.png" alt="Оживление старых и архивных фотографий" />
+              <span class="service-thumb-badge">🎞 Реставрация + Живые эмоции</span>
+            </div>
+            <div class="service-num">Услуга №2 • Живая Память Семьи</div>
+            <h3>Оживление старых и архивных фотографий</h3>
+            <p>Бережно реставрируем, раскрашиваем и оживляем чёрно-белые и цветные снимки родителей, бабушек и дедушек в трогательный фильм.</p>
+            <ul class="service-features">
+              <li>✓ Удаление трещин, пятен и восстановление чёткости лиц</li>
+              <li>✓ Естественная улыбка, тёплый взгляд и объятия без искажений</li>
+              <li>✓ Сборка фильма «Семейная летопись» под любимую песню родителей</li>
+            </ul>
+          </div>
+          <div class="service-footer">
+            <div class="price-tag">от 1 500 ₽ <small>Фильм из 10 фото — 4 900 ₽</small></div>
+            <span class="btn btn-outline btn-sm">Открыть страницу услуги →</span>
+          </div>
+        </a>
+
+        <!-- УСЛУГА 3: ИИ-МОНТАЖ -->
+        <a href="video-edit.html" class="service-card">
+          <div>
+            <div class="service-thumb">
+              <img src="media/style_templates/tpl_02_cinema.png" alt="Умный видеомонтаж семейных архивов и Reels" />
+              <span class="service-thumb-badge">✂️ Семейные архивы + Reels/Shorts</span>
+            </div>
+            <div class="service-num">Услуга №3 • Кино-монтаж под ключ</div>
+            <h3>Умный монтаж семейных архивов и роликов Reels / Shorts</h3>
+            <p>Превращаем гигабайты разрозненных видео с телефона (отпуск, взросление ребёнка, тосты гостей) в динамичный фильм или серию Reels.</p>
+            <ul class="service-features">
+              <li>✓ ИИ-досъёмка недостающих сцен, которых не оказалось на видео</li>
+              <li>✓ Чистка звука, цветокоррекция, переходы и титры</li>
+              <li>✓ Пакетный монтаж Reels / Shorts / VK Клипов для экспертов</li>
+            </ul>
+          </div>
+          <div class="service-footer">
+            <div class="price-tag">от 2 500 ₽ <small>Семейный фильм — 6 900 ₽</small></div>
+            <span class="btn btn-outline btn-sm">Открыть страницу услуги →</span>
+          </div>
+        </a>
+
+        <!-- УСЛУГА 4: ИИ-ФОТОСЕССИЯ И 7 СТИЛЕЙ -->
+        <a href="photoshoot.html" class="service-card">
+          <div>
+            <div class="service-thumb">
+              <img src="media/avito_cover_16x9.png" alt="Семейный портрет в 7 стилях и нейро-фотосессия" />
+              <span class="service-thumb-badge">🎨 7 вселенных + Холст 4K</span>
+            </div>
+            <div class="service-num">Услуга №4 • Портреты и Образы</div>
+            <h3>Семейный портрет в 7 стилях и ИИ-фотосессия по фото</h3>
+            <p>Превратим обычное домашнее фото в картину для печати на холсте, соберём родных с разных снимков вместе или проведём фотосессию без студии.</p>
+            <ul class="service-features">
+              <li>✓ 7 стилей: 3D Pixar, Аниме Миядзаки, 90-е VHS, Рыцари, Каменный век</li>
+              <li>✓ Объединение родственников из разных городов на одном портрете</li>
+              <li>✓ Разрешение 4K для печати на холсте + видео-преображение</li>
+            </ul>
+          </div>
+          <div class="service-footer">
+            <div class="price-tag">от 1 500 ₽ <small>Пакет «7 стилей + видео» — 2 900 ₽</small></div>
+            <span class="btn btn-outline btn-sm">Открыть страницу услуги →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- БАННЕР САРАФАННОЙ ПОДАРОЧНОЙ СТРАНИЦЫ -->
+  <section class="section">
+    <div class="container">
+      <div style="background: linear-gradient(135deg, #FFF5E4 0%, #FFE4D6 100%); border: 2px solid #F5A623; border-radius: 24px; padding: 40px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap;">
+        <div style="max-width: 680px;">
+          <span class="pill-tag" style="margin-bottom: 10px;">🎁 Эксклюзивная фишка студии «Тёплый Кадр»</span>
+          <h3 style="font-size: 28px; margin-bottom: 10px;">Каждому клиенту — именная Подарочная Веб-Страница!</h3>
+          <p style="color: var(--text-muted); font-size: 18px;">
+            Мы не просто присылаем файл. Мы создаём для вашего именинника персональную страницу с поздравлением и плеером Full HD (открывается на любом телефоне и телевизоре за 1 секунду). Именинник пересылает ссылку гостям в WhatsApp/Telegram, и все родные могут посмотреть фильм и скачать его на память!
+          </p>
+        </div>
+        <div>
+          <a href="gift-max30.html" class="btn btn-primary btn-lg">Открыть пример страницы Максима →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК МЫ РАБОТАЕМ -->
+  <section class="section" style="padding-top: 10px;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Как проходит работа — 4 простых шага</h2>
+        <p>Понятно и удобно даже для тех, кто заказывает такой подарок впервые</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h4>Выбираете услугу и присылаете фото</h4>
+          <p>Отправляете нам в WhatsApp или Telegram обычные фотографии с телефона.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h4>Бесплатная проба образа</h4>
+          <p>До начала большой работы мы бесплатно делаем пробный кадр или концепт сюжета.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h4>Утверждаете героев и историю</h4>
+          <p>Согласовываем внешность, комплекцию, привычки и любимую одежду персонажей.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h4>Получаете фильм и страницу за 1–2 дня</h4>
+          <p>Отдаём оригинал в Full HD 1080p и персональную подарочную ссылку для всей семьи!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЧАСТЫЕ ВОПРОСЫ (FAQ) -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Частые вопросы наших заказчиков</h2>
+        <p>Нажмите на вопрос, чтобы прочитать подробный ответ</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-question">Похожи ли герои мультфильма на реальных людей из нашей семьи? <span>▾</span></button>
+          <div class="faq-answer">
+            Да! В отличие от шаблонных приложений, мы создаём индивидуальную карточку каждого героя по вашим фото: сохраняем не только черты лица и причёску, но и комплекцию (рост, полноту), фирменную мимику, привычки и даже любимый свитер или пиджак из жизни. Сначала вы утверждаете портреты всех героев, и только после этого мы приступаем к анимации сцен.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Что если у нас сохранились только старые или нечёткие фотографии? <span>▾</span></button>
+          <div class="faq-answer">
+            Это абсолютно нормально! Вы можете просто перефотографировать старый бумажный снимок из альбома на телефон у окна при дневном свете. Мы сами бережно уберём блики, трещины и восстановим чёткость лиц.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Как мы сможем включить фильм на юбилее в ресторане или дома на телевизоре? <span>▾</span></button>
+          <div class="faq-answer">
+            Вы получаете и чистый видеофайл <code>.mp4</code> в максимальном качестве Full HD 1920×1080 (для флешки или ноутбука ведущего), и именную Подарочную веб-страницу, которую можно открыть прямо на Smart TV или переслать всем гостям в семейный чат.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ САЙТА -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong style="color: #fff; font-size: 22px; display: block; margin-bottom: 10px;">Студия семейного кино «Тёплый Кадр»</strong>
+          <p style="margin-bottom: 16px;">Создаём персональные 3D-мультфильмы, бережно оживляем архивные фотографии родителей и монтируем семейные фильмы по всей России.</p>
+          <p style="margin-bottom: 12px; color: #FFD166; font-weight: 700;">📞 WhatsApp и MAX: +7 (914) 717-31-32</p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-whatsapp btn-sm" onclick="openOrderModal('Вопрос с главной страницы', 'Быстрая консультация')">WhatsApp</button>
+            <button class="btn btn-max btn-sm" onclick="openOrderModal('Вопрос с главной страницы', 'Быстрая консультация')">Написать в MAX</button>
+            <button class="btn btn-telegram btn-sm" onclick="openOrderModal('Вопрос с главной страницы', 'Быстрая консультация')">Telegram</button>
+          </div>
+        </div>
+        <div>
+          <strong style="color: #fff; display: block; margin-bottom: 12px;">Все услуги студии:</strong>
+          <ul class="footer-links">
+            <li><a href="cartoon.html">1. 3D-Мультфильм по биографии</a></li>
+            <li><a href="photo-alive.html">2. Оживление старых фотографий</a></li>
+            <li><a href="video-edit.html">3. Умный монтаж архивов и Reels</a></li>
+            <li><a href="photoshoot.html">4. Портреты в 7 стилях и фотосессия</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: #fff; display: block; margin-bottom: 12px;">Примеры для клиентов:</strong>
+          <ul class="footer-links">
+            <li><a href="gift-max30.html">🎁 Подарочная страница именинника (Демо)</a></li>
+            <li><a href="cartoon.html#templates">🎨 6 шаблонов оформления фильма</a></li>
+            <li><a href="photoshoot.html#gallery">🖼 Интерактивная галерея 7 стилей</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; text-align: center; font-size: 14px;">
+        © 2026 Студия «Тёплый Кадр». Работаем ежедневно с 09:00 до 22:00.
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО ЗАКАЗА / БЕСПЛАТНОЙ ПРОБЫ -->
+  <div class="modal-backdrop" id="orderModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeOrderModal()">✕</button>
+      <span class="pill-tag" style="margin-bottom: 8px;">Бесплатная проба и расчёт за 15 минут</span>
+      <h3 id="modalTitle" style="font-size: 26px; margin-bottom: 6px;">Заказать подарок</h3>
+      <p id="modalSub" style="color: var(--text-muted); font-size: 15px; margin-bottom: 18px;">Выбранный вариант</p>
+
+      <input type="hidden" id="modalService" value="Консультация" />
+      <input type="hidden" id="modalTariff" value="Стандарт" />
+
+      <div class="calc-control">
+        <label>Как к вам обращаться?</label>
+        <input type="text" id="modalClientName" placeholder="Например: Елена" />
+      </div>
+      <div class="calc-control">
+        <label>По какому поводу готовим подарок?</label>
+        <select id="modalOccasion">
+          <option value="Юбилей / День рождения">🎂 Юбилей / День рождения</option>
+          <option value="Память семьи / Родителям">🎞 Память семьи / Подарок родителям</option>
+          <option value="Свадьба / Годовщина">💍 Свадьба / Годовщина</option>
+          <option value="Корпоратив / Друзьям">🎉 Подарок другу или руководителю</option>
+          <option value="Для себя / Блог Reels">📱 Для себя / Монтаж Reels</option>
+        </select>
+      </div>
+      <div class="calc-control">
+        <label>Кратко напишите ваши пожелания (по желанию):</label>
+        <textarea id="modalComment" rows="2" placeholder="Например: нужен мультик мужу на 45 лет к пятнице..."></textarea>
+      </div>
+
+      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">
+        Выберите удобный мессенджер — откроется диалог с уже заполненной заявкой, куда вы сможете прикрепить фото:
+      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+        <button class="btn btn-whatsapp btn-sm" onclick="sendLeadToWhatsApp()">WhatsApp</button>
+        <button class="btn btn-max btn-sm" onclick="sendLeadToMax()">MAX</button>
+        <button class="btn btn-telegram btn-sm" onclick="sendLeadToTelegram()">Telegram</button>
+      </div>
+      <div style="text-align: center; margin-top: 10px; font-size: 14px; color: var(--text-muted);">
+        Номер для <strong>WhatsApp и MAX</strong>: <strong>+7 (914) 717-31-32</strong>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

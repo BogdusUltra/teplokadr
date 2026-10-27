@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Оживление старых и архивных фотографий («Живая Память») — Студия «Тёплый Кадр»</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ШАПКА САЙТА -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-badge">ТК</div>
+        <div class="logo-text">
+          <strong>Тёплый Кадр</strong>
+          <span>Студия семейного кино и подарков</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Все услуги</a>
+        <a href="cartoon.html">1. 3D-Мультфильм</a>
+        <a href="photo-alive.html" class="active">2. Оживление фото</a>
+        <a href="video-edit.html">3. Видеомонтаж</a>
+        <a href="photoshoot.html">4. Портреты 7 стилей</a>
+        <a href="gift-max30.html" class="gift-link">🎁 Демо подарка</a>
+      </nav>
+      <div class="header-cta">
+        <a href="https://wa.me/79147173132" target="_blank" class="header-phone">
+          +7 (914) 717-31-32
+          <small>WhatsApp • MAX • Звонки</small>
+        </a>
+        <button class="btn btn-primary btn-sm" onclick="openOrderModal('Оживление старых фотографий', 'Бесплатная оценка снимков')">Прислать фото на оценку</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container breadcrumbs">
+    <a href="index.html">Главная (Все услуги)</a> <span>→</span> <strong>Услуга №2: Оживление старых и архивных фотографий</strong>
+  </div>
+
+  <!-- HERO УСЛУГИ 2 -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill-tag">🎞 Услуга №2 • Трогательный подарок родителям, бабушке и дедушке</span>
+        <h1>Бережное <span>оживление и реставрация</span> старых семейных фотографий</h1>
+        <p class="lead">
+          Вернём тепло, цвет и живые эмоции старым чёрно-белым и советским снимкам. Родные на фотографии снова мягко улыбнутся, посмотрят в камеру и обнимут друг друга — подарок, который трогает родителей до слёз счастья.
+        </p>
+        <ul class="hero-benefits">
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>Без пугающего «эффекта робота»:</strong> только естественная, мягкая мимика и бережное сохранение родных черт лица, причёски и взгляда.</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>Реставрация и раскрашивание включены:</strong> убираем заломы, трещины, пятна времени и возвращаем естественные цвета эпохи.</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>Сборка фильма «Семейная летопись»:</strong> соединяем 10–30 оживших снимков под любимую песню родителей с бархатным голосом диктора!</span>
+          </li>
+        </ul>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <button class="btn btn-primary" onclick="openOrderModal('Оживление старых фотографий', 'Прислать снимки на бесплатную оценку')">Прислать фото в WhatsApp / Telegram</button>
+          <a href="#calc" class="btn btn-outline">Рассчитать стоимость по числу фото ↓</a>
+        </div>
+      </div>
+
+      <!-- ГЛАВНЫЙ ПЛЕЕР С НАШИМ FULL HD РОЛИКОМ ОЖИВЛЕНИЯ ФОТО -->
+      <div class="video-showcase-card">
+        <video controls preload="metadata" poster="media/avito_photo_alive_cover_16x9.png">
+          <source src="media/photo_alive_1080p.mp4" type="video/mp4" />
+        </video>
+        <div class="video-caption">
+          <span>▶ <strong>Включите видео:</strong> 4 ожившие эпохи (1965 Парк → 1978 Свадьба → 1986 Ялта → 1994 Дача)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ИНТЕРАКТИВНЫЙ ПОЛЗУНОК «ДО И ПОСЛЕ РЕСТАВРАЦИИ» -->
+  <section class="section" style="padding-top: 10px;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Сравните: старый бумажный снимок ↔ после реставрации и оживления</h2>
+        <p>Потяните ползунок влево-вправо: убираем заломы бумаги, трещины и возвращаем живые цвета и эмоции</p>
+      </div>
+      <div style="max-width: 920px; margin: 0 auto;">
+        <div class="ba-container">
+          <img src="media/photo_alive/after_02.jpg" alt="После реставрации и колоризации" />
+          <div class="ba-overlay" style="width: 50%;">
+            <img src="media/photo_alive/before_02.jpg" alt="До реставрации: старое ч/б фото с трещинами" />
+          </div>
+          <input type="range" min="5" max="95" value="50" class="ba-slider-input" aria-label="Сравнение До и После реставрации" />
+          <span class="ba-label left">ДО: Старое ч/б фото с заломами (1978 г.)</span>
+          <span class="ba-label right">ПОСЛЕ: Реставрация, цвет и оживление Full HD</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 ЭТАПА БЕРЕЖНОЙ РАБОТЫ СО СТАРЫМ ФОТО -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Как мы работаем с каждой архивной фотографией</h2>
+        <p>Вам не нужно искать сканер — достаточно перефотографировать бумажный снимок на телефон при дневном свете у окна</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h4>Цифровая реставрация</h4>
+          <p>Вручную и с помощью нейросетей убираем трещины, царапины, заломы бумаги, блики от лампы и восстанавливаем чёткость глаз, улыбки и деталей одежды.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h4>Историческая колоризация</h4>
+          <p>По вашему желанию бережно раскрашиваем чёрно-белые фотографии 1940–1980-х годов в естественные тёплые тона (или оставляем благородный архивный стиль).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h4>Живое движение и кино-монтаж</h4>
+          <p>Оживляем каждый кадр на 5–8 секунд: мягкий поворот головы, тёплая родная улыбка, объятие супругов — и собираем фильм с подписями годов и голосом рассказчика.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР СТОИМОСТИ ОЖИВЛЕНИЯ ФОТО -->
+  <section class="section" id="calc">
+    <div class="container">
+      <div class="section-header">
+        <h2>Онлайн-калькулятор оживления фотографий</h2>
+        <p>Выберите количество фотографий из вашего семейного альбома и нужные опции</p>
+      </div>
+
+      <div class="calc-box">
+        <div class="calc-grid">
+          <div>
+            <div class="calc-control">
+              <label>Количество фотографий для оживления: <span id="photoCountLabel" style="color: var(--accent-warm); font-size: 22px;">10 фото</span></label>
+              <input type="range" id="photoCountRange" min="3" max="35" value="10" oninput="updatePhotoAliveCalc()" />
+              <div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+                <span>3 фото (мини)</span>
+                <span>10–15 фото (ролик)</span>
+                <span>25–35 фото (фильм)</span>
+              </div>
+            </div>
+
+            <div class="calc-control" style="display: flex; align-items: center; gap: 12px;">
+              <input type="checkbox" id="photoRestoreCheck" checked onchange="updatePhotoAliveCalc()" style="width: 22px; height: 22px; accent-color: var(--accent-warm);" />
+              <label for="photoRestoreCheck" style="margin: 0; cursor: pointer;">Глубокая реставрация трещин + раскрашивание ч/б фото</label>
+            </div>
+
+            <div class="calc-control" style="display: flex; align-items: center; gap: 12px;">
+              <input type="checkbox" id="photoVoiceCheck" onchange="updatePhotoAliveCalc()" style="width: 22px; height: 22px; accent-color: var(--accent-warm);" />
+              <label for="photoVoiceCheck" style="margin: 0; cursor: pointer;">Добавить голос диктора-рассказчика по вашей семейной истории (+2 500 ₽)</label>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <div style="font-size: 14px; color: #B8C2D4; text-transform: uppercase; letter-spacing: 1px;">Ориентировочная стоимость:</div>
+            <div class="calc-total" id="photoCalcTotal">6 000 ₽</div>
+            <p style="font-size: 14px; color: #D0D7E6; margin-bottom: 18px;">
+              Музыкальное оформление, титры с годами и подарочная веб-страница входят бесплатно!
+            </p>
+            <button id="photoCalcOrderBtn" class="btn btn-primary" style="width: 100%;" onclick="openOrderModal('Оживление архивных фотографий', '10 оживших фото + реставрация', '6 000 ₽')">Заказать по этому расчёту</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ГОТОВЫЕ ПАКЕТЫ УСЛУГИ 2 -->
+  <section class="section section-alt" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Готовые пакеты «Живая Память»</h2>
+        <p>Выберите удобный формат — от нескольких памятных кадров до большого фильма к юбилею родителей</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div>
+            <div class="service-num">Пакет 1 • Поштучно</div>
+            <h3>«Живой Снимок» (3 фото)</h3>
+            <div class="pricing-price">1 500 ₽</div>
+            <ul class="pricing-list">
+              <li>✓ <strong>3 ожившие фотографии</strong> (по 5–8 секунд каждая)</li>
+              <li>✓ Бережная чистка царапин и улучшение чёткости лиц</li>
+              <li>✓ Раскрашивание чёрно-белых снимков по желанию</li>
+              <li>✓ Отдаём как отдельно, так и в едином мини-ролике</li>
+              <li>✓ Срок готовности: <strong>в день обращения (3–6 часов)</strong></li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Оживление старых фотографий', 'Пакет «Живой Снимок» (3 фото)', '1 500 ₽')">Заказать 3 фото</button>
+        </div>
+
+        <div class="pricing-card popular">
+          <div>
+            <div class="service-num">★ Хит для родителей на годовщину и юбилей</div>
+            <h3>Ролик «История в кадрах»</h3>
+            <div class="pricing-price">4 900 ₽</div>
+            <ul class="pricing-list">
+              <li>✓ <strong>10 оживших фотографий</strong> из семейного альбома</li>
+              <li>✓ Полная реставрация и выравнивание цвета</li>
+              <li>✓ Плавный кино-монтаж под любимую песню родителей</li>
+              <li>✓ Художественные титры с датами, именами и городами</li>
+              <li>✓ <strong>Именная Подарочная Веб-Страница в подарок!</strong></li>
+            </ul>
+          </div>
+          <button class="btn btn-primary" style="width: 100%;" onclick="openOrderModal('Оживление старых фотографий', 'Ролик «История в кадрах» (10 фото)', '4 900 ₽')">Заказать ролик из 10 фото</button>
+        </div>
+
+        <div class="pricing-card">
+          <div>
+            <div class="service-num">Пакет 3 • Большой семейный фильм</div>
+            <h3>Фильм «Семейная Летопись»</h3>
+            <div class="pricing-price">12 900 ₽</div>
+            <ul class="pricing-list">
+              <li>✓ <strong>25–30 оживших архивных фотографий</strong> (3–4 минуты)</li>
+              <li>✓ Написание сценария по биографии вашей семьи</li>
+              <li>✓ <strong>Профессиональная озвучка диктора-рассказчика</strong></li>
+              <li>✓ Деление на главы (Детство, Молодость, Свадьба, Дети и Внуки)</li>
+              <li>✓ Оформление в стиле «Семейный альбом» или «Apple Glass»</li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Оживление старых фотографий', 'Фильм «Семейная Летопись» (25–30 фото + диктор)', '12 900 ₽')">Заказать «Семейную Летопись»</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong style="color: #fff; font-size: 22px; display: block; margin-bottom: 10px;">Студия «Тёплый Кадр»</strong>
+          <p>Бережное оживление старых фотографий, 3D-мультфильмы и семейные фильмы на заказ.</p>
+        </div>
+        <div>
+          <strong style="color: #fff; display: block; margin-bottom: 12px;">Другие услуги студии:</strong>
+          <ul class="footer-links">
+            <li><a href="cartoon.html">→ Услуга №1: 3D-Мультфильм по биографии</a></li>
+            <li><a href="video-edit.html">→ Услуга №3: Видеомонтаж и Reels</a></li>
+            <li><a href="photoshoot.html">→ Услуга №4: Семейные портреты в 7 стилях</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: #fff; display: block; margin-bottom: 12px;">Отправить фото на оценку:</strong>
+          <button class="btn btn-primary btn-sm" onclick="openOrderModal('Оживление старых фотографий', 'Бесплатная оценка фото')">Написать в мессенджер</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО ЗАКАЗА -->
+  <div class="modal-backdrop" id="orderModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeOrderModal()">✕</button>
+      <span class="pill-tag" style="margin-bottom: 8px;">Бережная работа со старыми снимками</span>
+      <h3 id="modalTitle" style="font-size: 26px; margin-bottom: 6px;">Оживление фотографий</h3>
+      <p id="modalSub" style="color: var(--text-muted); font-size: 15px; margin-bottom: 18px;">Тариф</p>
+
+      <input type="hidden" id="modalService" value="Оживление старых фотографий" />
+      <input type="hidden" id="modalTariff" value="История в кадрах (10 фото)" />
+
+      <div class="calc-control">
+        <label>Как к вам обращаться?</label>
+        <input type="text" id="modalClientName" placeholder="Ваше имя" />
+      </div>
+      <div class="calc-control">
+        <label>Повод или для кого готовим подарок?</label>
+        <select id="modalOccasion">
+          <option value="Подарок маме / папе на юбилей">💐 Подарок маме / папе на юбилей</option>
+          <option value="Подарок бабушке / дедушке">👵 Подарок бабушке / дедушке</option>
+          <option value="Годовщина свадьбы родителей">💍 Годовщина свадьбы родителей</option>
+          <option value="Памятный фильм для семейного архива">🎞 Памятный фильм для семейного архива</option>
+        </select>
+      </div>
+      <div class="calc-control">
+        <label>Сколько примерно фотографий планируете оживить?</label>
+        <textarea id="modalComment" rows="2" placeholder="Например: около 12 чёрно-белых фото родителей к субботе..."></textarea>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+        <button class="btn btn-whatsapp btn-sm" onclick="sendLeadToWhatsApp()">WhatsApp</button>
+        <button class="btn btn-max btn-sm" onclick="sendLeadToMax()">MAX</button>
+        <button class="btn btn-telegram btn-sm" onclick="sendLeadToTelegram()">Telegram</button>
+      </div>
+      <div style="text-align: center; margin-top: 10px; font-size: 14px; color: var(--text-muted);">
+        Номер для <strong>WhatsApp и MAX</strong>: <strong>+7 (914) 717-31-32</strong>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
