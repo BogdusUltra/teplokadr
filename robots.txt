@@ -13,6 +13,12 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Google-Favicon
+Allow: /
+
 User-agent: OAI-SearchBot
 Allow: /
 
@@ -31,5 +37,5 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Host: https://teplo-kadr.ru
 Sitemap: https://teplo-kadr.ru/sitemap.xml
+
