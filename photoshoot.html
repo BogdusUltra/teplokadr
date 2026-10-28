@@ -104,12 +104,30 @@
     </div>
   </section>
 
-  <!-- ГАЛЕРЕЯ 9 СТИЛЕЙ + ОРИГИНАЛ -->
+  <!-- ГАЛЕРЕЯ 9 СТИЛЕЙ + ИНТЕРАКТИВ ДО / ПОСЛЕ -->
+  <style>
+    .styles-compare-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    .styles-compare-grid > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+    @media (max-width: 768px) {
+      .styles-compare-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+    }
+  </style>
   <section class="section section-alt" id="gallery">
     <div class="container">
       <div class="section-header">
         <h2>Примеры работ: одна семья — 9 художественных стилей</h2>
-        <p>Нажимайте на кнопки стилей ниже, чтобы рассмотреть, как сохраняются лица, улыбки и домашний кот в каждом образе</p>
+        <p>Нажимайте на кнопки стилей ниже, чтобы рассмотреть готовый портрет и сравнить его с исходным фото с помощью ползунка «До / После»</p>
       </div>
 
       <div class="tabs-bar">
@@ -125,44 +143,45 @@
         <button class="tab-btn style-tab-btn" onclick="switchStyleGallery(9, this)">Исходное фото</button>
       </div>
 
-      <div class="interactive-stage">
-        <div class="stage-grid">
-          <div class="stage-media">
-            <img id="stylePreviewImg" src="media/family_styles/style_06.png" alt="Пример семейного портрета" />
-          </div>
+      <div class="styles-compare-grid">
+        <!-- ЛЕВАЯ КАРТОЧКА: ВЫБРАННЫЙ СТИЛЬ -->
+        <div style="background: #FFFFFF; border: 1px solid var(--border-soft); border-radius: 22px; padding: 20px; box-shadow: var(--shadow-card); display: flex; flex-direction: column; justify-content: space-between;">
           <div>
-            <span class="pill-tag">100% сохранение черт лица, комплекции и одежды</span>
-            <h3 id="stylePreviewTitle" style="font-size: 26px; margin-bottom: 12px;">1. Объёмная 3D-анимация (в стиле классики Disney / Pixar)</h3>
-            <p id="stylePreviewDesc" style="color: var(--text-muted); font-size: 16.5px; margin-bottom: 22px;">
+            <div style="border-radius: 14px; overflow: hidden; margin-bottom: 14px; border: 1px solid var(--border-soft);">
+              <img id="stylePreviewImg" src="media/family_styles/style_06.png" alt="Пример семейного портрета" style="width: 100%; display: block;" />
+            </div>
+            <span class="pill-tag" style="margin-bottom: 8px;">100% сохранение черт лица, комплекции и одежды</span>
+            <h3 id="stylePreviewTitle" style="font-size: 21px; margin-bottom: 8px;">1. Объёмная 3D-анимация (в стиле классики Disney / Pixar)</h3>
+            <p id="stylePreviewDesc" style="color: var(--text-muted); font-size: 15px; margin-bottom: 16px;">
               Тёплый кинематографичный образ: 100% узнаваемость черт лица, добрый взгляд, улыбка, причёски, любимая одежда и даже домашний питомец.
             </p>
-            <div style="display: grid; gap: 10px;">
-              <button class="btn btn-primary" onclick="openOrderModal('Семейный портрет по фото', document.getElementById('stylePreviewTitle').textContent)">Заказать пробный кадр в этом стиле</button>
-              <a href="/cartoon" class="btn btn-outline" style="text-align: center;">Создать целый мультфильм в этом стиле →</a>
-            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-sm" onclick="openOrderModal('Семейный портрет по фото', document.getElementById('stylePreviewTitle').textContent)">Заказать пробный кадр в этом стиле</button>
+            <a href="/cartoon" class="btn btn-outline btn-sm">Создать мультфильм в этом стиле →</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ПОЛЗУНОК ДО / ПОСЛЕ -->
-  <section class="section" id="photoshootCompareSection">
-    <div class="container">
-      <div class="section-header">
-        <h2>Сравните исходное фото и готовый портрет ↔</h2>
-        <p>Обратите внимание на бережное отношение к деталям: зелёный свитер папы, полосатая футболка сына, бежевый кардиган мамы и рыжий кот остались на своих местах</p>
-      </div>
-
-      <div style="max-width: 920px; margin: 0 auto;">
-        <div class="ba-container">
-          <img id="styleCompareAfterImg" src="media/family_styles/style_06.png" alt="После: 3D-портрет 4K" />
-          <div class="ba-overlay" style="width: 50%;">
-            <img src="media/family_styles/style_07.png" alt="До: Обычное домашнее фото" />
+        <!-- ПРАВАЯ КАРТОЧКА: ИНТЕРАКТИВ ДО / ПОСЛЕ ДЛЯ ВЫБРАННОГО СТИЛЯ -->
+        <div id="styleCompareCard" style="background: #FFFFFF; border: 1px solid var(--border-soft); border-radius: 22px; padding: 20px; box-shadow: var(--shadow-card); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="ba-container" style="margin-bottom: 14px;">
+              <img id="styleCompareAfterImg" src="media/family_styles/style_06.png" alt="После: 3D-портрет 4K" />
+              <div class="ba-overlay" style="width: 50%;">
+                <img src="media/family_styles/style_07.png" alt="До: Обычное домашнее фото" />
+              </div>
+              <input type="range" min="5" max="95" value="50" class="ba-slider-input" aria-label="Сравнение До и После" />
+              <span class="ba-label left">До: обычное фото с телефона</span>
+              <span id="styleCompareAfterLabel" class="ba-label right">После: 3D-портрет 4K</span>
+            </div>
+            <h3 style="font-size: 21px; margin-bottom: 8px;">Сравните исходное фото и выбранный стиль ↔</h3>
+            <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 16px;">
+              Потяните ползунок влево или вправо: зелёный свитер папы, полосатая футболка сына, бежевый кардиган мамы и рыжий кот бережно сохранены в каждом образе.
+            </p>
           </div>
-          <input type="range" min="5" max="95" value="50" class="ba-slider-input" aria-label="Сравнение До и После" />
-          <span class="ba-label left">До: обычное фото с телефона</span>
-          <span id="styleCompareAfterLabel" class="ba-label right">После: 3D-портрет 4K</span>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="#pricing" class="btn btn-outline btn-sm">Смотреть тарифы на портреты ↓</a>
+          </div>
         </div>
       </div>
     </div>
