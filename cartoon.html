@@ -89,7 +89,7 @@
         </ul>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
           <button class="btn btn-primary" onclick="openOrderModal('Персональный мультфильм', 'Консультация по сюжету + пробный образ')">Прислать фото на бесплатную пробу</button>
-          <a href="#pricing" class="btn btn-outline">Смотреть тарифы (от 9 900 ₽) ↓</a>
+          <a href="#pricing" class="btn btn-outline">Смотреть тарифы (от 4 900 ₽) ↓</a>
         </div>
       </div>
 
@@ -172,62 +172,110 @@
   <section class="section section-alt" id="pricing">
     <div class="container">
       <div class="section-header">
-        <h2>Тарифы на создание мультфильма</h2>
-        <p>Написание сценария, создание образов героев, анимация, дикторская озвучка и музыкальное оформление уже включены в стоимость</p>
+        <span class="pill-tag">Базовый тариф от 4 900 ₽ • Пакеты с выгодой до 2 000 ₽</span>
+        <h2>Тарифы и выгодные пакеты на создание мультфильма</h2>
+        <p>Вы можете собрать фильм по базовому тарифу или выбрать один из 3 готовых пакетов со скидкой</p>
+      </div>
+
+      <!-- ПРОЗРАЧНЫЙ БАЗОВЫЙ ТАРИФ-КОНСТРУКТОР -->
+      <div style="background: #FFFFFF; border: 1px solid var(--border-soft); border-radius: 20px; padding: 20px 24px; margin-bottom: 26px; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
+          <div>
+            <strong style="font-size: 18px; color: var(--text-main);">Базовый расчёт стоимости (конструктор):</strong>
+            <span style="display: block; font-size: 14px; color: var(--text-muted);">Прозрачные правила расчёта для любого хронометража и состава семьи</span>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="openOrderModal('Персональный мультфильм', 'Базовый мультфильм (до 30 сек, до 4 героев)', '4 900 ₽')">Заказать базовый за 4 900 ₽</button>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px;">
+          <div style="background: var(--bg-cream); border-radius: 14px; padding: 12px 15px; border: 1px solid var(--border-soft);">
+            <strong style="color: var(--accent-warm); font-size: 18px; display: block;">4 900 ₽ — База</strong>
+            <span style="font-size: 13.5px; color: var(--text-muted);">Мультфильм до 30 сек, до 4 персонажей по фото, музыкальное оформление</span>
+          </div>
+          <div style="background: var(--bg-cream); border-radius: 14px; padding: 12px 15px; border: 1px solid var(--border-soft);">
+            <strong style="color: var(--text-main); font-size: 18px; display: block;">+1 000 ₽ — Озвучка</strong>
+            <span style="font-size: 13.5px; color: var(--text-muted);">Профессиональная озвучка диктора-рассказчика и реплик героев</span>
+          </div>
+          <div style="background: var(--bg-cream); border-radius: 14px; padding: 12px 15px; border: 1px solid var(--border-soft);">
+            <strong style="color: var(--text-main); font-size: 18px; display: block;">+1 500 ₽ — Каждые +30 сек</strong>
+            <span style="font-size: 13.5px; color: var(--text-muted);">Дополнительные 30 секунд сюжетной анимации и новых сцен</span>
+          </div>
+          <div style="background: var(--bg-cream); border-radius: 14px; padding: 12px 15px; border: 1px solid var(--border-soft);">
+            <strong style="color: var(--text-main); font-size: 18px; display: block;">+1 000 ₽ — Новый герой</strong>
+            <span style="font-size: 13.5px; color: var(--text-muted);">Каждый дополнительный персонаж по фото после 4-го героя</span>
+          </div>
+        </div>
       </div>
 
       <div class="pricing-grid">
         <div class="pricing-card">
           <div>
-            <div class="service-num">Тариф 1 • Короткий фильм</div>
-            <h3>«Короткая история»</h3>
-            <div class="pricing-price">9 900 ₽</div>
+            <div class="service-num">Пакет 1 • Короткое поздравление с озвучкой</div>
+            <h3>«Мини-фильм»</h3>
+            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+              <div class="pricing-price" style="margin-bottom: 0;">5 400 ₽</div>
+              <span style="text-decoration: line-through; color: var(--text-muted); font-size: 16px;">5 900 ₽</span>
+              <span style="background: #E8F5E9; color: #2E7D32; font-size: 12.5px; font-weight: 700; padding: 3px 9px; border-radius: 20px;">Выгода 500 ₽</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+              Без дикторской озвучки (под музыку) — <strong>4 900 ₽</strong>
+            </p>
             <ul class="pricing-list">
-              <li>✓ Длительность: <strong>до 1–1,5 минут (до 6 сцен)</strong></li>
+              <li>✓ Длительность: <strong>до 30 секунд (3–4 яркие сцены)</strong></li>
               <li>✓ <strong>До 4 персонажей</strong> с портретным сходством по вашим фото</li>
-              <li>✓ Сценарий по вашей истории в выбранном стиле</li>
-              <li>✓ Профессиональная озвучка диктора и музыка</li>
-              <li>✓ Срок готовности: <strong>от 1–2 дней</strong></li>
+              <li>✓ <strong>Профессиональная озвучка диктора</strong> + музыка (по тарифу 4 900 + 1 000 = 5 900 ₽)</li>
+              <li>✓ Срок готовности: <strong>от 1 дня</strong></li>
             </ul>
           </div>
-          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Персональный мультфильм', 'Тариф «Короткая история»', '9 900 ₽')">Заказать за 9 900 ₽</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Персональный мультфильм', 'Пакет 1 «Мини-фильм» (выгода 500 ₽)', '5 400 ₽')">Заказать за 5 400 ₽ (экономия 500 ₽)</button>
         </div>
 
         <div class="pricing-card popular">
           <div>
-            <div class="service-num">★ Тариф 2 • Основной выбор для юбилея и свадьбы</div>
-            <h3>«Полный фильм»</h3>
-            <div class="pricing-price">14 900 ₽</div>
+            <div class="service-num">★ Пакет 2 • Хит для дня рождения и годовщины</div>
+            <h3>«Семейная история»</h3>
+            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+              <div class="pricing-price" style="margin-bottom: 0;">6 500 ₽</div>
+              <span style="text-decoration: line-through; color: var(--text-muted); font-size: 16px;">7 400 ₽</span>
+              <span style="background: #E8F5E9; color: #2E7D32; font-size: 12.5px; font-weight: 700; padding: 3px 9px; border-radius: 20px;">Выгода 900 ₽</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+              По базовому тарифу: 4 900 + 1 500 (+30 сек) + 1 000 (озвучка) = 7 400 ₽
+            </p>
             <ul class="pricing-list">
-              <li>✓ Длительность: <strong>2–2,5 минуты (12–15 сцен)</strong></li>
-              <li>✓ Развёрнутый сюжет: <strong>реальная биография семьи или сказочная история</strong></li>
-              <li>✓ <strong>До 10 персонажей</strong> (именинник в разные годы, родители, супруги, друзья, питомцы)</li>
-              <li>✓ Голос диктора-рассказчика и реплики героев</li>
+              <li>✓ Длительность: <strong>до 1 минуты (6–8 сюжетных сцен)</strong></li>
+              <li>✓ <strong>До 4 персонажей</strong> (именинник, супруги, дети, родители, питомцы)</li>
+              <li>✓ <strong>Голос диктора-рассказчика</strong> и душевная музыка</li>
               <li>✓ <strong>Персональная подарочная веб-страница в подарок</strong></li>
             </ul>
           </div>
-          <button class="btn btn-primary" style="width: 100%;" onclick="openOrderModal('Персональный мультфильм', 'Тариф «Полный фильм» (2–2,5 мин)', '14 900 ₽')">Заказать за 14 900 ₽</button>
+          <button class="btn btn-primary" style="width: 100%;" onclick="openOrderModal('Персональный мультфильм', 'Пакет 2 «Семейная история» (выгода 900 ₽)', '6 500 ₽')">Заказать за 6 500 ₽ (экономия 900 ₽)</button>
         </div>
 
         <div class="pricing-card">
           <div>
-            <div class="service-num">Тариф 3 • Для большого торжества</div>
+            <div class="service-num">Пакет 3 • Для юбилея и свадьбы</div>
             <h3>«Большой праздничный фильм»</h3>
-            <div class="pricing-price">24 900 ₽</div>
+            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+              <div class="pricing-price" style="margin-bottom: 0;">8 900 ₽</div>
+              <span style="text-decoration: line-through; color: var(--text-muted); font-size: 16px;">10 900 ₽</span>
+              <span style="background: #E8F5E9; color: #2E7D32; font-size: 12.5px; font-weight: 700; padding: 3px 9px; border-radius: 20px;">Выгода 2 000 ₽</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+              По тарифу: 4 900 + 3 000 (+60 сек) + 1 000 (озвучка) + 2 000 (+2 героя) = 10 900 ₽
+            </p>
             <ul class="pricing-list">
-              <li>✓ Длительность: <strong>3,5–4 минуты (20–25 сцен)</strong></li>
-              <li>✓ Большое количество героев и памятных эпох</li>
-              <li>✓ <strong>Индивидуальная песня про именинника</strong> по вашим фактам</li>
-              <li>✓ Включение оживших архивных фотографий в финал фильма</li>
-              <li>✓ Дополнительная вертикальная версия для телефона в подарок</li>
+              <li>✓ Длительность: <strong>до 1,5 минут (10–12 сцен биографии)</strong></li>
+              <li>✓ <strong>До 6 персонажей</strong> по вашим семейным фотографиям</li>
+              <li>✓ <strong>Профессиональная озвучка диктора</strong>, реплики и музыка</li>
+              <li>✓ <strong>Подарочная веб-страница + семейный 4K-постер в подарок</strong></li>
             </ul>
           </div>
-          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Персональный мультфильм', 'Тариф «Большой праздничный фильм»', '24 900 ₽')">Заказать за 24 900 ₽</button>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Персональный мультфильм', 'Пакет 3 «Большой праздничный фильм» (выгода 2 000 ₽)', '8 900 ₽')">Заказать за 8 900 ₽ (экономия 2 000 ₽)</button>
         </div>
       </div>
 
       <div class="contract-note">
-        <strong>Индивидуальные задачи:</strong> фильмы большей продолжительности, с большим числом сцен или персонажей и корпоративные проекты рассчитываются <strong>по договорным тарифам</strong>.
+        <strong>Нужен фильм на 2–3 минуты или больше героев?</strong> Просто прибавьте к пакету <strong>+1 500 ₽ за каждые 30 секунд</strong> и <strong>+1 000 ₽ за каждого нового персонажа</strong>, либо напишите нам для индивидуального расчёта.
       </div>
     </div>
   </section>
@@ -251,7 +299,7 @@
         <div>
           <strong style="color: var(--text-main); display: block; margin-bottom: 10px;">Услуги и цены:</strong>
           <ul class="footer-links">
-            <li><a href="/cartoon">1. Персональные мультфильмы (от 9 900 ₽)</a></li>
+            <li><a href="/cartoon">1. Персональные мультфильмы (от 4 900 ₽)</a></li>
             <li><a href="/photo-alive">2. Оживление старых фотографий (от 1 500 ₽)</a></li>
             <li><a href="/video-edit">3. Короткие видеоролики и эффекты (от 990 ₽)</a></li>
             <li><a href="/photoshoot">4. Семейные портреты в 9 стилях (от 1 500 ₽)</a></li>
@@ -314,6 +362,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>

@@ -168,7 +168,7 @@ function switchHeroShowcase(idx, btnEl) {
     {
       video: "media/pixar_max30_1080p.mp4",
       poster: "pixar_poster_1080p.jpg",
-      badge: "1. Мультфильм по вашей истории (от 9 900 ₽)",
+      badge: "1. Мультфильм по вашей истории (от 4 900 ₽)",
       caption: "Индивидуальный фильм по фотографиям и семейным воспоминаниям с полным портретным сходством.",
       linkUrl: "/cartoon",
       linkText: "Подробнее о мультфильмах →",
@@ -308,58 +308,68 @@ function switchTemplatePreview(tplIdx, btnEl) {
   if (btnEl) btnEl.classList.add("active");
 }
 
-// Переключатель 10 стилей портретов (9 стилей + исходное фото)
+// Переключатель 10 стилей портретов (9 стилей + исходное фото) с индивидуальным интерактивом До/После
 function switchStyleGallery(styleIdx, btnEl) {
   const styles = [
     {
       img: "media/family_styles/style_06.png",
       title: "1. Объёмная 3D-анимация (в стиле классики Disney / Pixar)",
       desc: "Тёплый кинематографичный образ: 100% узнаваемость черт лица, добрый взгляд, улыбка, причёски, любимая одежда и даже домашний питомец.",
+      shortLabel: "После: 3D-портрет 4K",
     },
     {
       img: "media/family_styles/style_05.png",
       title: "2. Живописная акварель и аниме (в духе студии Ghibli)",
       desc: "Нежная ручная рисовка и солнечный уют — прекрасно подходит для истории любви, годовщины свадьбы и печати на холсте.",
+      shortLabel: "После: Акварель и аниме 4K",
     },
     {
       img: "media/family_styles/style_08.png",
       title: "3. Уютный плюшевый и вязаный мир",
       desc: "Необычайно тёплый образ: вся семья, домашний кот, свитера и детали интерьера созданы словно из мягкого войлока и шерстяной пряжи.",
+      shortLabel: "После: Плюшевый мир 4K",
     },
     {
       img: "media/family_styles/style_09.png",
       title: "4. Добрый художественный шарж",
       desc: "Традиционный дружеский портрет с выразительными чертами лица, открытыми улыбками и яркой художественной прорисовкой.",
+      shortLabel: "После: Добрый шарж 4K",
     },
     {
       img: "media/family_styles/style_10.png",
       title: "5. Современная иллюстрация (стиль GTA и стрит-арт)",
       desc: "Контрастная графическая рисовка с чётким контуром, тёплым закатным светом и ярким художественным фоном.",
+      shortLabel: "После: Стиль GTA 4K",
     },
     {
       img: "media/family_styles/style_04.png",
       title: "6. Тёплая атмосфера 90-х годов",
       desc: "Перенесём вашу семью в уютную обстановку 90-х годов с узнаваемыми деталями интерьера и эффектом плёночной фотографии.",
+      shortLabel: "После: Атмосфера 90-х 4K",
     },
     {
       img: "media/family_styles/style_03.png",
       title: "7. Королевская династия и рыцарский замок",
       desc: "Глава семьи в благородных доспехах, супруга в бархатном платье в старинном замке — торжественный подарок на юбилей.",
+      shortLabel: "После: Королевский образ 4K",
     },
     {
       img: "media/family_styles/style_02.png",
       title: "8. Добрая комедия: Каменный век",
       desc: "Шуточный семейный портрет в первобытном стиле с пушистым саблезубым котом — дарит искренние улыбки всем гостям.",
+      shortLabel: "После: Каменный век 4K",
     },
     {
       img: "media/family_styles/style_01.png",
       title: "9. Ретро-иллюстрация 16-Bit (классические видеоигры)",
       desc: "Ностальгический стиль приставок 90-х годов — оригинальный подарок для супруга, брата или друга.",
+      shortLabel: "После: 16-Bit ретро 4K",
     },
     {
       img: "media/family_styles/style_07.png",
       title: "10. Исходная домашняя фотография",
       desc: "Вот с такого обычного снимка на диване мы начали работу — без похода в фотостудию и сложной подготовки.",
+      shortLabel: "",
     },
   ];
 
@@ -372,6 +382,45 @@ function switchStyleGallery(styleIdx, btnEl) {
   if (imgEl) imgEl.src = data.img;
   if (titleEl) titleEl.textContent = data.title;
   if (descEl) descEl.textContent = data.desc;
+
+  // Обновляем интерактив До/После под выбранный стиль или скрываем его на вкладке «Исходное фото»
+  const compareCard = document.getElementById("styleCompareCard");
+  const compareSection = document.getElementById("photoshootCompareSection");
+  const compareGrid = document.querySelector(".styles-compare-grid");
+  const compareAfterImg = document.getElementById("styleCompareAfterImg");
+  const compareAfterLabel = document.getElementById("styleCompareAfterLabel");
+
+  if (styleIdx === 9) {
+    if (compareCard) compareCard.style.display = "none";
+    if (compareSection) compareSection.style.display = "none";
+    if (compareGrid) {
+      compareGrid.style.gridTemplateColumns = "1fr";
+      compareGrid.style.maxWidth = "680px";
+      compareGrid.style.margin = "0 auto";
+    }
+  } else {
+    if (compareCard) compareCard.style.display = "flex";
+    if (compareSection) compareSection.style.display = "";
+    if (compareGrid) {
+      compareGrid.style.gridTemplateColumns = "";
+      compareGrid.style.maxWidth = "";
+      compareGrid.style.margin = "";
+    }
+    if (compareAfterImg) {
+      compareAfterImg.src = data.img;
+      compareAfterImg.alt = data.shortLabel;
+    }
+    if (compareAfterLabel) {
+      compareAfterLabel.textContent = data.shortLabel;
+    }
+    // Пересчитываем ширину шторки До/После при возврате видимости
+    document.querySelectorAll(".ba-container").forEach((container) => {
+      const beforeImg = container.querySelector(".ba-overlay img");
+      if (beforeImg && container.offsetWidth > 0) {
+        beforeImg.style.width = `${container.offsetWidth}px`;
+      }
+    });
+  }
 
   document.querySelectorAll(".style-tab-btn").forEach((b) => b.classList.remove("active"));
   if (btnEl) btnEl.classList.add("active");

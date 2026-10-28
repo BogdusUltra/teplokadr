@@ -147,7 +147,7 @@
   </section>
 
   <!-- ПОЛЗУНОК ДО / ПОСЛЕ -->
-  <section class="section">
+  <section class="section" id="photoshootCompareSection">
     <div class="container">
       <div class="section-header">
         <h2>Сравните исходное фото и готовый портрет ↔</h2>
@@ -156,13 +156,13 @@
 
       <div style="max-width: 920px; margin: 0 auto;">
         <div class="ba-container">
-          <img src="media/family_styles/style_06.png" alt="После: 3D портрет" />
+          <img id="styleCompareAfterImg" src="media/family_styles/style_06.png" alt="После: 3D-портрет 4K" />
           <div class="ba-overlay" style="width: 50%;">
             <img src="media/family_styles/style_07.png" alt="До: Обычное домашнее фото" />
           </div>
           <input type="range" min="5" max="95" value="50" class="ba-slider-input" aria-label="Сравнение До и После" />
           <span class="ba-label left">До: обычное фото с телефона</span>
-          <span class="ba-label right">После: 3D-портрет 4K</span>
+          <span id="styleCompareAfterLabel" class="ba-label right">После: 3D-портрет 4K</span>
         </div>
       </div>
     </div>
@@ -248,7 +248,7 @@
         <div>
           <strong style="color: var(--text-main); display: block; margin-bottom: 10px;">Услуги и цены:</strong>
           <ul class="footer-links">
-            <li><a href="/cartoon">1. Персональные мультфильмы (от 9 900 ₽)</a></li>
+            <li><a href="/cartoon">1. Персональные мультфильмы (от 4 900 ₽)</a></li>
             <li><a href="/photo-alive">2. Оживление старых фотографий (от 1 500 ₽)</a></li>
             <li><a href="/video-edit">3. Короткие видеоролики и эффекты (от 990 ₽)</a></li>
             <li><a href="/photoshoot">4. Семейные портреты в 9 стилях (от 1 500 ₽)</a></li>
@@ -311,6 +311,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>
