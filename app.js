@@ -1,4 +1,4 @@
-// Автоматически перенаправляем с HTTP на защищённый HTTPS (сертификат Let's Encrypt уже выпущен!)
+// Автоматически перенаправляем с HTTP на защищённый HTTPS
 if (window.location.protocol === "http:" && window.location.hostname.endsWith("teplo-kadr.ru")) {
   window.location.replace("https://" + window.location.host + window.location.pathname + window.location.search + window.location.hash);
 }
@@ -10,21 +10,21 @@ if (window.location.protocol.startsWith("http") && window.location.pathname.ends
 }
 
 /**
- * Интерактивная логика сайта «Тёплый Кадр»:
+ * Интерактивная логика сайта студии «Тёплый Кадр»:
  * 1. Модальное окно заказа с формированием готовой заявки в WhatsApp / MAX / Telegram
- * 2. Интерактивный пульт на Главной (Hero Switcher, 9 вселенных, 9:16 плееры, До/После)
- * 3. Переключатели вселенных на странице Мультфильма и 9 стилей на странице Фотосессии
- * 4. Быстрый переход по таймкодам в ИИ-Рилсах и калькулятор оживления фото
+ * 2. Переключатель примеров работ на главной странице
+ * 3. Переключатели стилей оформления на страницах услуг
+ * 4. Быстрый переход по фрагментам в примерах видеороликов и калькулятор оживления фото
  */
 
 const STUDIO_CONTACTS = {
-  whatsappPhone: "79147173132", // Реальный номер WhatsApp и MAX: +7 914 717-31-32
+  whatsappPhone: "79147173132", // WhatsApp и MAX: +7 914 717-31-32
   maxPhoneDisplay: "+7 (914) 717-31-32",
-  maxUrl: "https://max.ru", // Мессенджер MAX
-  telegramUser: "teplo_kadr", // Реальный Telegram: @teplo_kadr
+  maxUrl: "https://max.ru",
+  telegramUser: "teplo_kadr", // Telegram: @teplo_kadr
 };
 
-function openOrderModal(serviceName = "Консультация по подарку", tariffName = "Подбор тарифа", price = "") {
+function openOrderModal(serviceName = "Консультация по подарку", tariffName = "Индивидуальный подбор", price = "") {
   const modal = document.getElementById("orderModal");
   if (!modal) return;
   const serviceInput = document.getElementById("modalService");
@@ -35,7 +35,7 @@ function openOrderModal(serviceName = "Консультация по подар�
   if (serviceInput) serviceInput.value = serviceName;
   if (tariffInput) tariffInput.value = price ? `${tariffName} (${price})` : tariffName;
   if (titleEl) titleEl.textContent = serviceName;
-  if (subEl) subEl.textContent = price ? `Выбранный вариант: ${tariffName} — ${price}` : `Тариф: ${tariffName}`;
+  if (subEl) subEl.textContent = price ? `Выбранный вариант: ${tariffName} — ${price}` : `Вариант: ${tariffName}`;
 
   modal.classList.add("active");
 }
@@ -53,14 +53,14 @@ function buildLeadMessage() {
   const comment = document.getElementById("modalComment")?.value.trim() || "";
 
   let lines = [
-    `Здравствуйте, студия «Тёплый Кадр»! 👋`,
-    `Хочу заказать: *${service}*`,
+    `Здравствуйте, студия «Тёплый Кадр»!`,
+    `Хочу обсудить заказ: *${service}*`,
   ];
-  if (tariff) lines.push(`Выбранный пакет: *${tariff}*`);
+  if (tariff) lines.push(`Выбранный тариф: *${tariff}*`);
   lines.push(`Повод: ${occasion}`);
   lines.push(`Меня зовут: ${name}`);
   if (comment) lines.push(`Пожелания: ${comment}`);
-  lines.push(`Готов(а) прислать фото для бесплатной пробы!`);
+  lines.push(`Готов(а) прислать фотографии для ознакомления.`);
   return lines.join("\n");
 }
 
@@ -75,7 +75,7 @@ function sendLeadToMax() {
     navigator.clipboard.writeText(rawMsg).catch(() => {});
   }
   alert(
-    `Текст вашей заявки скопирован! 📋\n\nНаш номер в мессенджере MAX:\n${STUDIO_CONTACTS.maxPhoneDisplay}\n\nСейчас откроется MAX — просто вставьте скопированный текст в диалог по номеру +7 914 717-31-32.`
+    `Текст вашей заявки скопирован!\n\nНаш номер в мессенджере MAX:\n${STUDIO_CONTACTS.maxPhoneDisplay}\n\nСейчас откроется MAX — просто вставьте скопированный текст в диалог по номеру +7 914 717-31-32.`
   );
   window.open(STUDIO_CONTACTS.maxUrl, "_blank");
 }
@@ -85,9 +85,7 @@ function sendLeadToTelegram() {
   window.open(`https://t.me/${STUDIO_CONTACTS.telegramUser}?text=${msg}`, "_blank");
 }
 
-// Инициализация интерактивных элементов после загрузки страницы
 document.addEventListener("DOMContentLoaded", () => {
-  // Закрытие модалки по клику на фон
   const modal = document.getElementById("orderModal");
   if (modal) {
     modal.addEventListener("click", (e) => {
@@ -95,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Аккордеоны FAQ
   document.querySelectorAll(".faq-question").forEach((btn) => {
     btn.addEventListener("click", () => {
       const item = btn.closest(".faq-item");
@@ -103,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Ползунки «До / После»
   document.querySelectorAll(".ba-container").forEach((container) => {
     const input = container.querySelector(".ba-slider-input");
     const overlay = container.querySelector(".ba-overlay");
@@ -125,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Когда включается любое видео на странице — ставим на паузу остальные, чтобы звук не накладывался
   const allVideos = document.querySelectorAll("video");
   allVideos.forEach((vid) => {
     vid.addEventListener("play", () => {
@@ -137,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Мобильная шапка: авто-прокрутка активной вкладки в видимую зону + компактный режим при скролле вниз
   const navBar = document.querySelector(".nav-links");
   const activeNav = navBar?.querySelector("a.active");
   if (navBar && activeNav && window.innerWidth <= 768) {
@@ -168,48 +162,48 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Интерактивный переключатель 5 направлений в Первом экране Главной страницы (index.html)
+// Переключатель 5 направлений в первом экране главной страницы
 function switchHeroShowcase(idx, btnEl) {
   const items = [
     {
       video: "media/pixar_max30_1080p.mp4",
       poster: "pixar_poster_1080p.jpg",
-      badge: "🎬 1. Мультфильм по вашей истории (от 9 900 ₽)",
-      caption: "Мультфильм в любой вселенной (Pixar, Аниме, GTA, Плюшевый мир) со 100% сходством лиц!",
+      badge: "1. Мультфильм по вашей истории (от 9 900 ₽)",
+      caption: "Индивидуальный фильм по фотографиям и семейным воспоминаниям с полным портретным сходством.",
       linkUrl: "/cartoon",
-      linkText: "Вселенная и сюжеты →",
+      linkText: "Подробнее о мультфильмах →",
     },
     {
       video: "media/photo_alive_1080p.mp4",
       poster: "media/avito_photo_alive_cover_16x9.png",
-      badge: "🎞 2. Оживление старых фото (от 1 500 ₽)",
-      caption: "Реставрируем и бережно оживляем архивные снимки родителей, бабушек и дедушек",
+      badge: "2. Оживление старых фотографий (от 1 500 ₽)",
+      caption: "Бережно восстанавливаем и оживляем памятные снимки родителей, бабушек и дедушек.",
       linkUrl: "/photo-alive",
-      linkText: "Калькулятор фото →",
+      linkText: "Подробнее об оживлении фото →",
     },
     {
       video: "media/slideshow_7styles_1080p.mp4",
       poster: "media/avito_cover_16x9.png",
-      badge: "🎨 3. 1 фото → 9 вселенных (от 1 500 ₽)",
-      caption: "Превращаем обычное фото с дивана в 9 крутых вселенных (Pixar, Плюш, Шарж, GTA, Аниме и др.)",
+      badge: "3. Семейный портрет в 9 стилях (от 1 500 ₽)",
+      caption: "Превращаем обычную домашнюю фотографию в картины высокого разрешения 4K для печати на холсте.",
       linkUrl: "/photoshoot",
-      linkText: "Пощёлкать 9 стилей →",
+      linkText: "Посмотреть стили портретов →",
     },
     {
       video: "media/video_magic_reels_9x16.mp4",
       poster: "media/avito_video_magic_cover_16x9.png",
-      badge: "✨ 4. ИИ-Рилсы с 2-й секунды (990 ₽)",
-      caption: "Лёгкий монтаж и голливудское ИИ-преображение ваших видео с телефона прямо в движении!",
+      badge: "4. Короткие видеоролики и видеоэффекты (от 990 ₽)",
+      caption: "Красивый монтаж видеозаписей с телефона и художественное преображение кадра в движении.",
       linkUrl: "/video-edit",
-      linkText: "Смотреть ИИ-Рилсы →",
+      linkText: "Примеры видеороликов →",
     },
     {
       video: "media/invitations/01_rider_hth.mp4",
       poster: "media/avito_invitations_cover_16x9.png",
-      badge: "💌 5. Живые 3D Видео-Приглашения (от 1 490 ₽)",
-      caption: "Говорящие герои у вашего реального ресторана с Карт и 3D Pop-Up открытки на свадьбу и юбилей!",
+      badge: "5. Живые 3D видео-приглашения (от 1 490 ₽)",
+      caption: "Именные видео-открытки с озвучкой и приглашения с любимыми героями у входа в ваш ресторан.",
       linkUrl: "/invitations",
-      linkText: "Лента приглашений →",
+      linkText: "Посмотреть приглашения →",
     },
   ];
 
@@ -239,7 +233,6 @@ function switchHeroShowcase(idx, btnEl) {
   if (btnEl) btnEl.classList.add("active");
 }
 
-// Быстрый переход по 5 эффектам в видео ИИ-Рилсов (на главной и на video-edit.html)
 function seekReelsDemo(sec, videoId = "reelsMainVideo") {
   const vid = document.getElementById(videoId);
   if (!vid) return;
@@ -247,7 +240,6 @@ function seekReelsDemo(sec, videoId = "reelsMainVideo") {
   vid.play().catch(() => {});
 }
 
-// Переключатель рок-хита у Призрачного Гонщика на главной странице
 function switchHomeRiderTrack(src, btnEl) {
   const vid = document.getElementById("homeRiderVideo");
   if (!vid) return;
@@ -262,43 +254,43 @@ function switchHomeRiderTrack(src, btnEl) {
   btnEl.classList.add("active");
 }
 
-// Переключатель вселенных и сюжетов на странице Мультфильма (cartoon.html)
+// Переключатель художественных стилей и сюжетов на странице мультфильма (cartoon.html)
 function switchTemplatePreview(tplIdx, btnEl) {
   const universes = [
     {
       img: "media/family_styles/style_06.png",
-      title: "1. Вселенная 3D Disney / Pixar — Биография, Любовь и Семья",
-      desc: "Любой сюжет: от реальной биографии именинника (Детство → Школа → Универ → Свадьба → Юбилей) до исполнения заветной мечты, полёта в космос или кругосветного путешествия всей семьёй!",
+      title: "1. Объёмная 3D-анимация (Disney / Pixar) — Биография и Семья",
+      desc: "Тёплый фильм по реальной истории жизни: детство, юность, знакомство с любимым человеком, верные друзья, семейные традиции и праздничное торжество.",
     },
     {
       img: "media/family_styles/style_05.png",
-      title: "2. Вселенная Аниме (Хаяо Миядзаки) — Романтика и Волшебство",
-      desc: "Нежная и трогательная история знакомства пары, годовщины свадьбы или семейного уюта в живописной рисовке Studio Ghibli с тёплым ветром, лепестками и волшебной атмосферой.",
+      title: "2. Акварельная анимация (в духе Хаяо Миядзаки) — Романтика и Уют",
+      desc: "Нежная и трогательная история знакомства пары, годовщины свадьбы или семейного тепла в мягкой живописной рисовке.",
     },
     {
       img: "media/family_styles/style_08.png",
-      title: "3. Плюшевый и Вязаный Мир — Уютная Семейная Сказка",
-      desc: "Уникальный кукольно-плюшевый мультфильм, где ваши близкие и домашние питомцы оживают в мире из мягкого войлока и тёплой пряжи. Идеально для детских праздников и подарка маме или бабушке!",
+      title: "3. Плюшевый и вязаный мир — Добрая семейная сказка",
+      desc: "Уютный кукольный мультфильм, где ваши близкие и домашние питомцы оживают в мире из мягкого войлока и тёплой пряжи. Замечательный подарок для детей, мамы или бабушки.",
     },
     {
       img: "media/family_styles/style_10.png",
-      title: "4. Вселенная GTA / Боевик / Форсаж — Драйв и Дружеский Юмор",
-      desc: "Дерзкий сюжет для мужа, брата, друга или босса: крутые тачки, погони, рок-саундтрек и фирменный стиль Rockstar, где именинник — главный герой криминального или экшен-блокбастера!",
+      title: "4. Приключенческий стиль (Кино и Игры) — Динамика и Дружеский юмор",
+      desc: "Яркий приключенческий сюжет для супруга, брата, друга или коллеги: любимые автомобили, путешествия, музыка и весёлые истории из жизни.",
     },
     {
       img: "media/family_styles/style_03.png",
-      title: "5. Королевское Фэнтези и Рыцарские Хроники",
-      desc: "Эпическая сага о главе вашей семейной династии: замки, рыцарские турниры, коронация юбиляра и пир на весь мир!",
+      title: "5. Королевская хроника и Рыцарский замок",
+      desc: "Торжественная сказка о вашей семейной династии: рыцарские доспехи, королевский бал и чествование юбиляра.",
     },
     {
       img: "media/family_styles/style_04.png",
-      title: "6. Машина Времени: Ламповые 90-е и СССР",
-      desc: "Ностальгический сюжет о молодости родителей или друзей: дворы детства, кассетные магнитофоны, первые свидания и атмосфера любимой эпохи.",
+      title: "6. Ностальгия по эпохе 80-х и 90-х годов",
+      desc: "Душевный сюжет о молодости родителей или друзей: дворы детства, кассетные магнитофоны, первые свидания и тёплая атмосфера прошлых лет.",
     },
     {
       img: "media/family_styles/style_02.png",
-      title: "7. Комедия в Каменном Веке или Любая Ваша Идея!",
-      desc: "Хотите комедийный ситком, пиратское приключение, супергеройское кино Marvel или фантастику? Мы напишем сценарий и снимем мультфильм в абсолютно любой вселенной по вашим фактам!",
+      title: "7. Добрая комедия или любой ваш индивидуальный сюжет",
+      desc: "Хотите весёлую семейную комедию, морское путешествие или фантастическую историю? Мы бережно напишем сценарий и создадим фильм по вашим пожеланиям.",
     },
   ];
 
@@ -316,58 +308,58 @@ function switchTemplatePreview(tplIdx, btnEl) {
   if (btnEl) btnEl.classList.add("active");
 }
 
-// Переключатель 10 стилей портретов (9 вселенных + исходное фото) — работает и на Главной, и на photoshoot.html
+// Переключатель 10 стилей портретов (9 стилей + исходное фото)
 function switchStyleGallery(styleIdx, btnEl) {
   const styles = [
     {
       img: "media/family_styles/style_06.png",
-      title: "1. 3D Мультфильм Disney / Pixar (Хит заказов!)",
-      desc: "Объёмный кино-стиль: 100% узнаваемость лиц, добрый взгляд, фирменная улыбка, причёски, любимый свитер и даже ваш домашний питомец.",
+      title: "1. Объёмная 3D-анимация (в стиле классики Disney / Pixar)",
+      desc: "Тёплый кинематографичный образ: 100% узнаваемость черт лица, добрый взгляд, улыбка, причёски, любимая одежда и даже домашний питомец.",
     },
     {
       img: "media/family_styles/style_05.png",
-      title: "2. Аниме Хаяо Миядзаки (Studio Ghibli)",
-      desc: "Нежная акварельная рисовка и солнечный уют — идеальный вариант для истории любви, годовщины свадьбы и печати на холсте.",
+      title: "2. Живописная акварель и аниме (в духе студии Ghibli)",
+      desc: "Нежная ручная рисовка и солнечный уют — прекрасно подходит для истории любви, годовщины свадьбы и печати на холсте.",
     },
     {
       img: "media/family_styles/style_08.png",
-      title: "3. Плюшевый и Вязаный Мир (Felt & Plush World)",
-      desc: "Невероятно тёплый и тактильный образ: вся семья, домашний котик, свитера и даже кружка на столе созданы из мягкого войлока, шерсти и уютной пряжи!",
+      title: "3. Уютный плюшевый и вязаный мир",
+      desc: "Необычайно тёплый образ: вся семья, домашний кот, свитера и детали интерьера созданы словно из мягкого войлока и шерстяной пряжи.",
     },
     {
       img: "media/family_styles/style_09.png",
-      title: "4. Добрый Художественный Шарж (Выразительные черты!)",
-      desc: "Классический дружеский шарж с крупными выразительными чертами лица, харизматичными улыбками и яркой рисовкой — идеальный подарок на праздник!",
+      title: "4. Добрый художественный шарж",
+      desc: "Традиционный дружеский портрет с выразительными чертами лица, открытыми улыбками и яркой художественной прорисовкой.",
     },
     {
       img: "media/family_styles/style_10.png",
-      title: "5. Стиль GTA V и Стрит-Арт Граффити",
-      desc: "Культовая рисовка в стиле загрузочных экранов Rockstar GTA с дерзким контуром, закатным светом и ярким граффити позади героев!",
+      title: "5. Современная иллюстрация (стиль GTA и стрит-арт)",
+      desc: "Контрастная графическая рисовка с чётким контуром, тёплым закатным светом и ярким художественным фоном.",
     },
     {
       img: "media/family_styles/style_04.png",
-      title: "6. Ностальгия 90-х (Кассета VHS и тот самый ковёр)",
-      desc: "Перенесём вашу семью в ламповую атмосферу 90-х с настенным ковром, свитерами Boys и датой съёмки на плёнке!",
+      title: "6. Тёплая атмосфера 90-х годов",
+      desc: "Перенесём вашу семью в уютную обстановку 90-х годов с узнаваемыми деталями интерьера и эффектом плёночной фотографии.",
     },
     {
       img: "media/family_styles/style_03.png",
-      title: "7. Королевская Династия и Рыцарский Замок",
-      desc: "Глава семьи в сияющих доспехах, супруга в королевском бархате, и даже кот в рыцарском мини-шлеме — роскошный подарок на юбилей.",
+      title: "7. Королевская династия и рыцарский замок",
+      desc: "Глава семьи в благородных доспехах, супруга в бархатном платье в старинном замке — торжественный подарок на юбилей.",
     },
     {
       img: "media/family_styles/style_02.png",
-      title: "8. Каменный Век (Добрый семейный юмор)",
-      desc: "Пещерный уют, меха и саблезубый домашний котик — вызывает бурю восторга и смеха у гостей на празднике.",
+      title: "8. Добрая комедия: Каменный век",
+      desc: "Шуточный семейный портрет в первобытном стиле с пушистым саблезубым котом — дарит искренние улыбки всем гостям.",
     },
     {
       img: "media/family_styles/style_01.png",
-      title: "9. Пиксель-Арт 16-Bit (Ретро-приставка Sega / Dendy)",
-      desc: "Ностальгический стиль классических видеоигр 90-х — крутой подарок для мужа, брата, друга или IT-специалиста.",
+      title: "9. Ретро-иллюстрация 16-Bit (классические видеоигры)",
+      desc: "Ностальгический стиль приставок 90-х годов — оригинальный подарок для супруга, брата или друга.",
     },
     {
       img: "media/family_styles/style_07.png",
-      title: "10. Исходное домашнее фото семьи",
-      desc: "Вот с такого обычного снимка на диване мы начали работу — без студийного света и позирования.",
+      title: "10. Исходная домашняя фотография",
+      desc: "Вот с такого обычного снимка на диване мы начали работу — без похода в фотостудию и сложной подготовки.",
     },
   ];
 
@@ -385,7 +377,6 @@ function switchStyleGallery(styleIdx, btnEl) {
   if (btnEl) btnEl.classList.add("active");
 }
 
-// Калькулятор оживления фото на странице photo-alive.html
 function updatePhotoAliveCalc() {
   const countEl = document.getElementById("photoCountRange");
   const countLabel = document.getElementById("photoCountLabel");
