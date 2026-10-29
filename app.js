@@ -33,7 +33,7 @@ function openOrderModal(serviceName = "Консультация по подар�
   const subEl = document.getElementById("modalSub");
 
   if (serviceInput) serviceInput.value = serviceName;
-  if (tariffInput) tariffInput.value = price ? `${tariffName} (${price})` : tariffName;
+  if (tariffInput) tariffInput.value = price ? `${tariffName} — ${price}` : tariffName;
   if (titleEl) titleEl.textContent = serviceName;
   if (subEl) subEl.textContent = price ? `Выбранный вариант: ${tariffName} — ${price}` : `Вариант: ${tariffName}`;
 
@@ -46,21 +46,102 @@ function closeOrderModal() {
 }
 
 function buildLeadMessage() {
-  const service = document.getElementById("modalService")?.value || "Подарок";
-  const tariff = document.getElementById("modalTariff")?.value || "";
-  const name = document.getElementById("modalClientName")?.value.trim() || "Клиент с сайта";
-  const occasion = document.getElementById("modalOccasion")?.value || "Праздник";
+  const service = document.getElementById("modalService")?.value.trim() || "Подарок";
+  const tariff = document.getElementById("modalTariff")?.value.trim() || "";
+  const name = document.getElementById("modalClientName")?.value.trim() || "";
+  const occasion = document.getElementById("modalOccasion")?.value.trim() || "";
   const comment = document.getElementById("modalComment")?.value.trim() || "";
 
-  let lines = [
-    `Здравствуйте, студия «Тёплый Кадр»!`,
-    `Хочу обсудить заказ: *${service}*`,
-  ];
-  if (tariff) lines.push(`Выбранный тариф: *${tariff}*`);
-  lines.push(`Повод: ${occasion}`);
-  lines.push(`Меня зовут: ${name}`);
-  if (comment) lines.push(`Пожелания: ${comment}`);
-  lines.push(`Готов(а) прислать фотографии для ознакомления.`);
+  const lines = [];
+
+  // 1. Приветствие
+  if (name) {
+    lines.push(`Здравствуйте, меня зовут ${name}!`);
+  } else {
+    lines.push("Здравствуйте!");
+  }
+
+  const sLower = service.toLowerCase();
+  const isDefaultTariff =
+    !tariff ||
+    tariff === "Индивидуальный подбор" ||
+    tariff === "Консультация и подбор подарка" ||
+    tariff === "Консультация по сюжету + пробный образ" ||
+    tariff === "Прислать снимки на бесплатную оценку" ||
+    tariff === "Бесплатный пробный кадр по фото" ||
+    tariff === "Полный фильм";
+
+  // 2. Основная строка под конкретную услугу и страницу
+  if (sLower.includes("портрет")) {
+    // Страница портретов по фото (photoshoot.html и главная)
+    const isPaidTariff = tariff.startsWith("Тариф") || tariff.startsWith("Коллекция");
+    let line = `Интересует "${service}"`;
+    if (isPaidTariff) {
+      line += ` (${tariff})`;
+    }
+    if (occasion) {
+      line += ` стиль ${occasion}`;
+    } else if (!isDefaultTariff && !isPaidTariff) {
+      line += ` стиль ${tariff}`;
+    }
+    lines.push(line);
+  } else if (sLower.includes("приглашение")) {
+    // Страница видео-приглашений (invitations.html)
+    let line = `Интересует "${service}"`;
+    if (occasion) {
+      line += ` на ${occasion}`;
+    }
+    if (!isDefaultTariff) {
+      line += ` (${tariff})`;
+    }
+    lines.push(line);
+  } else if (sLower.includes("мультфильм")) {
+    // Страница мультфильма (cartoon.html)
+    let line = `Интересует "${service}"`;
+    if (!isDefaultTariff) {
+      line += ` (${tariff})`;
+    }
+    if (occasion) {
+      line += `, повод: ${occasion}`;
+    }
+    lines.push(line);
+  } else if (sLower.includes("оживление")) {
+    // Страница оживления фото (photo-alive.html)
+    let line = `Интересует "${service}"`;
+    if (!isDefaultTariff) {
+      line += ` (${tariff})`;
+    }
+    if (occasion) {
+      line += `, повод: ${occasion}`;
+    }
+    lines.push(line);
+  } else if (sLower.includes("видеоролик") || sLower.includes("монтаж")) {
+    // Страница коротких видеороликов и эффектов (video-edit.html)
+    let line = `Интересует "${service}"`;
+    if (!isDefaultTariff) {
+      line += ` (${tariff})`;
+    }
+    if (occasion) {
+      line += `, повод: ${occasion}`;
+    }
+    lines.push(line);
+  } else {
+    // Главная страница / общая консультация (index.html)
+    let line = `Интересует "${service}"`;
+    if (!isDefaultTariff) {
+      line += ` (${tariff})`;
+    }
+    if (occasion) {
+      line += `, повод: ${occasion}`;
+    }
+    lines.push(line);
+  }
+
+  // 3. Пожелания / детали
+  if (comment) {
+    lines.push(`Пожелания: ${comment}`);
+  }
+
   return lines.join("\n");
 }
 
