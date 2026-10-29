@@ -71,73 +71,31 @@ function buildLeadMessage() {
     tariff === "Бесплатный пробный кадр по фото" ||
     tariff === "Полный фильм";
 
-  // 2. Основная строка под конкретную услугу и страницу
+  // 2. Основная строка под каждую услугу
   if (sLower.includes("портрет")) {
-    // Страница портретов по фото (photoshoot.html и главная)
     const isPaidTariff = tariff.startsWith("Тариф") || tariff.startsWith("Коллекция");
     let line = `Интересует "${service}"`;
-    if (isPaidTariff) {
-      line += ` (${tariff})`;
-    }
     if (occasion) {
-      line += ` стиль ${occasion}`;
+      line += occasion.toLowerCase().startsWith("стиль") ? ` ${occasion}` : ` стиль ${occasion}`;
     } else if (!isDefaultTariff && !isPaidTariff) {
       line += ` стиль ${tariff}`;
     }
-    lines.push(line);
-  } else if (sLower.includes("приглашение")) {
-    // Страница видео-приглашений (invitations.html)
-    let line = `Интересует "${service}"`;
-    if (occasion) {
-      line += ` на ${occasion}`;
-    }
-    if (!isDefaultTariff) {
+    if (isPaidTariff) {
       line += ` (${tariff})`;
-    }
-    lines.push(line);
-  } else if (sLower.includes("мультфильм")) {
-    // Страница мультфильма (cartoon.html)
-    let line = `Интересует "${service}"`;
-    if (!isDefaultTariff) {
-      line += ` (${tariff})`;
-    }
-    if (occasion) {
-      line += `, повод: ${occasion}`;
-    }
-    lines.push(line);
-  } else if (sLower.includes("оживление")) {
-    // Страница оживления фото (photo-alive.html)
-    let line = `Интересует "${service}"`;
-    if (!isDefaultTariff) {
-      line += ` (${tariff})`;
-    }
-    if (occasion) {
-      line += `, повод: ${occasion}`;
-    }
-    lines.push(line);
-  } else if (sLower.includes("видеоролик") || sLower.includes("монтаж")) {
-    // Страница коротких видеороликов и эффектов (video-edit.html)
-    let line = `Интересует "${service}"`;
-    if (!isDefaultTariff) {
-      line += ` (${tariff})`;
-    }
-    if (occasion) {
-      line += `, повод: ${occasion}`;
     }
     lines.push(line);
   } else {
-    // Главная страница / общая консультация (index.html)
     let line = `Интересует "${service}"`;
+    if (occasion) {
+      line += ` ${occasion}`;
+    }
     if (!isDefaultTariff) {
       line += ` (${tariff})`;
-    }
-    if (occasion) {
-      line += `, повод: ${occasion}`;
     }
     lines.push(line);
   }
 
-  // 3. Пожелания / детали
+  // 3. Пожелания
   if (comment) {
     lines.push(`Пожелания: ${comment}`);
   }
