@@ -935,97 +935,7 @@
     }
     attachSwipe('portraitSliderStage', stepPortraitStyle);
 
-    // 3. СЛАЙДЕР 20-СЕКУНДНОЙ 3D ВИДЕО-ОТКРЫТКИ (УСЛУГА №4)
-    const cardFrames = [
-      {
-        src: 'media/mom_styles/01_Открытка_Книга_Цветов.jpg',
-        badge: '1 / 3 • Книга-открытка',
-        title: 'Кадр 1 (0–7 с):',
-        text: '🎙️ «Родная мамочка! В этот день мы дарим тебе маленькое чудо, сотканное из нашей любви…»'
-      },
-      {
-        src: 'media/mom_styles/02_Мама_Уютное_Утро_Цветы.jpg',
-        badge: '2 / 3 • Мама с цветами и тортом',
-        title: 'Кадр 2 (7–14 с):',
-        text: '🎙️ «Спасибо за твои самые добрые в мире руки, за тепло родного дома и твою родную улыбку!»'
-      },
-      {
-        src: 'media/mom_styles/03_Объятия_Семьи_Поздравление.jpg',
-        badge: '3 / 3 • Объятия всей семьи',
-        title: 'Кадр 3 (14–20 с):',
-        text: '🎙️ «Будь здорова, светись от счастья каждый день и знай: мы всегда рядом! С Днём матери!»'
-      }
-    ];
-    let currentCardIdx = 0;
-    let cardElapsedMs = 0;
-    const CARD_SLIDE_DURATION_MS = 4200;
-
-    function setCardFrame(idx) {
-      currentCardIdx = (idx + cardFrames.length) % cardFrames.length;
-      const item = cardFrames[currentCardIdx];
-      const imgEl = document.getElementById('cardPreviewImg');
-      if (imgEl) imgEl.src = item.src;
-      const badgeEl = document.getElementById('cardBadge');
-      if (badgeEl) badgeEl.textContent = item.badge;
-      document.getElementById('cardPreviewCaption').innerHTML = '<strong>' + item.title + '</strong>' + item.text;
-      cardElapsedMs = 0;
-      const bar = document.getElementById('cardProgressBar');
-      if (bar) bar.style.width = '0%';
-    }
-    function stepCardFrame(dir) {
-      setCardFrame(currentCardIdx + dir);
-    }
-    attachSwipe('cardSliderStage', stepCardFrame);
-
-    // 4. СЛАЙДЕР 3 ВИДЕО МАМЫ В ОБРАЗАХ (УСЛУГА №5)
-    const looksFrames = [
-      {
-        src: 'media/mom_styles/00_Мама_Исходное_Домашнее_Фото.jpg',
-        badge: '1 / 4 • Исходное фото дома',
-        title: 'Исходное фото:',
-        text: 'Обычный домашний снимок мамы на телефон — из него созданы все 3 живых образа с портретным сходством!'
-      },
-      {
-        src: 'media/mom_styles/01_Образ_Королевский_Дворец.jpg',
-        badge: '2 / 4 • Образ «Королева»',
-        title: 'Видео 1 (Королева):',
-        text: '🎙️ «Для нас ты всегда была и остаёшься настоящей королевой — мудрой и бесконечно доброй...»'
-      },
-      {
-        src: 'media/mom_styles/02_Образ_Морская_Ривьера_Закат.jpg',
-        badge: '3 / 4 • Морской закат',
-        title: 'Видео 2 (У моря):',
-        text: '🎙️ «Пусть в твоей душе всегда шумит тёплое море и светит ласковое солнце!»'
-      },
-      {
-        src: 'media/mom_styles/03_Образ_Кинодива_Осенний_Бульвар.jpg',
-        badge: '4 / 4 • Образ «Кинодива»',
-        title: 'Видео 3 (Кинодива):',
-        text: '🎙️ «Ты — главная героиня нашего любимого семейного кино. Сияй и будь счастлива!»'
-      }
-    ];
-    let currentLooksIdx = 1;
-    let looksElapsedMs = 0;
-    const LOOKS_SLIDE_DURATION_MS = 4000;
-
-    function setLooksFrame(idx) {
-      currentLooksIdx = (idx + looksFrames.length) % looksFrames.length;
-      const item = looksFrames[currentLooksIdx];
-      const imgEl = document.getElementById('looksPreviewImg');
-      if (imgEl) imgEl.src = item.src;
-      const badgeEl = document.getElementById('looksBadge');
-      if (badgeEl) badgeEl.textContent = item.badge;
-      document.getElementById('looksPreviewCaption').innerHTML = '<strong>' + item.title + '</strong>' + item.text;
-      looksElapsedMs = 0;
-      const bar = document.getElementById('looksProgressBar');
-      if (bar) bar.style.width = '0%';
-    }
-    function stepLooksFrame(dir) {
-      setLooksFrame(currentLooksIdx + dir);
-    }
-    attachSwipe('looksSliderStage', stepLooksFrame);
-
-    // Единый плавный таймер автоперелистывания для всех 4 галерей
+    // Единый плавный таймер автоперелистывания для галерей
     setInterval(() => {
       filmElapsedMs += 100;
       const filmBar = document.getElementById('filmProgressBar');
@@ -1036,16 +946,6 @@
       const portraitBar = document.getElementById('portraitProgressBar');
       if (portraitBar) portraitBar.style.width = Math.min(100, (portraitElapsedMs / PORTRAIT_SLIDE_DURATION_MS) * 100) + '%';
       if (portraitElapsedMs >= PORTRAIT_SLIDE_DURATION_MS) stepPortraitStyle(1);
-
-      cardElapsedMs += 100;
-      const cardBar = document.getElementById('cardProgressBar');
-      if (cardBar) cardBar.style.width = Math.min(100, (cardElapsedMs / CARD_SLIDE_DURATION_MS) * 100) + '%';
-      if (cardElapsedMs >= CARD_SLIDE_DURATION_MS) stepCardFrame(1);
-
-      looksElapsedMs += 100;
-      const looksBar = document.getElementById('looksProgressBar');
-      if (looksBar) looksBar.style.width = Math.min(100, (looksElapsedMs / LOOKS_SLIDE_DURATION_MS) * 100) + '%';
-      if (looksElapsedMs >= LOOKS_SLIDE_DURATION_MS) stepLooksFrame(1);
     }, 100);
   </script>
 </body>
