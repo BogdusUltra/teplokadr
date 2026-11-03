@@ -18,6 +18,9 @@ if (window.location.protocol.startsWith("http") && window.location.pathname.ends
  */
 
 const STUDIO_CONTACTS = {
+  whatsappPhone: "79147173132",
+  maxPhoneDisplay: "+7 (914) 717-31-32",
+  maxUrl: "https://max.ru",
   telegramUser: "teplo_kadr", // Telegram: @teplo_kadr
 };
 
@@ -101,11 +104,19 @@ function buildLeadMessage() {
 }
 
 function sendLeadToWhatsApp() {
-  sendLeadToTelegram();
+  const msg = encodeURIComponent(buildLeadMessage());
+  window.open(`https://wa.me/${STUDIO_CONTACTS.whatsappPhone}?text=${msg}`, "_blank");
 }
 
 function sendLeadToMax() {
-  sendLeadToTelegram();
+  const rawMsg = buildLeadMessage();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(rawMsg).catch(() => {});
+  }
+  alert(
+    `Текст вашей заявки скопирован!\n\nНаш номер в мессенджере MAX:\n${STUDIO_CONTACTS.maxPhoneDisplay}\n\nСейчас откроется MAX — просто вставьте скопированный текст в диалог.`
+  );
+  window.open(STUDIO_CONTACTS.maxUrl, "_blank");
 }
 
 function sendLeadToTelegram() {

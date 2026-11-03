@@ -384,6 +384,37 @@
         font-size: 11px;
       }
     }
+    .seasonal-mom-section {
+      padding: 18px 0 4px;
+    }
+    .seasonal-mom-banner {
+      display: block;
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 14px 36px rgba(44, 26, 16, 0.16);
+      border: 1px solid rgba(217, 102, 58, 0.32);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      text-decoration: none;
+      background: #23140D;
+    }
+    .seasonal-mom-banner:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 44px rgba(44, 26, 16, 0.24);
+    }
+    .seasonal-mom-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .seasonal-mom-section {
+        padding: 12px 0 2px;
+      }
+      .seasonal-mom-banner {
+        border-radius: 18px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -428,6 +459,18 @@
       </div>
     </div>
   </header>
+
+  <!-- СЕЗОННОЕ ПРЕДЛОЖЕНИЕ КО ДНЮ МАТЕРИ (ВЕДЁТ НА СКРЫТУЮ СТРАНИЦУ /mothers-day) -->
+  <section class="seasonal-mom-section">
+    <div class="container">
+      <a href="/mothers-day" class="seasonal-mom-banner" title="Специальное предложение ко Дню матери — Узнать больше">
+        <picture>
+          <source media="(max-width: 768px)" srcset="mothers_day_banner_mobile.jpg" />
+          <img src="mothers_day_banner_desktop.jpg" alt="Подарите маме видео, от которого навернутся слёзы счастья — Ко Дню матери 29 ноября. Узнать больше" />
+        </picture>
+      </a>
+    </div>
+  </section>
 
   <!-- 1. ПЕРВЫЙ ЭКРАН -->
   <section class="hero" style="padding-bottom: 40px;">
