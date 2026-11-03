@@ -333,8 +333,12 @@
       .md-service-block,
       .md-service-block.md-vertical-row {
         grid-template-columns: 1fr;
-        padding: 18px;
-        gap: 18px;
+        padding: 16px;
+        gap: 16px;
+      }
+      .md-service-block > .md-interactive-card,
+      .md-service-block > .md-media-wrap {
+        order: -1;
       }
       .md-slider-stage.stage-vertical {
         aspect-ratio: 9 / 13;

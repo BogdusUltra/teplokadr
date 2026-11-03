@@ -1244,6 +1244,9 @@ footer {
   .footer-grid {
     grid-template-columns: 1fr;
   }
+  .hero-grid > div:last-child {
+    order: -1;
+  }
   .hero h1 {
     font-size: 30px;
   }
