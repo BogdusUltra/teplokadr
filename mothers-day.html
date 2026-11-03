@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Подарок маме на День матери (29 ноября) — Студия семейного кино «Тёплый Кадр»</title>
+  <meta name="description" content="Специальное предложение ко Дню матери от студии «Тёплый Кадр»: персональный 3D-мультфильм про маму по вашим фото, бережное оживление старого маминого фотоальбома и родителей, общий семейный портрет и видео-открытки." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://teplo-kadr.ru/mothers-day" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Тёплый Кадр — Подарок ко Дню матери" />
+  <meta property="og:title" content="Подарите маме слёзы счастья на День матери — Студия «Тёплый Кадр»" />
+  <meta property="og:description" content="Снимем тёплый 3D-мультфильм про маму по вашим фото или бережно оживим старые снимки её родителей к 29 ноября." />
+  <meta property="og:url" content="https://teplo-kadr.ru/mothers-day" />
+  <meta property="og:image" content="https://teplo-kadr.ru/mothers_day_banner_desktop.jpg" />
+  <meta property="og:locale" content="ru_RU" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="120x120" href="/favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="apple-touch-icon" href="/favicon-192x192.png" />
+  <link rel="stylesheet" href="styles.css?v=10" />
+  <style>
+    /* ГЛАВНЫЙ ЭКРАН С ФОНОВЫМ ФОТО ЗА ТЕКСТОМ */
+    .md-hero {
+      position: relative;
+      padding: 64px 0 72px;
+      background-color: #261412;
+      background-image:
+        linear-gradient(90deg, rgba(30, 15, 13, 0.88) 0%, rgba(30, 15, 13, 0.72) 46%, rgba(30, 15, 13, 0.12) 76%, rgba(30, 15, 13, 0.0) 100%),
+        url('media/mothers_day_hero_bg_desktop.jpg');
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid var(--border-soft);
+      color: #FFFDFB;
+      overflow: hidden;
+    }
+    .md-hero-content {
+      max-width: 640px;
+      position: relative;
+      z-index: 2;
+    }
+    .md-badge-special {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 240, 229, 0.14);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #FDE2BA;
+      border: 1px solid rgba(247, 200, 115, 0.45);
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .md-hero h1 {
+      color: #FFFDFB;
+      font-size: clamp(30px, 4.2vw, 46px);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+    }
+    .md-hero h1 span {
+      color: #F7C873;
+    }
+    .md-hero p.lead {
+      color: #F2E5DC;
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 26px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    }
+    .md-hero .btn-outline-light {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFDFB;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .md-hero .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: #FFFDFB;
+    }
+
+    /* БЛОКИ УСЛУГ */
+    .md-service-block {
+      background: #FFFFFF;
+      border: 1px solid var(--border-soft);
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-card);
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .md-service-block.md-vertical-row {
+      grid-template-columns: 1.32fr 0.68fr;
+    }
+    .md-service-block.featured-mom {
+      border: 2px solid var(--accent-warm);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFBF7 100%);
+    }
+    .md-service-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--accent-gold-light);
+      color: #635344;
+      margin-bottom: 10px;
+    }
+    .md-service-block h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .md-service-block p.md-desc {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .md-ideas-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px 0;
+    }
+    .md-ideas-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-size: 14.5px;
+      color: var(--text-main);
+      line-height: 1.45;
+    }
+    .md-ideas-list li::before {
+      content: "❤️";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-size: 13px;
+    }
+    .md-tariffs-mini {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .md-tariff-pill {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+    .md-tariff-pill strong {
+      display: block;
+      font-size: 16px;
+      color: var(--accent-warm);
+      margin-bottom: 2px;
+    }
+    .md-tariff-pill span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+    .md-media-wrap {
+      border-radius: 18px;
+      overflow: hidden;
+      background: #181615;
+      border: 1px solid var(--border-soft);
+    }
+    .md-media-wrap video,
+    .md-media-wrap img {
+      width: 100%;
+      display: block;
+      max-height: 360px;
+      object-fit: contain;
+      background: #181615;
+    }
+
+    /* ИНТЕРАКТИВНЫЕ СЛАЙДЕРЫ НА ВСЮ ШИРИНУ С КНОПКАМИ ПРЯМО НА ФОТО И СВАЙПОМ */
+    .md-interactive-card {
+      background: #FDF8F3;
+      border: 1px solid var(--border-soft);
+      border-radius: 20px;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(44, 34, 30, 0.06);
+      width: 100%;
+    }
+    .md-slider-stage {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: #181615;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+      cursor: grab;
+    }
+    .md-slider-stage:active {
+      cursor: grabbing;
+    }
+    .md-slider-stage img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      pointer-events: none;
+      transition: transform 0.25s ease;
+    }
+    .md-slider-stage.stage-16x9 {
+      aspect-ratio: 16 / 9;
+    }
+    .md-slider-stage.stage-4x3 {
+      aspect-ratio: 4 / 3;
+    }
+    .md-slider-stage.stage-vertical {
+      aspect-ratio: 3 / 3.8;
+    }
+    .md-slider-stage.stage-vertical img {
+      object-fit: cover;
+      object-position: center 22%;
+    }
+    .md-photo-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 3;
+      background: rgba(24, 22, 21, 0.68);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      pointer-events: none;
+      max-width: calc(100% - 24px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .md-photo-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(24, 22, 21, 0.56);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 600;
+      padding: 0 0 2px 0;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+    }
+    .md-photo-arrow.prev {
+      left: 10px;
+    }
+    .md-photo-arrow.next {
+      right: 10px;
+    }
+    .md-photo-arrow:hover {
+      background: var(--accent-warm);
+      border-color: #FFFFFF;
+      transform: translateY(-50%) scale(1.07);
+    }
+    .md-photo-arrow:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+    .md-slider-progress {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.22);
+      z-index: 3;
+      overflow: hidden;
+    }
+    .md-slider-progress > div {
+      height: 100%;
+      width: 0%;
+      background: var(--accent-warm);
+      transition: width 0.1s linear;
+    }
+    .md-caption-box {
+      background: #FDF8F3;
+      border-top: 1px solid var(--border-soft);
+      padding: 8px 12px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: var(--text-muted);
+    }
+    .md-caption-box strong {
+      color: var(--accent-warm);
+      font-size: 12px;
+      display: inline;
+      margin-right: 5px;
+    }
+
+    @media (max-width: 900px) {
+      .md-hero {
+        padding: 36px 0 360px;
+        background-image:
+          linear-gradient(180deg, rgba(30, 15, 13, 0.92) 0%, rgba(30, 15, 13, 0.78) 46%, rgba(30, 15, 13, 0.08) 72%, rgba(30, 15, 13, 0.0) 100%),
+          url('media/mothers_day_hero_bg_mobile.jpg');
+        background-position: bottom center;
+      }
+      .md-service-block,
+      .md-service-block.md-vertical-row {
+        grid-template-columns: 1fr;
+        padding: 18px;
+        gap: 18px;
+      }
+      .md-slider-stage.stage-vertical {
+        aspect-ratio: 9 / 13;
+      }
+      .md-tariffs-mini {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .md-service-block h3 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ШАПКА САЙТА -->
+  <header>
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <div class="logo-badge">ТК</div>
+        <div class="logo-text">
+          <strong>Тёплый Кадр</strong>
+          <span>Семейное кино и подарки</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="/">← На главную</a>
+        <a href="#mom-cartoon">1. Мультфильм про маму</a>
+        <a href="#mom-photo-alive">2. Оживление фото</a>
+        <a href="#mom-portrait">3. Общий портрет</a>
+        <a href="#mom-cards">4. Видео-открытки</a>
+        <a href="#mom-reels">5. Мама в образах</a>
+      </nav>
+      <div class="header-cta">
+        <div class="header-cta-top">
+          <a href="https://t.me/teplo_kadr" target="_blank" rel="noopener" class="header-phone" title="Написать в Telegram: @teplo_kadr">
+            ✈️ @teplo_kadr <small>онлайн 09:00–22:00</small>
+          </a>
+          <div class="header-messengers">
+            <a href="https://wa.me/79147173132" target="_blank" rel="noopener" class="icon-pill btn-whatsapp" title="Написать в WhatsApp"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.25-5.01-4.45-.15-.2-1.2-1.59-1.2-3.04 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.58.82 2.01.89 2.16.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.36 1.45.3.15.47.13.65-.07.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2 .95.3.15.49.22.57.35.07.12.07.72-.17 1.4z"/></svg> <span>WhatsApp</span></a>
+            <button type="button" class="icon-pill btn-max" onclick="sendLeadToMax()" title="Написать в MAX"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.88 1.42 5.45 3.65 7.15L4.5 22l4.12-1.76c1.07.33 2.2.51 3.38.51 5.52 0 10-4.14 10-9.25S17.52 2 12 2zm4.85 12.75h-1.9v-4.2l-2.25 3.1h-1.4l-2.25-3.1v4.2h-1.9v-7.5h1.95l2.9 4.05 2.9-4.05h1.95v7.5z"/></svg> <span>MAX</span></button>
+            <a href="https://t.me/teplo_kadr" target="_blank" rel="noopener" class="icon-pill btn-telegram" title="Написать в Telegram для заказа (@teplo_kadr)"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.94 2C6.45 2 2 6.45 2 11.94s4.45 9.94 9.94 9.94 9.94-4.45 9.94-9.94S17.43 2 11.94 2zm4.66 6.81l-1.69 7.97c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.63 4.78-4.32c.21-.18-.05-.29-.32-.11L8.36 13.4l-2.55-.8c-.55-.17-.56-.55.12-.82l9.96-3.84c.46-.17.86.11.71.87z"/></svg> <span>Telegram</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ГЛАВНЫЙ ЭКРАН СПЕЦПРЕДЛОЖЕНИЯ (БЕЗ 3 КАРТОЧЕК, С ИЛЛЮСТРАЦИЕЙ НА ФОНЕ ЗА ТЕКСТОМ) -->
+  <section class="md-hero">
+    <div class="container">
+      <div class="md-hero-content">
+        <span class="md-badge-special">💐 Специальная подборка подарков ко Дню матери (29 ноября)</span>
+        <h1>Подарите маме эмоции, которые <span>не завянут через три дня</span></h1>
+        <p class="lead">
+          Когда мама говорит: <em>«Мне ничего не надо, не тратьте деньги»</em> — больше всего на свете она ждёт вашего внимания и тёплых воспоминаний. Мы адаптировали все 5 направлений нашей студии специально ко Дню матери: от большого мультфильма про вашу семью до бережного оживления старого маминого фотоальбома.
+        </p>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button class="btn btn-primary" onclick="openOrderModal('Подарок маме ко Дню матери', 'Подбор формата по фотографиям')">🎁 Подобрать подарок по вашим фото</button>
+          <a href="#mom-services" class="btn btn-outline-light">Смотреть все 5 вариантов ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ВСЕ 5 УСЛУГ, АДАПТИРОВАННЫХ ПОД ДЕНЬ МАТЕРИ -->
+  <section class="section" id="mom-services">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 32px;">
+        <span class="pill-tag">Готовность от 3 часов до 2 дней • Полное портретное сходство</span>
+        <h2>5 трогательных подарков ко Дню матери по вашим фотографиям</h2>
+        <p>Для заказа достаточно просто прислать обычные фотографии с телефона в WhatsApp, MAX или Telegram</p>
+      </div>
+
+      <!-- УСЛУГА 1: 3D-МУЛЬТФИЛЬМ ПРО МАМУ С ОЗВУЧКОЙ -->
+      <div class="md-service-block featured-mom" id="mom-cartoon">
+        <div>
+          <span class="md-service-tag">Вариант №1 • Главный хит ко Дню матери</span>
+          <h3>Персональный 3D-мультфильм «Мама — сердце нашей семьи»</h3>
+          <p class="md-desc">
+            По вашим обычным фотографиям с телефона создаём душевный анимационный фильм в стиле Pixar со 100% узнаваемостью лиц. Внутри — ваша личная семейная история: от детских варежек на резинке, маминых блинчиков и летней дачи до сюрприза взрослых детей с внуками на пороге дома и чаепития за большим столом.
+          </p>
+          <ul class="md-ideas-list">
+            <li><strong>Мини-фильм на 30 секунд (4 сцены):</strong> короткая трогательная история по вашим фото под любимую песню (4 900 ₽) или с озвучкой диктора (5 400 ₽).</li>
+            <li><strong>Хит — Фильм на 1 минуту из 8 сцен (6 500 ₽):</strong> полный сюжет от вашего детства до сегодняшнего дня (все 8 кадров показаны справа) + закадровый голос диктора и именная подарочная веб-страница.</li>
+            <li><strong>Большой фильм на 1,5 минуты из 12 сцен (8 900 ₽):</strong> расширенная семейная история + подарочная страница и портрет 4K для печати на холсте.</li>
+          </ul>
+          <div class="md-tariffs-mini">
+            <div class="md-tariff-pill">
+              <strong>4 900 ₽ / 5 400 ₽</strong>
+              <span>30 секунд (4 сцены) по фото семьи: с музыкой / с диктором</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>6 500 ₽ <s style="color:#999;font-size:12px;">7 400 ₽</s></strong>
+              <span>Хит: 1 минута (8 сцен) + озвучка диктора + подарочная страница</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>8 900 ₽ <s style="color:#999;font-size:12px;">10 900 ₽</s></strong>
+              <span>1,5 минуты (12 сцен) + подарочная страница + 4K-портрет</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="openOrderModal('3D-мультфильм для мамы (1 минута)', 'Пакет «Семейная история» (6 500 ₽)', '6 500 ₽')">Заказать мультфильм для мамы</button>
+            <a href="/cartoon" class="btn btn-outline">Подробнее о мультфильмах →</a>
+          </div>
+        </div>
+
+        <!-- ИНТЕРАКТИВНЫЙ СЛАЙДЕР ВСЕХ 8 СЦЕН ФИЛЬМА НА 1 МИНУТУ (СТРЕЛКИ НА ФОТО + СВАЙП) -->
+        <div class="md-interactive-card" id="filmInteractiveCard">
+          <div class="md-slider-stage stage-16x9" id="filmSliderStage">
+            <img id="filmPreviewImg" src="media/mom_styles/film_01.jpg" alt="Кадр 1 из 3D-фильма про маму" />
+            <span class="md-photo-badge" id="filmBadge">1 / 8 • Зимнее детство</span>
+            <button type="button" class="md-photo-arrow prev" onclick="stepFilmFrame(-1)" aria-label="Предыдущий кадр">‹</button>
+            <button type="button" class="md-photo-arrow next" onclick="stepFilmFrame(1)" aria-label="Следующий кадр">›</button>
+            <div class="md-slider-progress"><div id="filmProgressBar"></div></div>
+          </div>
+          <div class="md-caption-box" id="filmPreviewCaption">
+            <strong>Сцена 1:</strong>🎙️ «У каждого из нас есть место, где всегда тепло — даже в самый снежный зимний день. Это тепло маминых рук...»
+          </div>
+        </div>
+      </div>
+
+      <!-- УСЛУГА 2: ОЖИВЛЕНИЕ СТАРЫХ ФОТОГРАФИЙ -->
+      <div class="md-service-block" id="mom-photo-alive">
+        <div>
+          <span class="md-service-tag">Вариант №2 • До мурашек и слёз радости</span>
+          <h3>Оживление маминого фотоальбома и снимков её родителей</h3>
+          <p class="md-desc">
+            В День матери наши мамы сами больше всего скучают по своим родителям — нашим бабушкам и дедушкам. Достаточно просто перефотографировать старые бумажные карточки на телефон: мы бережно уберём трещины, восстановим чёткость лиц и оживим родные снимки в тёплом фильме под любимую мелодию мамы.
+          </p>
+          <ul class="md-ideas-list">
+            <li><strong>3 ожившие фотографии (1 500 ₽):</strong> бережная реставрация и оживление 3 памятных снимков (родителей мамы или её молодости).</li>
+            <li><strong>Фильм из 10 оживших фото (4 900 ₽):</strong> цельный памятный видеофильм под любимую песню мамы с тёплыми титрами и датами.</li>
+            <li><strong>Большая семейная летопись из 20 фото (9 900 ₽):</strong> большой биографический фильм с индивидуальным сценарием и закадровым голосом диктора.</li>
+          </ul>
+          <div class="md-tariffs-mini">
+            <div class="md-tariff-pill">
+              <strong>1 500 ₽</strong>
+              <span>3 ожившие фотографии с бережной реставрацией лиц</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>4 900 ₽</strong>
+              <span>Фильм из 10 оживших фото с музыкой и титрами</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>9 900 ₽</strong>
+              <span>Большая летопись: 20 фото + сценарий и диктор</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="openOrderModal('Оживление фото ко Дню матери', 'Фильм из 10 оживших фото (4 900 ₽)', '4 900 ₽')">Оживить семейные фотографии</button>
+            <a href="/photo-alive" class="btn btn-outline">Примеры оживления фото →</a>
+          </div>
+        </div>
+        <div class="md-media-wrap">
+          <video controls playsinline preload="metadata" poster="media/avito_photo_alive_cover_16x9.png">
+            <source src="media/photo_alive_1080p.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <!-- УСЛУГА 3: СЕМЕЙНЫЙ ПОРТРЕТ 4K С АВТОПЕРЕЛИСТЫВАНИЕМ СТИЛЕЙ -->
+      <div class="md-service-block featured-mom" id="mom-portrait">
+        <div>
+          <span class="md-service-tag">Вариант №3 • Картина 4K для печати на холсте</span>
+          <h3>Общий семейный портрет «Вся семья рядом с мамой» в 6 стилях (4K)</h3>
+          <p class="md-desc">
+            Даже если взрослые дети и внуки живут в разных городах и у вас нет общей фотографии — мы соберём всех родных с отдельных снимков с телефона в единый реалистичный семейный портрет рядом с мамой, а также оформим его в 6 художественных стилях (3D Pixar, масло на холсте, акварель, королевский дворец, плюшевый мир, добрый шарж)!
+          </p>
+          <ul class="md-ideas-list">
+            <li><strong>Портрет по 1 общему фото (1 500 ₽):</strong> 3 готовых портрета 4K вашей мамы или семьи в 1–2 выбранных художественных стилях.</li>
+            <li><strong>Коллекция всех 6 стилей по 1 фото (2 900 ₽):</strong> все 6 художественных образов 4K + памятное видео-слайдшоу под музыку.</li>
+            <li><strong>Сборка всей семьи с разных фото + стили (4 900 ₽):</strong> объединяем маму, взрослых детей и внуков с разных отдельных снимков в единый реалистичный портрет + художественные стили 4K (как показано справа).</li>
+          </ul>
+          <div class="md-tariffs-mini">
+            <div class="md-tariff-pill">
+              <strong>1 500 ₽</strong>
+              <span>3 портрета по 1 готовому фото в 1–2 стилях (4K)</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>2 900 ₽</strong>
+              <span>Коллекция всех 6 стилей по 1 фото + видеоролик</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>4 900 ₽</strong>
+              <span>Сборка всей семьи с разных фото + стили в 4K</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="openOrderModal('Портрет для мамы ко Дню матери', 'Сборка семьи из разных фото + художественные стили')">Заказать портрет для мамы</button>
+            <a href="/photoshoot" class="btn btn-outline">Подробнее о портретах →</a>
+          </div>
+        </div>
+
+        <!-- ИНТЕРАКТИВНЫЙ СЛАЙДЕР СТИЛЕЙ СЕМЕЙНОГО ПОРТРЕТА (СТРЕЛКИ НА ФОТО + СВАЙП) -->
+        <div class="md-interactive-card">
+          <div class="md-slider-stage stage-4x3" id="portraitSliderStage">
+            <img id="portraitAfterImg" src="media/mom_styles/01_realistic_portrait.jpg" alt="Семейный портрет для мамы" />
+            <span class="md-photo-badge" id="portraitAfterLabel">2 / 8 • Реалистичный портрет</span>
+            <button type="button" class="md-photo-arrow prev" onclick="stepPortraitStyle(-1)" aria-label="Предыдущий стиль">‹</button>
+            <button type="button" class="md-photo-arrow next" onclick="stepPortraitStyle(1)" aria-label="Следующий стиль">›</button>
+            <div class="md-slider-progress"><div id="portraitProgressBar"></div></div>
+          </div>
+          <div class="md-caption-box" id="portraitStyleCaption">
+            <strong>Реалистичный портрет 4K:</strong>Все 5 человек с 4 отдельных фото объединены на одном диване с полным сохранением черт лица.
+          </div>
+        </div>
+      </div>
+
+      <!-- УСЛУГА 4: 3D ВИДЕО-ОТКРЫТКА НА 20 СЕКУНД С ОЗВУЧКОЙ -->
+      <div class="md-service-block md-vertical-row" id="mom-cards">
+        <div>
+          <span class="md-service-tag">Вариант №4 • Готовность за 2–4 часа • Формат 9:16 (до 20 секунд)</span>
+          <h3>Живая 3D видео-открытка с поздравлением маме</h3>
+          <p class="md-desc">
+            Хотите отправить маме утром 29 ноября в WhatsApp, MAX или Telegram не шаблонную картинку из интернета, а персональное говорящее чудо? Мы создали трогательное вертикальное 3D-поздравление с волшебной книгой-открыткой, цветами, праздничным тортом, объятиями всей семьи по вашим фото и проникновенным голосом диктора!
+          </p>
+          <ul class="md-ideas-list">
+            <li><strong>Кадр 1 (0–7 сек) — Волшебная книга-открытка:</strong> в окружении пионов раскрывается бархатная книга, из которой в золотых искрах вырастает уютный родной дом.</li>
+            <li><strong>Кадр 2 (7–14 сек) — Утренний сюрприз для мамы:</strong> мама (по вашему фото) на солнечной кухне перед букетом пионов и ягодным тортом со свечой-сердечком растроганно улыбается.</li>
+            <li><strong>Кадр 3 (14–20 сек) — Объятия всей семьи:</strong> взрослые дети и внуки крепко обнимают счастливую маму под кружащимися лепестками роз.</li>
+          </ul>
+          <div class="md-tariffs-mini">
+            <div class="md-tariff-pill">
+              <strong>1 490 ₽</strong>
+              <span>1 сцена (8 сек): волшебная 3D-книга с цветами, именем мамы и диктором</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>1 990 ₽</strong>
+              <span>2 сцены (15 сек): книга-открытка + 3D-образ мамы по фото с цветами и тортом</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>2 990 ₽</strong>
+              <span>Хит — все 3 сцены (20 сек): книга + мама с тортом + объятия всей семьи по фото</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="openOrderModal('3D видео-открытка маме (20 сек)', 'Полная 3D-открытка из 3 сцен по фото семьи (2 990 ₽)', '2 990 ₽')">Заказать 3D-открытку маме</button>
+            <a href="/invitations" class="btn btn-outline">Другие 3D-открытки →</a>
+          </div>
+        </div>
+
+        <!-- ИНТЕРАКТИВНЫЙ СЛАЙДЕР 3 КАДРОВ ОТКРЫТКИ НА 20 СЕКУНД (НА ВСЮ ШИРИНУ + СТРЕЛКИ + СВАЙП) -->
+        <div class="md-interactive-card">
+          <div class="md-slider-stage stage-vertical" id="cardSliderStage">
+            <img id="cardPreviewImg" src="media/mom_styles/01_Открытка_Книга_Цветов.jpg" alt="Кадр 1 видео-открытки маме" />
+            <span class="md-photo-badge" id="cardBadge">1 / 3 • Книга-открытка</span>
+            <button type="button" class="md-photo-arrow prev" onclick="stepCardFrame(-1)" aria-label="Предыдущий кадр">‹</button>
+            <button type="button" class="md-photo-arrow next" onclick="stepCardFrame(1)" aria-label="Следующий кадр">›</button>
+            <div class="md-slider-progress"><div id="cardProgressBar"></div></div>
+          </div>
+          <div class="md-caption-box" id="cardPreviewCaption">
+            <strong>Кадр 1 (0–7 с):</strong>🎙️ «Родная мамочка! В этот день мы дарим тебе маленькое чудо, сотканное из нашей любви…»
+          </div>
+        </div>
+      </div>
+
+      <!-- УСЛУГА 5: КОРОТКИЕ ВИДЕОРОЛИКИ ПРЕОБРАЖЕНИЯ МАМЫ В ОБРАЗАХ -->
+      <div class="md-service-block md-vertical-row" id="mom-reels">
+        <div>
+          <span class="md-service-tag">Вариант №5 • Доступный и яркий сюрприз от 990 ₽</span>
+          <h3>Живые видеоролики «Мама в роскошных образах» по 1 домашнему фото</h3>
+          <p class="md-desc">
+            Превратим обычную домашнюю фотографию вашей мамы в завораживающие кинематографичные видеоролики со 100% сохранением родных черт лица и доброй улыбки: императорский дворец, морская Ривьера на закате и образ кинодивы на осеннем бульваре!
+          </p>
+          <ul class="md-ideas-list">
+            <li><strong>Образ №1 «Императрица во дворце»:</strong> мама в золотом бархатном платье с диадемой в сияющем дворцовом зале с люстрами.</li>
+            <li><strong>Образ №2 «Морская Ривьера на закате»:</strong> мама в струящемся шёлковом наряде на мраморной террасе у тёплого бирюзового моря.</li>
+            <li><strong>Образ №3 «Кинодива на осеннем бульваре»:</strong> мама в кашемировом пальто с букетом пионов среди вечерних огней кафе.</li>
+          </ul>
+          <div class="md-tariffs-mini">
+            <div class="md-tariff-pill">
+              <strong>990 ₽</strong>
+              <span>1 видеоролик (8 сек): преображение мамы в 1 выбранном образе с озвучкой</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>2 490 ₽</strong>
+              <span>Хит — все 3 видеоролика (24 сек): мама сразу в 3 образах с озвучкой диктора</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>3 900 ₽</strong>
+              <span>Большой набор из 5 видеороликов Full HD в 5 разных образах</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="openOrderModal('Видеоролики Мама в образах', 'Набор из 3 видеороликов с преображением (2 490 ₽)', '2 490 ₽')">Заказать видеоролик (от 990 ₽)</button>
+            <a href="/video-edit" class="btn btn-outline">Смотреть все эффекты →</a>
+          </div>
+        </div>
+
+        <!-- ИНТЕРАКТИВНЫЙ СЛАЙДЕР ИСХОДНОГО ФОТО И 3 ОБРАЗОВ МАМЫ (НА ВСЮ ШИРИНУ + СТРЕЛКИ + СВАЙП) -->
+        <div class="md-interactive-card">
+          <div class="md-slider-stage stage-vertical" id="looksSliderStage">
+            <img id="looksPreviewImg" src="media/mom_styles/01_Образ_Королевский_Дворец.jpg" alt="Мама в королевском образе" />
+            <span class="md-photo-badge" id="looksBadge">2 / 4 • Образ «Королева»</span>
+            <button type="button" class="md-photo-arrow prev" onclick="stepLooksFrame(-1)" aria-label="Предыдущий образ">‹</button>
+            <button type="button" class="md-photo-arrow next" onclick="stepLooksFrame(1)" aria-label="Следующий образ">›</button>
+            <div class="md-slider-progress"><div id="looksProgressBar"></div></div>
+          </div>
+          <div class="md-caption-box" id="looksPreviewCaption">
+            <strong>Видео 1 (Королева):</strong>🎙️ «Для нас ты всегда была и остаёшься настоящей королевой — мудрой и бесконечно доброй...»
+          </div>
+        </div>
+      </div>
+
+      <!-- ФИНАЛЬНЫЙ БЛОК ПРИЗЫВА -->
+      <div style="background: linear-gradient(135deg, #2C221E 0%, #43322B 100%); color: #FFFFFF; border-radius: 26px; padding: 36px 32px; text-align: center; margin-top: 36px; box-shadow: var(--shadow-card);">
+        <span style="display: inline-block; background: rgba(255,255,255,0.14); color: #FDE6D2; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 12px;">⏳ До Дня матери (29 ноября) осталось совсем немного времени</span>
+        <h2 style="color: #FFFFFF; font-size: 28px; margin-bottom: 12px;">Не знаете, какой вариант лучше подойдёт по вашим фотографиям?</h2>
+        <p style="color: #E6D7CC; max-width: 680px; margin: 0 auto 22px; font-size: 16px; line-height: 1.55;">
+          Просто пришлите нам в WhatsApp, MAX или Telegram 2–5 фотографий мамы или старых снимков из альбома. Мы бесплатно посмотрим их, подскажем лучшую идею сюжета и рассчитаем точную стоимость за 10 минут!
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://wa.me/79147173132" target="_blank" rel="noopener" class="btn btn-whatsapp" style="font-size: 15.5px; padding: 13px 22px;"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.25-5.01-4.45-.15-.2-1.2-1.59-1.2-3.04 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.58.82 2.01.89 2.16.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.36 1.45.3.15.47.13.65-.07.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2 .95.3.15.49.22.57.35.07.12.07.72-.17 1.4z"/></svg> Написать в WhatsApp</a>
+          <button type="button" class="btn btn-max" onclick="sendLeadToMax()" style="font-size: 15.5px; padding: 13px 22px;"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.88 1.42 5.45 3.65 7.15L4.5 22l4.12-1.76c1.07.33 2.2.51 3.38.51 5.52 0 10-4.14 10-9.25S17.52 2 12 2zm4.85 12.75h-1.9v-4.2l-2.25 3.1h-1.4l-2.25-3.1v4.2h-1.9v-7.5h1.95l2.9 4.05 2.9-4.05h1.95v7.5z"/></svg> Написать в MAX</button>
+          <a href="https://t.me/teplo_kadr" target="_blank" rel="noopener" class="btn btn-telegram" style="font-size: 15.5px; padding: 13px 22px;"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.94 2C6.45 2 2 6.45 2 11.94s4.45 9.94 9.94 9.94 9.94-4.45 9.94-9.94S17.43 2 11.94 2zm4.66 6.81l-1.69 7.97c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.63 4.78-4.32c.21-.18-.05-.29-.32-.11L8.36 13.4l-2.55-.8c-.55-.17-.56-.55.12-.82l9.96-3.84c.46-.17.86.11.71.87z"/></svg> Написать в Telegram (@teplo_kadr)</a>
+          <a href="/" class="btn btn-outline" style="background: rgba(255,255,255,0.08); color: #FFFFFF; border-color: rgba(255,255,255,0.25);">← Вернуться на главную страницу</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ САЙТА -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong style="color: var(--text-main); font-size: 20px; display: block; margin-bottom: 8px;">Студия семейного кино «Тёплый Кадр»</strong>
+          <p style="margin-bottom: 12px;">Создаём персональные мультфильмы по вашей истории, бережно оживляем архивные семейные фотографии, делаем художественные портреты и живые 3D видео-приглашения.</p>
+          <p style="margin-bottom: 10px; color: var(--text-main); font-weight: 600; font-size: 14.5px;">
+            💬 WhatsApp • MAX • Telegram: <a href="https://t.me/teplo_kadr" target="_blank" rel="noopener" style="color: var(--accent-warm); text-decoration: underline;">@teplo_kadr</a> (ежедневно с 09:00 до 22:00)
+          </p>
+        </div>
+        <div>
+          <strong style="color: var(--text-main); display: block; margin-bottom: 10px;">Все направления студии:</strong>
+          <ul class="footer-links">
+            <li><a href="/cartoon">1. Персональные мультфильмы (от 4 900 ₽)</a></li>
+            <li><a href="/photo-alive">2. Оживление старых фотографий (от 1 500 ₽)</a></li>
+            <li><a href="/video-edit">3. Короткие видеоролики и эффекты (от 990 ₽)</a></li>
+            <li><a href="/photoshoot">4. Семейные портреты в 9 стилях (от 1 500 ₽)</a></li>
+            <li><a href="/invitations">5. Живые 3D видео-приглашения (от 1 490 ₽)</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--text-main); display: block; margin-bottom: 10px;">Официальные сообщества и реквизиты:</strong>
+          <ul class="footer-links">
+            <li><a href="https://t.me/teplo_kadr_channel" target="_blank" rel="noopener">✈️ Telegram-канал: @teplo_kadr_channel</a></li>
+            <li><a href="https://vk.com/teplo_kadr" target="_blank" rel="noopener">💙 ВКонтакте: vk.com/teplo_kadr</a></li>
+            <li><a href="https://www.youtube.com/@teplo_kadr" target="_blank" rel="noopener">▶️ YouTube: @teplo_kadr</a></li>
+            <li><a href="https://www.instagram.com/teplo_kadr/" target="_blank" rel="noopener">📸 Instagram: @teplo_kadr</a></li>
+            <li><a href="https://www.tiktok.com/@teplo_kadr" target="_blank" rel="noopener">🎵 TikTok: @teplo_kadr</a></li>
+            <li style="margin-top: 6px;"><a href="/oferta">Публичная оферта и тарифы</a> • <a href="/privacy">Конфиденциальность</a></li>
+            <li>Самозанятый (НПД): Шкляев Богдан Алексеевич (ИНН 253812447035)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Студия семейного кино «Тёплый Кадр» (teplo-kadr.ru). Онлайн по всей России ежедневно с 09:00 до 22:00.</div>
+        <div class="footer-legal-links">
+          <a href="/oferta">Публичная оферта</a>
+          <a href="/privacy">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО ЗАКАЗА -->
+  <div class="modal-backdrop" id="orderModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeOrderModal()">✕</button>
+      <span class="pill-tag" style="margin-bottom: 8px;">Спецпредложение ко Дню матери</span>
+      <h3 id="modalTitle" style="font-size: 24px; margin-bottom: 6px;">Заказать подарок маме</h3>
+      <p id="modalSub" style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 16px;">Выбранный вариант</p>
+
+      <input type="hidden" id="modalService" value="Подарок маме ко Дню матери" />
+      <input type="hidden" id="modalTariff" value="Индивидуальный подбор" />
+
+      <div class="calc-control">
+        <label>Как к вам обращаться?</label>
+        <input type="text" id="modalClientName" placeholder="Например: Елена" />
+      </div>
+      <div class="calc-control">
+        <label>По какому поводу готовим подарок?</label>
+        <input type="text" id="modalOccasion" value="День матери (29 ноября)" />
+      </div>
+      <div class="calc-control">
+        <label>Ваши пожелания (по желанию):</label>
+        <textarea id="modalComment" rows="2" placeholder="Например: хочу мультфильм про маму или семейный портрет из разных фото..."></textarea>
+      </div>
+
+      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px;">
+        Выберите удобный мессенджер — откроется диалог с вашей заявкой, куда вы сможете прикрепить фотографии:
+      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 8px;">
+        <button type="button" class="btn btn-whatsapp btn-sm" onclick="sendLeadToWhatsApp()"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.25-5.01-4.45-.15-.2-1.2-1.59-1.2-3.04 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.58.82 2.01.89 2.16.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.36 1.45.3.15.47.13.65-.07.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2 .95.3.15.49.22.57.35.07.12.07.72-.17 1.4z"/></svg> WhatsApp</button>
+        <button type="button" class="btn btn-max btn-sm" onclick="sendLeadToMax()"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.14 2 11.25c0 2.88 1.42 5.45 3.65 7.15L4.5 22l4.12-1.76c1.07.33 2.2.51 3.38.51 5.52 0 10-4.14 10-9.25S17.52 2 12 2zm4.85 12.75h-1.9v-4.2l-2.25 3.1h-1.4l-2.25-3.1v4.2h-1.9v-7.5h1.95l2.9 4.05 2.9-4.05h1.95v7.5z"/></svg> MAX</button>
+        <button type="button" class="btn btn-telegram btn-sm" onclick="sendLeadToTelegram()"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.94 2C6.45 2 2 6.45 2 11.94s4.45 9.94 9.94 9.94 9.94-4.45 9.94-9.94S17.43 2 11.94 2zm4.66 6.81l-1.69 7.97c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.63 4.78-4.32c.21-.18-.05-.29-.32-.11L8.36 13.4l-2.55-.8c-.55-.17-.56-.55.12-.82l9.96-3.84c.46-.17.86.11.71.87z"/></svg> Telegram</button>
+      </div>
+      <div class="legal-consent-note">
+        Отправляя заявку, вы соглашаетесь с условиями <a href="/oferta">Публичной оферты</a> и <a href="/privacy">Политики конфиденциальности</a>.
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=12"></script>
+  <script>
+    // Универсальная функция свайпа (пальцем на телефоне и мышкой на ПК)
+    function attachSwipe(stageId, onStep) {
+      const el = document.getElementById(stageId);
+      if (!el) return;
+      let startX = null;
+      let startY = null;
+
+      el.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length === 1) {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      el.addEventListener('touchend', (e) => {
+        if (startX === null || !e.changedTouches || !e.changedTouches.length) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        const dy = e.changedTouches[0].clientY - startY;
+        if (Math.abs(dx) > 36 && Math.abs(dx) > Math.abs(dy)) {
+          onStep(dx < 0 ? 1 : -1);
+        }
+        startX = null;
+        startY = null;
+      }, { passive: true });
+
+      let mouseStartX = null;
+      el.addEventListener('mousedown', (e) => {
+        if (e.target.closest('button')) return;
+        mouseStartX = e.clientX;
+      });
+      el.addEventListener('mouseup', (e) => {
+        if (mouseStartX === null) return;
+        const dx = e.clientX - mouseStartX;
+        if (Math.abs(dx) > 40) {
+          onStep(dx < 0 ? 1 : -1);
+        }
+        mouseStartX = null;
+      });
+      el.addEventListener('mouseleave', () => {
+        mouseStartX = null;
+      });
+    }
+
+    // 1. СЛАЙДЕР ФИЛЬМА НА 1 МИНУТУ (УСЛУГА №1)
+    const filmFrames = [
+      {
+        src: 'media/mom_styles/film_01.jpg',
+        badge: '1 / 8 • Зимнее детство',
+        title: 'Сцена 1:',
+        text: '🎙️ «У каждого из нас есть место, где всегда тепло — даже в самый снежный зимний день. Это тепло маминых рук...»'
+      },
+      {
+        src: 'media/mom_styles/film_02.jpg',
+        badge: '2 / 8 • Мамины блинчики',
+        title: 'Сцена 2:',
+        text: '🎙️ «Мы помним вкус твоего воскресного утра, аромат горячих блинчиков и то, как ты превращала обычный день в праздник.»'
+      },
+      {
+        src: 'media/mom_styles/film_03.jpg',
+        badge: '3 / 8 • Лето на даче',
+        title: 'Сцена 3:',
+        text: '🎙️ «Помним, как ты дула на сбитые коленки на даче — и любая боль проходила за секунду просто от твоей улыбки.»'
+      },
+      {
+        src: 'media/mom_styles/film_04.jpg',
+        badge: '4 / 8 • Сказка на ночь',
+        title: 'Сцена 4:',
+        text: '🎙️ «И как ночами ты тихо укрывала нас одеялом, охраняя самые сладкие детские сны, даже когда сама уставала.»'
+      },
+      {
+        src: 'media/mom_styles/film_05.jpg',
+        badge: '5 / 8 • Дети выросли',
+        title: 'Сцена 5:',
+        text: '🎙️ «Годы летели быстро. Мы выросли, стали выше тебя ростом и разъехались по своим делам и городам...»'
+      },
+      {
+        src: 'media/mom_styles/film_06.jpg',
+        badge: '6 / 8 • Мама ждёт у окна',
+        title: 'Сцена 6:',
+        text: '🎙️ «Но сколько бы нам ни было лет, твоё сердце каждую минуту помнит о нас, а в твоём окне всегда горит родной свет.»'
+      },
+      {
+        src: 'media/mom_styles/film_07.jpg',
+        badge: '7 / 8 • Сюрприз на пороге',
+        title: 'Сцена 7:',
+        text: '🎙️ «И сегодня все дороги снова ведут к твоему порогу — чтобы обнять тебя так крепко, как ты обнимала нас всю жизнь!»'
+      },
+      {
+        src: 'media/mom_styles/film_08.jpg',
+        badge: '8 / 8 • Вся семья вместе',
+        title: 'Сцена 8:',
+        text: '🎙️ «Спасибо за жизнь, за доброту и за то, что ты — сердце нашей большой семьи. С Днём матери, родная!»'
+      }
+    ];
+    let currentFilmIdx = 0;
+    let filmElapsedMs = 0;
+    const FILM_SLIDE_DURATION_MS = 4000;
+
+    function setFilmFrame(idx) {
+      currentFilmIdx = (idx + filmFrames.length) % filmFrames.length;
+      const item = filmFrames[currentFilmIdx];
+      const imgEl = document.getElementById('filmPreviewImg');
+      if (imgEl) imgEl.src = item.src;
+      const badgeEl = document.getElementById('filmBadge');
+      if (badgeEl) badgeEl.textContent = item.badge;
+      document.getElementById('filmPreviewCaption').innerHTML = '<strong>' + item.title + '</strong>' + item.text;
+      filmElapsedMs = 0;
+      const bar = document.getElementById('filmProgressBar');
+      if (bar) bar.style.width = '0%';
+    }
+    function stepFilmFrame(dir) {
+      setFilmFrame(currentFilmIdx + dir);
+    }
+    attachSwipe('filmSliderStage', stepFilmFrame);
+
+    // 2. СЛАЙДЕР СЕМЕЙНОГО ПОРТРЕТА (УСЛУГА №3)
+    const portraitStyles = [
+      {
+        src: 'media/mom_styles/00_source_collage.jpg',
+        label: '1 / 8 • 4 исходных фото',
+        title: 'Исходные фото:',
+        desc: '4 обычные отдельные фотографии с телефона из разных городов, из которых мы собрали единый портрет.'
+      },
+      {
+        src: 'media/mom_styles/01_realistic_portrait.jpg',
+        label: '2 / 8 • Реалистичный портрет',
+        title: 'Реалистичный портрет 4K:',
+        desc: 'Все 5 человек с 4 отдельных фото объединены на одном диване с полным сохранением черт лица.'
+      },
+      {
+        src: 'media/mom_styles/02_style_pixar.jpg',
+        label: '3 / 8 • Стиль 3D Pixar',
+        title: 'Стиль «3D Disney / Pixar»:',
+        desc: 'Вся семья в образе героев тёплого 3D-мультфильма с сохранением мимики, причёсок и букета пионов.'
+      },
+      {
+        src: 'media/mom_styles/03_style_oil.jpg',
+        label: '4 / 8 • Масло на холсте',
+        title: 'Стиль «Картина маслом»:',
+        desc: 'Классическая парадная живопись маслом с живыми фактурными мазками кисти — идеально для печати на холсте.'
+      },
+      {
+        src: 'media/mom_styles/04_style_watercolor.jpg',
+        label: '5 / 8 • Нежная акварель',
+        title: 'Стиль «Акварель»:',
+        desc: 'Мягкая художественная акварель ручной работы на фактурной бумаге с солнечным светом.'
+      },
+      {
+        src: 'media/mom_styles/05_style_royal.jpg',
+        label: '6 / 8 • Королевский дворец',
+        title: 'Стиль «Императорский дворец»:',
+        desc: 'Парадный портрет XIX века с золотым шитьём и эполетами при 100% узнаваемости лиц всех родных.'
+      },
+      {
+        src: 'media/mom_styles/06_style_plush.jpg',
+        label: '7 / 8 • Плюшевый мир',
+        title: 'Стиль «Уютный вязаный мир»:',
+        desc: 'Каждый член семьи превращается в детализированную вязаную игрушку ручной работы.'
+      },
+      {
+        src: 'media/mom_styles/07_style_caricature.jpg',
+        label: '8 / 8 • Добрый шарж',
+        title: 'Стиль «Семейный шарж»:',
+        desc: 'Яркая праздничная иллюстрация с лучезарными улыбками и тёплым настроением.'
+      }
+    ];
+    let currentPortraitIdx = 1;
+    let portraitElapsedMs = 0;
+    const PORTRAIT_SLIDE_DURATION_MS = 3800;
+
+    function setPortraitStyle(idx) {
+      currentPortraitIdx = (idx + portraitStyles.length) % portraitStyles.length;
+      const item = portraitStyles[currentPortraitIdx];
+      const imgEl = document.getElementById('portraitAfterImg');
+      if (imgEl) imgEl.src = item.src;
+      const badgeEl = document.getElementById('portraitAfterLabel');
+      if (badgeEl) badgeEl.textContent = item.label;
+      document.getElementById('portraitStyleCaption').innerHTML = '<strong>' + item.title + '</strong>' + item.desc;
+      portraitElapsedMs = 0;
+      const bar = document.getElementById('portraitProgressBar');
+      if (bar) bar.style.width = '0%';
+    }
+    function stepPortraitStyle(dir) {
+      setPortraitStyle(currentPortraitIdx + dir);
+    }
+    attachSwipe('portraitSliderStage', stepPortraitStyle);
+
+    // 3. СЛАЙДЕР 20-СЕКУНДНОЙ 3D ВИДЕО-ОТКРЫТКИ (УСЛУГА №4)
+    const cardFrames = [
+      {
+        src: 'media/mom_styles/01_Открытка_Книга_Цветов.jpg',
+        badge: '1 / 3 • Книга-открытка',
+        title: 'Кадр 1 (0–7 с):',
+        text: '🎙️ «Родная мамочка! В этот день мы дарим тебе маленькое чудо, сотканное из нашей любви…»'
+      },
+      {
+        src: 'media/mom_styles/02_Мама_Уютное_Утро_Цветы.jpg',
+        badge: '2 / 3 • Мама с цветами и тортом',
+        title: 'Кадр 2 (7–14 с):',
+        text: '🎙️ «Спасибо за твои самые добрые в мире руки, за тепло родного дома и твою родную улыбку!»'
+      },
+      {
+        src: 'media/mom_styles/03_Объятия_Семьи_Поздравление.jpg',
+        badge: '3 / 3 • Объятия всей семьи',
+        title: 'Кадр 3 (14–20 с):',
+        text: '🎙️ «Будь здорова, светись от счастья каждый день и знай: мы всегда рядом! С Днём матери!»'
+      }
+    ];
+    let currentCardIdx = 0;
+    let cardElapsedMs = 0;
+    const CARD_SLIDE_DURATION_MS = 4200;
+
+    function setCardFrame(idx) {
+      currentCardIdx = (idx + cardFrames.length) % cardFrames.length;
+      const item = cardFrames[currentCardIdx];
+      const imgEl = document.getElementById('cardPreviewImg');
+      if (imgEl) imgEl.src = item.src;
+      const badgeEl = document.getElementById('cardBadge');
+      if (badgeEl) badgeEl.textContent = item.badge;
+      document.getElementById('cardPreviewCaption').innerHTML = '<strong>' + item.title + '</strong>' + item.text;
+      cardElapsedMs = 0;
+      const bar = document.getElementById('cardProgressBar');
+      if (bar) bar.style.width = '0%';
+    }
+    function stepCardFrame(dir) {
+      setCardFrame(currentCardIdx + dir);
+    }
+    attachSwipe('cardSliderStage', stepCardFrame);
+
+    // 4. СЛАЙДЕР 3 ВИДЕО МАМЫ В ОБРАЗАХ (УСЛУГА №5)
+    const looksFrames = [
+      {
+        src: 'media/mom_styles/00_Мама_Исходное_Домашнее_Фото.jpg',
+        badge: '1 / 4 • Исходное фото дома',
+        title: 'Исходное фото:',
+        text: 'Обычный домашний снимок мамы на телефон — из него созданы все 3 живых образа со 100% сходством!'
+      },
+      {
+        src: 'media/mom_styles/01_Образ_Королевский_Дворец.jpg',
+        badge: '2 / 4 • Образ «Королева»',
+        title: 'Видео 1 (Королева):',
+        text: '🎙️ «Для нас ты всегда была и остаёшься настоящей королевой — мудрой и бесконечно доброй...»'
+      },
+      {
+        src: 'media/mom_styles/02_Образ_Морская_Ривьера_Закат.jpg',
+        badge: '3 / 4 • Морской закат',
+        title: 'Видео 2 (У моря):',
+        text: '🎙️ «Пусть в твоей душе всегда шумит тёплое море и светит ласковое солнце!»'
+      },
+      {
+        src: 'media/mom_styles/03_Образ_Кинодива_Осенний_Бульвар.jpg',
+        badge: '4 / 4 • Образ «Кинодива»',
+        title: 'Видео 3 (Кинодива):',
+        text: '🎙️ «Ты — главная героиня нашего любимого семейного кино. Сияй и будь счастлива!»'
+      }
+    ];
+    let currentLooksIdx = 1;
+    let looksElapsedMs = 0;
+    const LOOKS_SLIDE_DURATION_MS = 4000;
+
+    function setLooksFrame(idx) {
+      currentLooksIdx = (idx + looksFrames.length) % looksFrames.length;
+      const item = looksFrames[currentLooksIdx];
+      const imgEl = document.getElementById('looksPreviewImg');
+      if (imgEl) imgEl.src = item.src;
+      const badgeEl = document.getElementById('looksBadge');
+      if (badgeEl) badgeEl.textContent = item.badge;
+      document.getElementById('looksPreviewCaption').innerHTML = '<strong>' + item.title + '</strong>' + item.text;
+      looksElapsedMs = 0;
+      const bar = document.getElementById('looksProgressBar');
+      if (bar) bar.style.width = '0%';
+    }
+    function stepLooksFrame(dir) {
+      setLooksFrame(currentLooksIdx + dir);
+    }
+    attachSwipe('looksSliderStage', stepLooksFrame);
+
+    // Единый плавный таймер автоперелистывания для всех 4 галерей
+    setInterval(() => {
+      filmElapsedMs += 100;
+      const filmBar = document.getElementById('filmProgressBar');
+      if (filmBar) filmBar.style.width = Math.min(100, (filmElapsedMs / FILM_SLIDE_DURATION_MS) * 100) + '%';
+      if (filmElapsedMs >= FILM_SLIDE_DURATION_MS) stepFilmFrame(1);
+
+      portraitElapsedMs += 100;
+      const portraitBar = document.getElementById('portraitProgressBar');
+      if (portraitBar) portraitBar.style.width = Math.min(100, (portraitElapsedMs / PORTRAIT_SLIDE_DURATION_MS) * 100) + '%';
+      if (portraitElapsedMs >= PORTRAIT_SLIDE_DURATION_MS) stepPortraitStyle(1);
+
+      cardElapsedMs += 100;
+      const cardBar = document.getElementById('cardProgressBar');
+      if (cardBar) cardBar.style.width = Math.min(100, (cardElapsedMs / CARD_SLIDE_DURATION_MS) * 100) + '%';
+      if (cardElapsedMs >= CARD_SLIDE_DURATION_MS) stepCardFrame(1);
+
+      looksElapsedMs += 100;
+      const looksBar = document.getElementById('looksProgressBar');
+      if (looksBar) looksBar.style.width = Math.min(100, (looksElapsedMs / LOOKS_SLIDE_DURATION_MS) * 100) + '%';
+      if (looksElapsedMs >= LOOKS_SLIDE_DURATION_MS) stepLooksFrame(1);
+    }, 100);
+  </script>
+</body>
+</html>
