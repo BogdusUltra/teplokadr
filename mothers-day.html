@@ -386,10 +386,10 @@
       <nav class="nav-links">
         <a href="/">← На главную</a>
         <a href="#mom-cartoon">1. Мультфильм про маму</a>
-        <a href="#mom-photo-alive">2. Оживление фото</a>
-        <a href="#mom-portrait">3. Общий портрет</a>
-        <a href="#mom-cards">4. Видео-открытки</a>
-        <a href="#mom-reels">5. Мама в образах</a>
+        <a href="#mom-reels">2. Мама в образах</a>
+        <a href="#mom-cards">3. Видео-открытки</a>
+        <a href="#mom-photo-alive">4. Оживление фото</a>
+        <a href="#mom-portrait">5. Семейный портрет</a>
       </nav>
       <div class="header-cta">
         <div class="header-cta-top">
@@ -441,7 +441,7 @@
           </p>
           <ul class="md-ideas-list">
             <li><strong>Мини-фильм на 30 секунд (4 сцены):</strong> короткая трогательная история по вашим фото под любимую песню (4 900 ₽) или с озвучкой диктора (5 400 ₽).</li>
-            <li><strong>Хит — Фильм на 1 минуту из 8 сцен (6 500 ₽):</strong> полный сюжет от вашего детства до сегодняшнего дня (все 8 кадров показаны справа) + закадровый голос диктора и именная подарочная веб-страница.</li>
+            <li><strong>Хит — Фильм на 1 минуту из 8 сцен (6 500 ₽):</strong> полный сюжет от вашего детства до сегодняшнего дня (готовый 1-минутный мультфильм с озвучкой показан справа) + именная подарочная веб-страница.</li>
             <li><strong>Большой фильм на 1,5 минуты из 12 сцен (8 900 ₽):</strong> расширенная семейная история + подарочная страница и портрет 4K для печати на холсте.</li>
           </ul>
           <div class="md-tariffs-mini">
@@ -464,25 +464,100 @@
           </div>
         </div>
 
-        <!-- ИНТЕРАКТИВНЫЙ СЛАЙДЕР ВСЕХ 8 СЦЕН ФИЛЬМА НА 1 МИНУТУ (СТРЕЛКИ НА ФОТО + СВАЙП) -->
-        <div class="md-interactive-card" id="filmInteractiveCard">
-          <div class="md-slider-stage stage-16x9" id="filmSliderStage">
-            <img id="filmPreviewImg" src="media/mom_styles/film_01.jpg?v=3" alt="Кадр 1 из 3D-фильма про маму" />
-            <span class="md-photo-badge" id="filmBadge">1 / 8 • Зимнее детство</span>
-            <button type="button" class="md-photo-arrow prev" onclick="stepFilmFrame(-1)" aria-label="Предыдущий кадр">‹</button>
-            <button type="button" class="md-photo-arrow next" onclick="stepFilmFrame(1)" aria-label="Следующий кадр">›</button>
-            <div class="md-slider-progress"><div id="filmProgressBar"></div></div>
-          </div>
-          <div class="md-caption-box" id="filmPreviewCaption">
-            <strong>Сцена 1:</strong>🎙️ «Мамочка… В каждом воспоминании детства — твои тёплые, заботливые руки...»
-          </div>
+        <!-- ГОТОВЫЙ 1-МИНУТНЫЙ 3D-МУЛЬТФИЛЬМ ПРО МАМУ С ОЗВУЧКОЙ И МУЗЫКОЙ -->
+        <div class="md-media-wrap">
+          <video controls playsinline preload="metadata" poster="media/mom_styles/film_01.jpg?v=3">
+            <source src="media/mom_styles/film_mom_1min.mp4?v=2" type="video/mp4" />
+          </video>
         </div>
       </div>
 
-      <!-- УСЛУГА 2: ОЖИВЛЕНИЕ СТАРЫХ ФОТОГРАФИЙ -->
+      <!-- УСЛУГА 2: КОРОТКИЕ ВИДЕОРОЛИКИ ПРЕОБРАЖЕНИЯ МАМЫ В ОБРАЗАХ (МАМА — КОРОЛЕВА) -->
+      <div class="md-service-block md-vertical-row" id="mom-reels">
+        <div>
+          <span class="md-service-tag">Вариант №2 • Доступный и яркий сюрприз от 990 ₽</span>
+          <h3>Живые видеоролики «Мама в роскошных образах» по 1 домашнему фото</h3>
+          <p class="md-desc">
+            Превратим обычную домашнюю фотографию вашей мамы в завораживающие кинематографичные видеоролики с портретным сходством и доброй улыбкой: императорский дворец, морская Ривьера на закате и образ кинодивы на осеннем бульваре!
+          </p>
+          <ul class="md-ideas-list">
+            <li><strong>Образ №1 «Императрица во дворце» (0–10 сек):</strong> мама в золотом бархатном платье с диадемой в сияющем дворцовом зале с люстрами.</li>
+            <li><strong>Образ №2 «Морская Ривьера на закате» (10–20 сек):</strong> мама в струящемся шёлковом наряде на мраморной террасе у тёплого бирюзового моря.</li>
+            <li><strong>Образ №3 «Кинодива на осеннем бульваре» (20–30 сек):</strong> мама в кашемировом пальто с букетом пионов среди вечерних огней кафе.</li>
+          </ul>
+          <div class="md-tariffs-mini">
+            <div class="md-tariff-pill">
+              <strong>990 ₽</strong>
+              <span>1 видеоролик (10 сек): преображение мамы в 1 выбранном образе с озвучкой</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>2 490 ₽</strong>
+              <span>Хит — все 3 видеоролика (30 сек): мама сразу в 3 образах с озвучкой диктора</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>3 900 ₽</strong>
+              <span>Большой набор из 5 видеороликов Full HD в 5 разных образах</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="openOrderModal('Видеоролики Мама в образах', 'Набор из 3 видеороликов с преображением (2 490 ₽)', '2 490 ₽')">Заказать видеоролик (от 990 ₽)</button>
+            <a href="/video-edit" class="btn btn-outline">Смотреть все эффекты →</a>
+          </div>
+        </div>
+
+        <!-- ГОТОВЫЙ 30-СЕКУНДНЫЙ РОЛИК МАМЫ В 3 ОБРАЗАХ С ОЗВУЧКОЙ И МУЗЫКОЙ -->
+        <div class="md-media-wrap vertical">
+          <video controls playsinline preload="metadata" poster="media/mom_styles/looks_mom_poster_9x16.jpg">
+            <source src="media/mom_styles/looks_mom_30s.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <!-- УСЛУГА 3: 3D ВИДЕО-ОТКРЫТКА НА 30 СЕКУНД С ОЗВУЧКОЙ -->
+      <div class="md-service-block md-vertical-row" id="mom-cards">
+        <div>
+          <span class="md-service-tag">Вариант №3 • Готовность за 2–4 часа • Формат 9:16 (до 30 секунд)</span>
+          <h3>Живая 3D видео-открытка с поздравлением маме</h3>
+          <p class="md-desc">
+            Хотите отправить маме утром 29 ноября в WhatsApp, MAX или Telegram не шаблонную картинку из интернета, а персональное говорящее чудо? Мы создали трогательное вертикальное 3D-поздравление с волшебной книгой-открыткой, цветами, праздничным тортом, объятиями всей семьи по вашим фото и проникновенным голосом диктора!
+          </p>
+          <ul class="md-ideas-list">
+            <li><strong>Кадр 1 (0–10 сек) — Волшебная книга-открытка:</strong> в окружении пионов раскрывается бархатная книга, из которой в золотых искрах вырастает уютный родной дом.</li>
+            <li><strong>Кадр 2 (10–20 сек) — Утренний сюрприз для мамы:</strong> мама (по вашему фото) на солнечной кухне перед букетом пионов и ягодным тортом со свечой-сердечком растроганно улыбается.</li>
+            <li><strong>Кадр 3 (20–30 сек) — Объятия всей семьи:</strong> взрослые дети и внуки крепко обнимают счастливую маму под кружащимися лепестками роз.</li>
+          </ul>
+          <div class="md-tariffs-mini">
+            <div class="md-tariff-pill">
+              <strong>1 490 ₽</strong>
+              <span>1 сцена (10 сек): волшебная 3D-книга с цветами, именем мамы и диктором</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>1 990 ₽</strong>
+              <span>2 сцены (20 сек): книга-открытка + 3D-образ мамы по фото с цветами и тортом</span>
+            </div>
+            <div class="md-tariff-pill">
+              <strong>2 990 ₽</strong>
+              <span>Хит — все 3 сцены (30 сек): книга + мама с тортом + объятия всей семьи по фото</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="openOrderModal('3D видео-открытка маме (30 сек)', 'Полная 3D-открытка из 3 сцен по фото семьи (2 990 ₽)', '2 990 ₽')">Заказать 3D-открытку маме</button>
+            <a href="/invitations" class="btn btn-outline">Другие 3D-открытки →</a>
+          </div>
+        </div>
+
+        <!-- ГОТОВЫЙ 30-СЕКУНДНЫЙ РОЛИК ВИДЕО-ОТКРЫТКИ С ОЗВУЧКОЙ И МУЗЫКОЙ -->
+        <div class="md-media-wrap vertical">
+          <video controls playsinline preload="metadata" poster="media/mom_styles/card_mom_poster_9x16.jpg">
+            <source src="media/mom_styles/card_mom_30s.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <!-- УСЛУГА 4: ОЖИВЛЕНИЕ СТАРЫХ ФОТОГРАФИЙ -->
       <div class="md-service-block" id="mom-photo-alive">
         <div>
-          <span class="md-service-tag">Вариант №2 • До мурашек и слёз радости</span>
+          <span class="md-service-tag">Вариант №4 • До мурашек и слёз радости</span>
           <h3>Оживление маминого фотоальбома и снимков её родителей</h3>
           <p class="md-desc">
             В День матери наши мамы сами больше всего скучают по своим родителям — нашим бабушкам и дедушкам. Достаточно просто перефотографировать старые бумажные карточки на телефон: мы бережно уберём трещины, восстановим чёткость лиц и оживим родные снимки в тёплом фильме под любимую мелодию мамы.
@@ -518,10 +593,10 @@
         </div>
       </div>
 
-      <!-- УСЛУГА 3: СЕМЕЙНЫЙ ПОРТРЕТ 4K С АВТОПЕРЕЛИСТЫВАНИЕМ СТИЛЕЙ -->
+      <!-- УСЛУГА 5: СЕМЕЙНЫЙ ПОРТРЕТ 4K С АВТОПЕРЕЛИСТЫВАНИЕМ СТИЛЕЙ -->
       <div class="md-service-block featured-mom" id="mom-portrait">
         <div>
-          <span class="md-service-tag">Вариант №3 • Картина 4K для печати на холсте</span>
+          <span class="md-service-tag">Вариант №5 • Картина 4K для печати на холсте</span>
           <h3>Общий семейный портрет «Вся семья рядом с мамой» в 6 стилях (4K)</h3>
           <p class="md-desc">
             Даже если взрослые дети и внуки живут в разных городах и у вас нет общей фотографии — мы соберём всех родных с отдельных снимков с телефона в единый реалистичный семейный портрет рядом с мамой, а также оформим его в 6 художественных стилях (3D Pixar, масло на холсте, акварель, королевский дворец, плюшевый мир, добрый шарж)!
@@ -563,88 +638,6 @@
           <div class="md-caption-box" id="portraitStyleCaption">
             <strong>Реалистичный портрет 4K:</strong>Все 5 человек с 4 отдельных фото объединены на одном диване с полным сохранением черт лица.
           </div>
-        </div>
-      </div>
-
-      <!-- УСЛУГА 4: 3D ВИДЕО-ОТКРЫТКА НА 30 СЕКУНД С ОЗВУЧКОЙ -->
-      <div class="md-service-block md-vertical-row" id="mom-cards">
-        <div>
-          <span class="md-service-tag">Вариант №4 • Готовность за 2–4 часа • Формат 9:16 (до 30 секунд)</span>
-          <h3>Живая 3D видео-открытка с поздравлением маме</h3>
-          <p class="md-desc">
-            Хотите отправить маме утром 29 ноября в WhatsApp, MAX или Telegram не шаблонную картинку из интернета, а персональное говорящее чудо? Мы создали трогательное вертикальное 3D-поздравление с волшебной книгой-открыткой, цветами, праздничным тортом, объятиями всей семьи по вашим фото и проникновенным голосом диктора!
-          </p>
-          <ul class="md-ideas-list">
-            <li><strong>Кадр 1 (0–10 сек) — Волшебная книга-открытка:</strong> в окружении пионов раскрывается бархатная книга, из которой в золотых искрах вырастает уютный родной дом.</li>
-            <li><strong>Кадр 2 (10–20 сек) — Утренний сюрприз для мамы:</strong> мама (по вашему фото) на солнечной кухне перед букетом пионов и ягодным тортом со свечой-сердечком растроганно улыбается.</li>
-            <li><strong>Кадр 3 (20–30 сек) — Объятия всей семьи:</strong> взрослые дети и внуки крепко обнимают счастливую маму под кружащимися лепестками роз.</li>
-          </ul>
-          <div class="md-tariffs-mini">
-            <div class="md-tariff-pill">
-              <strong>1 490 ₽</strong>
-              <span>1 сцена (10 сек): волшебная 3D-книга с цветами, именем мамы и диктором</span>
-            </div>
-            <div class="md-tariff-pill">
-              <strong>1 990 ₽</strong>
-              <span>2 сцены (20 сек): книга-открытка + 3D-образ мамы по фото с цветами и тортом</span>
-            </div>
-            <div class="md-tariff-pill">
-              <strong>2 990 ₽</strong>
-              <span>Хит — все 3 сцены (30 сек): книга + мама с тортом + объятия всей семьи по фото</span>
-            </div>
-          </div>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button class="btn btn-primary" onclick="openOrderModal('3D видео-открытка маме (30 сек)', 'Полная 3D-открытка из 3 сцен по фото семьи (2 990 ₽)', '2 990 ₽')">Заказать 3D-открытку маме</button>
-            <a href="/invitations" class="btn btn-outline">Другие 3D-открытки →</a>
-          </div>
-        </div>
-
-        <!-- ГОТОВЫЙ 30-СЕКУНДНЫЙ РОЛИК ВИДЕО-ОТКРЫТКИ С ОЗВУЧКОЙ И МУЗЫКОЙ -->
-        <div class="md-media-wrap vertical">
-          <video controls playsinline preload="metadata" poster="media/mom_styles/card_mom_poster_9x16.jpg">
-            <source src="media/mom_styles/card_mom_30s.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-
-      <!-- УСЛУГА 5: КОРОТКИЕ ВИДЕОРОЛИКИ ПРЕОБРАЖЕНИЯ МАМЫ В ОБРАЗАХ -->
-      <div class="md-service-block md-vertical-row" id="mom-reels">
-        <div>
-          <span class="md-service-tag">Вариант №5 • Доступный и яркий сюрприз от 990 ₽</span>
-          <h3>Живые видеоролики «Мама в роскошных образах» по 1 домашнему фото</h3>
-          <p class="md-desc">
-            Превратим обычную домашнюю фотографию вашей мамы в завораживающие кинематографичные видеоролики с портретным сходством и доброй улыбкой: императорский дворец, морская Ривьера на закате и образ кинодивы на осеннем бульваре!
-          </p>
-          <ul class="md-ideas-list">
-            <li><strong>Образ №1 «Императрица во дворце» (0–10 сек):</strong> мама в золотом бархатном платье с диадемой в сияющем дворцовом зале с люстрами.</li>
-            <li><strong>Образ №2 «Морская Ривьера на закате» (10–20 сек):</strong> мама в струящемся шёлковом наряде на мраморной террасе у тёплого бирюзового моря.</li>
-            <li><strong>Образ №3 «Кинодива на осеннем бульваре» (20–30 сек):</strong> мама в кашемировом пальто с букетом пионов среди вечерних огней кафе.</li>
-          </ul>
-          <div class="md-tariffs-mini">
-            <div class="md-tariff-pill">
-              <strong>990 ₽</strong>
-              <span>1 видеоролик (10 сек): преображение мамы в 1 выбранном образе с озвучкой</span>
-            </div>
-            <div class="md-tariff-pill">
-              <strong>2 490 ₽</strong>
-              <span>Хит — все 3 видеоролика (30 сек): мама сразу в 3 образах с озвучкой диктора</span>
-            </div>
-            <div class="md-tariff-pill">
-              <strong>3 900 ₽</strong>
-              <span>Большой набор из 5 видеороликов Full HD в 5 разных образах</span>
-            </div>
-          </div>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <button class="btn btn-primary" onclick="openOrderModal('Видеоролики Мама в образах', 'Набор из 3 видеороликов с преображением (2 490 ₽)', '2 490 ₽')">Заказать видеоролик (от 990 ₽)</button>
-            <a href="/video-edit" class="btn btn-outline">Смотреть все эффекты →</a>
-          </div>
-        </div>
-
-        <!-- ГОТОВЫЙ 30-СЕКУНДНЫЙ РОЛИК МАМЫ В 3 ОБРАЗАХ С ОЗВУЧКОЙ И МУЗЫКОЙ -->
-        <div class="md-media-wrap vertical">
-          <video controls playsinline preload="metadata" poster="media/mom_styles/looks_mom_poster_9x16.jpg">
-            <source src="media/mom_styles/looks_mom_30s.mp4" type="video/mp4" />
-          </video>
         </div>
       </div>
 
@@ -791,79 +784,7 @@
       });
     }
 
-    // 1. СЛАЙДЕР ФИЛЬМА НА 1 МИНУТУ (УСЛУГА №1)
-    const filmFrames = [
-      {
-        src: 'media/mom_styles/film_01.jpg?v=3',
-        badge: '1 / 8 • Зимнее детство',
-        title: 'Сцена 1:',
-        text: '🎙️ «Мамочка… В каждом воспоминании детства — твои тёплые руки. Ты укутывала нас шарфом в мороз и согревала ладошки…»'
-      },
-      {
-        src: 'media/mom_styles/film_02.jpg?v=3',
-        badge: '2 / 8 • Утро на кухне с мамой и папой',
-        title: 'Сцена 2:',
-        text: '🎙️ «По утрам дом просыпался от аромата твоих горячих блинчиков, папа разливал душистый чай, и мы так звонко смеялись…»'
-      },
-      {
-        src: 'media/mom_styles/film_03.jpg?v=3',
-        badge: '3 / 8 • Лето на даче',
-        title: 'Сцена 3:',
-        text: '🎙️ «Когда мы разбивали коленки, стоило тебе подуть на ранку, а папе обнять за плечо — и любая боль тут же уходила…»'
-      },
-      {
-        src: 'media/mom_styles/film_04.jpg?v=3',
-        badge: '4 / 8 • Сказка на ночь',
-        title: 'Сцена 4:',
-        text: '🎙️ «Даже ночью ты берегла наш сон, укрывая одеялом под тихий свет ночника…»'
-      },
-      {
-        src: 'media/mom_styles/film_05.jpg?v=3',
-        badge: '5 / 8 • Прощание у крыльца',
-        title: 'Сцена 5:',
-        text: '🎙️ «Мы выросли, но вы с папой всегда провожали нас в дорогу с горячими пирожками, любовью и слезинками в глазах…»'
-      },
-      {
-        src: 'media/mom_styles/film_06.jpg?v=3',
-        badge: '6 / 8 • Родители ждут у окна',
-        title: 'Сцена 6:',
-        text: '🎙️ «Мы знаем, как вы с папой ждёте нас у окна, когда за стеклом кружит зимний снег и загорается свет фар…»'
-      },
-      {
-        src: 'media/mom_styles/film_07.jpg?v=3',
-        badge: '7 / 8 • Вся семья на пороге',
-        title: 'Сцена 7:',
-        text: '🎙️ «Все дороги всегда ведут к родному дому — и вот мы со своими семьями и внуками снова бежим в ваши объятия!»'
-      },
-      {
-        src: 'media/mom_styles/film_08.jpg?v=3',
-        badge: '8 / 8 • Большое семейное чаепитие',
-        title: 'Сцена 8:',
-        text: '🎙️ «Спасибо за жизнь, за доброту и за наш большой, дружный дом. С Днём матери, родная!»'
-      }
-    ];
-    let currentFilmIdx = 0;
-    let filmElapsedMs = 0;
-    const FILM_SLIDE_DURATION_MS = 4000;
-
-    function setFilmFrame(idx) {
-      currentFilmIdx = (idx + filmFrames.length) % filmFrames.length;
-      const item = filmFrames[currentFilmIdx];
-      const imgEl = document.getElementById('filmPreviewImg');
-      if (imgEl) imgEl.src = item.src;
-      const badgeEl = document.getElementById('filmBadge');
-      if (badgeEl) badgeEl.textContent = item.badge;
-      document.getElementById('filmPreviewCaption').innerHTML = '<strong>' + item.title + '</strong>' + item.text;
-      filmElapsedMs = 0;
-      const bar = document.getElementById('filmProgressBar');
-      if (bar) bar.style.width = '0%';
-    }
-    function stepFilmFrame(dir) {
-      setFilmFrame(currentFilmIdx + dir);
-    }
-    attachSwipe('filmSliderStage', stepFilmFrame);
-
-    // 2. СЛАЙДЕР СЕМЕЙНОГО ПОРТРЕТА (УСЛУГА №3)
+    // СЛАЙДЕР СЕМЕЙНОГО ПОРТРЕТА (УСЛУГА №5)
     const portraitStyles = [
       {
         src: 'media/mom_styles/00_source_collage.jpg',
@@ -935,13 +856,8 @@
     }
     attachSwipe('portraitSliderStage', stepPortraitStyle);
 
-    // Единый плавный таймер автоперелистывания для галерей
+    // Плавный таймер автоперелистывания для галереи портретов
     setInterval(() => {
-      filmElapsedMs += 100;
-      const filmBar = document.getElementById('filmProgressBar');
-      if (filmBar) filmBar.style.width = Math.min(100, (filmElapsedMs / FILM_SLIDE_DURATION_MS) * 100) + '%';
-      if (filmElapsedMs >= FILM_SLIDE_DURATION_MS) stepFilmFrame(1);
-
       portraitElapsedMs += 100;
       const portraitBar = document.getElementById('portraitProgressBar');
       if (portraitBar) portraitBar.style.width = Math.min(100, (portraitElapsedMs / PORTRAIT_SLIDE_DURATION_MS) * 100) + '%';
