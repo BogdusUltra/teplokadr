@@ -199,18 +199,119 @@ document.addEventListener("DOMContentLoaded", () => {
       { passive: true }
     );
   }
+
+  // Автопереключаемый свайп-слайдер главных баннеров (5.5 сек + свайп пальцем/мышью без кнопок)
+  const topSlider = document.getElementById("topBannerSlider");
+  const topTrack = document.getElementById("topBannerTrack");
+  if (topSlider && topTrack) {
+    const slides = topTrack.querySelectorAll(".top-banner-slide");
+    const totalSlides = slides.length;
+    let curSlide = 0;
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+    let movedPx = 0;
+    let autoTimer = null;
+
+    const goToSlide = (idx, animate = true) => {
+      curSlide = ((idx % totalSlides) + totalSlides) % totalSlides;
+      topTrack.style.transition = animate ? "transform 0.52s cubic-bezier(0.22, 1, 0.36, 1)" : "none";
+      topTrack.style.transform = `translate3d(-${curSlide * 100}%, 0, 0)`;
+    };
+
+    const restartAuto = () => {
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        if (!isDragging) {
+          goToSlide(curSlide + 1, true);
+        }
+      }, 5500);
+    };
+
+    restartAuto();
+
+    const onStart = (x) => {
+      isDragging = true;
+      startX = x;
+      currentX = x;
+      movedPx = 0;
+      topTrack.style.transition = "none";
+      if (autoTimer) clearInterval(autoTimer);
+    };
+
+    const onMove = (x) => {
+      if (!isDragging) return;
+      currentX = x;
+      const dx = currentX - startX;
+      movedPx = Math.max(movedPx, Math.abs(dx));
+      const width = topSlider.offsetWidth || 1;
+      const offsetPct = -curSlide * 100 + (dx / width) * 100;
+      topTrack.style.transform = `translate3d(${offsetPct}%, 0, 0)`;
+    };
+
+    const onEnd = () => {
+      if (!isDragging) return;
+      isDragging = false;
+      const dx = currentX - startX;
+      const threshold = Math.min(75, (topSlider.offsetWidth || 300) * 0.14);
+      if (dx < -threshold) {
+        goToSlide(curSlide + 1, true);
+      } else if (dx > threshold) {
+        goToSlide(curSlide - 1, true);
+      } else {
+        goToSlide(curSlide, true);
+      }
+      restartAuto();
+    };
+
+    topSlider.addEventListener("touchstart", (e) => onStart(e.touches[0].clientX), { passive: true });
+    topSlider.addEventListener("touchmove", (e) => onMove(e.touches[0].clientX), { passive: true });
+    topSlider.addEventListener("touchend", onEnd);
+    topSlider.addEventListener("touchcancel", onEnd);
+
+    topSlider.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      onStart(e.clientX);
+    });
+    window.addEventListener("mousemove", (e) => onMove(e.clientX));
+    window.addEventListener("mouseup", onEnd);
+
+    slides.forEach((sl) => {
+      sl.addEventListener("click", (e) => {
+        if (movedPx > 12) {
+          e.preventDefault();
+        }
+      });
+    });
+  }
 });
 
-// Переключатель 5 направлений в первом экране главной страницы
+// Переключатель направлений в первом экране главной страницы
 function switchHeroShowcase(idx, btnEl) {
   const items = [
     {
       video: "media/pixar_max30_1080p.mp4",
       poster: "pixar_poster_1080p.jpg",
-      badge: "1. Мультфильм по вашей истории (от 4 900 ₽)",
-      caption: "Индивидуальный фильм по фотографиям и семейным воспоминаниям с портретным сходством.",
+      badge: "1. Мультфильм на любую тему: биография и юбилей (от 4 900 ₽)",
+      caption: "Индивидуальный фильм по фотографиям: семейная биография, юбилей, свадьба, путешествие или история любви.",
       linkUrl: "/cartoon",
-      linkText: "Подробнее о мультфильмах →",
+      linkText: "Все темы мультфильмов →",
+    },
+    {
+      video: "media/love_stories/00_horizontal_love_story_16x9.mp4",
+      poster: "media/love_stories/00_horizontal_poster_16x9.jpg",
+      badge: "❤️ 1.1. Мультфильм Love Story для пар и к свадьбе (от 4 900 ₽)",
+      caption: "История вашей любви по совместным фото (16:9 для банкета и ТВ или 9:16 для телефона) в 4 стилях.",
+      linkUrl: "/love-story",
+      linkText: "Смотреть все Love Story →",
+    },
+    {
+      video: "media/vladivostok_travel_16x9.mp4",
+      poster: "media/vladivostok_poster_16x9.jpg",
+      badge: "✈️ 1.2. Мультфильм по вашему путешествию и отпуску (от 4 900 ₽)",
+      caption: "Приключенческий 3D-фильм по фотографиям из вашей поездки: пример фильма «Путешествие во Владивосток».",
+      linkUrl: "/cartoon#travel-movie",
+      linkText: "Подробнее о фильме →",
     },
     {
       video: "media/photo_alive_1080p.mp4",

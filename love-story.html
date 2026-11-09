@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мультфильм про историю вашей любви (Love Story по фото) — Студия «Тёплый Кадр»</title>
+  <meta name="description" content="Направление 1.1 студии «Тёплый Кадр»: создадим персональный мультфильм про вашу историю любви (Love Story) по совместным или раздельным фотографиям в стиле Pixar, Свадебного блокбастера 16:9, Аниме Макото Синкая, 3D-комикса или Акварели. Пробный кадр с вашей парой бесплатно!" />
+  <meta name="keywords" content="мультфильм история любви по фото, love story мультфильм на заказ, свадебный мультфильм по фото, подарок парню на годовщину, подарок мужу, мультик по фото пары, теплый кадр love story" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://teplo-kadr.ru/love-story" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Тёплый Кадр — Студия семейного кино и подарков" />
+  <meta property="og:title" content="Мультфильм про историю вашей любви (Love Story по фото) — Студия «Тёплый Кадр»" />
+  <meta property="og:description" content="Превратим ваши любимые фотографии с телефона в трогательный или драйвовый мультфильм о вашей паре (16:9 для свадьбы и ТВ или 9:16 для телефона) с портретным сходством и профессиональной озвучкой." />
+  <meta property="og:url" content="https://teplo-kadr.ru/love-story" />
+  <meta property="og:image" content="https://teplo-kadr.ru/media/love_stories/00_horizontal_poster_16x9.jpg" />
+  <meta property="og:locale" content="ru_RU" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="120x120" href="/favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="apple-touch-icon" href="/favicon-192x192.png" />
+  <link rel="stylesheet" href="styles.css?v=10" />
+  <style>
+    .ls-hero {
+      padding: 36px 0 46px;
+      background: linear-gradient(135deg, #FFF8F3 0%, #FDF2EB 50%, #F9E6DA 100%);
+      border-bottom: 1px solid rgba(217, 102, 58, 0.22);
+    }
+    .ls-hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .ls-branch-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2C1814;
+      color: #FFD99B;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 15px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+      box-shadow: 0 6px 18px rgba(44, 24, 20, 0.14);
+    }
+    .ls-widescreen-card {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+      border: 2px solid var(--accent-warm);
+      border-radius: 24px;
+      padding: 26px;
+      margin-bottom: 30px;
+      box-shadow: 0 14px 36px rgba(44, 26, 16, 0.10);
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .ls-widescreen-video-box {
+      border-radius: 18px;
+      overflow: hidden;
+      background: #181412;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 28px rgba(28, 20, 18, 0.16);
+    }
+    .ls-widescreen-video-box video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      object-fit: cover;
+      background: #181412;
+    }
+    .ls-phones-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+    .ls-phone-card {
+      background: #FFFFFF;
+      border-radius: 22px;
+      padding: 14px;
+      border: 1.5px solid rgba(217, 102, 58, 0.22);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .ls-phone-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-warm);
+    }
+    .ls-phone-video-wrap {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+      background: #181412;
+      margin-bottom: 12px;
+    }
+    .ls-phone-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ls-style-badge {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #FFF0E6;
+      color: #B84722;
+      margin-bottom: 6px;
+    }
+    .ls-phone-card h4 {
+      font-size: 16.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.28;
+    }
+    .ls-phone-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+    .ls-occasions-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+    .ls-occasion-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .ls-occasion-box strong {
+      display: block;
+      font-size: 15.5px;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+    .ls-occasion-box span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      display: block;
+    }
+    @media (max-width: 960px) {
+      .ls-hero-grid,
+      .ls-widescreen-card {
+        grid-template-columns: 1fr;
+      }
+      .ls-phones-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+    @media (max-width: 560px) {
+      .ls-widescreen-card {
+        padding: 16px;
+      }
+      .ls-phones-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .ls-phone-card {
+        padding: 9px;
+        border-radius: 15px;
+      }
+      .ls-phone-card h4 {
+        font-size: 13px;
+      }
+      .ls-phone-card p {
+        font-size: 11.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ШАПКА САЙТА -->
+  <header>
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <div class="logo-badge">ТК</div>
+        <div class="logo-text">
+          <strong>Тёплый Кадр</strong>
+          <span>Семейное кино и подарки</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Главная</a>
+        <a href="/cartoon">1. Мультфильмы</a>
+        <a href="/love-story" class="active" style="color: var(--accent-warm); font-weight: 700;">❤️ 1.1. Love Story</a>
+        <a href="/photo-alive">2. Оживление фото</a>
+        <a href="/video-edit">3. Видеоролики</a>
+        <a href="/photoshoot">4. Портреты по фото</a>
+        <a href="/invitations">5. Приглашения</a>
+        <a href="/gift-max30" class="gift-link">🎁 Пример подарка</a>
+      </nav>
+      <div class="header-cta">
+        <div class="header-cta-top">
+          <a href="https://t.me/teplo_kadr" target="_blank" rel="noopener" class="header-phone" title="Написать в Telegram: @teplo_kadr">
+            ✈️ @teplo_kadr <small>онлайн 09:00–22:00</small>
+          </a>
+          <div class="header-messengers">
+            <a href="https://t.me/teplo_kadr" target="_blank" rel="noopener" class="icon-pill btn-telegram" title="Написать в Telegram для заказа (@teplo_kadr)"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.94 2C6.45 2 2 6.45 2 11.94s4.45 9.94 9.94 9.94 9.94-4.45 9.94-9.94S17.43 2 11.94 2zm4.66 6.81l-1.69 7.97c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.63 4.78-4.32c.21-.18-.05-.29-.32-.11L8.36 13.4l-2.55-.8c-.55-.17-.56-.55.12-.82l9.96-3.84c.46-.17.86.11.71.87z"/></svg> <span>Заказать в TG</span></a>
+          </div>
+        </div>
+        <div class="header-socials-row">
+          <span class="header-socials-label">Соцсети:</span>
+          <a href="https://t.me/teplo_kadr_channel" target="_blank" rel="noopener" class="icon-pill btn-tg-channel"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.94 2C6.45 2 2 6.45 2 11.94s4.45 9.94 9.94 9.94 9.94-4.45 9.94-9.94S17.43 2 11.94 2zm4.66 6.81l-1.69 7.97c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.63 4.78-4.32c.21-.18-.05-.29-.32-.11L8.36 13.4l-2.55-.8c-.55-.17-.56-.55.12-.82l9.96-3.84c.46-.17.86.11.71.87z"/></svg> <span>ТГ-канал</span></a>
+          <a href="https://vk.com/teplo_kadr" target="_blank" rel="noopener" class="icon-pill btn-vk"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.917.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 1.126-.26 1.126-.668 0-.863-1.421-2.386-2.625-3.504-1.686-1.565-1.765-1.602-.313-3.486 1.801-2.339 4.157-5.336 2.073-5.336h-3.981c-.772 0-.828.435-1.103 1.083-.995 2.347-2.886 5.387-3.604 4.922-.751-.485-.407-2.406-.35-5.261.015-.754.011-1.271-1.141-1.539-.629-.145-1.241-.205-1.809-.205-2.273 0-3.841.953-2.95 1.119 1.571.293 1.42 3.692 1.054 5.16-.638 2.556-3.036-2.024-4.035-4.305-.241-.548-.315-.974-1.175-.974h-3.255c-.492 0-.787.16-.787.516 0 .602 2.96 6.72 5.786 9.77 2.756 2.975 5.48 2.708 7.376 2.708z"/></svg> <span>VK</span></a>
+          <a href="https://www.youtube.com/@teplo_kadr" target="_blank" rel="noopener" class="icon-pill btn-youtube"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg> <span>YouTube</span></a>
+          <a href="https://www.instagram.com/teplo_kadr/" target="_blank" rel="noopener" class="icon-pill btn-instagram"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> <span>Instagram</span></a>
+          <a href="https://www.tiktok.com/@teplo_kadr" target="_blank" rel="noopener" class="icon-pill btn-tiktok"><svg class="msg-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg> <span>TikTok</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container breadcrumbs">
+    <a href="/">Главная</a> <span>→</span> <a href="/cartoon">1. Мультфильмы по фото</a> <span>→</span> <strong>Направление 1.1: Мультфильм про историю вашей любви (Love Story)</strong>
+  </div>
+
+  <!-- ПЕРВЫЙ ЭКРАН С ГОРИЗОНТАЛЬНЫМ 16:9 ПЛЕЕРОМ -->
+  <section class="ls-hero">
+    <div class="container ls-hero-grid">
+      <div>
+        <div class="ls-branch-pill">❤️ Направление 1.1 • Специальная ветка услуги «Персональный мультфильм по фото»</div>
+        <h1>Мультфильм про <span>историю вашей любви</span> (Love Story) по вашим фото</h1>
+        <p class="lead">
+          Превратим ваши любимые снимки с телефона (даже если вы на разных фото!) в настоящий романтический или драйвовый мультфильм с портретным сходством: первая встреча, ваши смешные привычки, совместные поездки, свадьба и мечты о будущем.
+        </p>
+        <ul class="hero-benefits">
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>🎁 Бесплатный пробный кадр до заказа:</strong> пришлите нам 1–2 фотографии вашей пары, и мы бесплатно нарисуем пробный кадр, чтобы вы увидели сходство своими глазами.</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>Два формата на выбор (16:9 и 9:16):</strong> широкий горизонтальный фильм (для свадьбы, годовщины и ТВ) или вертикальный формат для телефона и соцсетей.</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span><strong>Любой художественный стиль:</strong> 3D Disney/Pixar, свадебный экшен-блокбастер, комикс «Мистер и Миссис Смит», акварельная Ривьера или аниме Макото Синкая.</span>
+          </li>
+        </ul>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button class="btn btn-primary" onclick="openOrderModal('Мультфильм Love Story (Направление 1.1)', 'Бесплатный пробный кадр пары по фото')">🎁 Получить бесплатный пробный кадр пары</button>
+          <a href="#examples" class="btn btn-outline">Смотреть все примеры (16:9 и 9:16) ↓</a>
+        </div>
+      </div>
+
+      <!-- ГЛАВНЫЙ ГОРИЗОНТАЛЬНЫЙ ПЛЕЕР 16:9 В ПЕРВОМ ЭКРАНЕ -->
+      <div class="video-showcase-card">
+        <video id="loveStoryHero16x9" controls playsinline preload="metadata" poster="media/love_stories/00_horizontal_poster_16x9.jpg">
+          <source src="media/love_stories/00_horizontal_love_story_16x9.mp4" type="video/mp4" />
+        </video>
+        <div class="video-caption">
+          <span>🎬 <strong>Горизонтальный формат 16:9:</strong> свадебный и романтический блокбастер по вашим фото (для банкета, проектора и ТВ)</span>
+          <a href="#examples">Вертикальные форматы 9:16 ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРИМЕРЫ РАБОТ: 16:9 ГОРИЗОНТАЛЬНЫЙ БЛОКБАСТЕР + 4 ВЕРТИКАЛЬНЫХ 9:16 -->
+  <section class="section" id="examples">
+    <div class="container">
+      <div class="section-header">
+        <span class="pill-tag">Направление 1.1 • Горизонтальные фильмы 16:9 и вертикальные истории 9:16</span>
+        <h2>Выберите формат и стиль вашей истории любви</h2>
+        <p>Каждый фильм создаётся индивидуально по вашим фотографиям, реальным случаям из жизни и любимой музыке вашей пары</p>
+      </div>
+
+      <!-- ВЫДЕЛЕННЫЙ БЛОК ПОД ГОРИЗОНТАЛЬНОЕ ВИДЕО 16:9 -->
+      <div class="ls-widescreen-card">
+        <div>
+          <span class="ls-style-badge" style="background: #2C1814; color: #FFD99B;">🎬 Широкоэкранный формат 16:9 • Хит для свадьбы и юбилея семьи</span>
+          <h3 style="font-size: 24px; margin-bottom: 10px; line-height: 1.25;">Горизонтальный фильм-блокбастер или семейная Love Story (16:9)</h3>
+          <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+            Идеальный формат для показа на большом экране в ресторане на свадьбе, годовщине или дне рождения супруга. Может быть как трогательной романтической историей, так и весёлым приключенческим блокбастером с фирменным юмором вашей пары!
+          </p>
+          <ul class="pricing-list" style="margin-bottom: 18px;">
+            <li>✓ Полное портретное сходство жениха, невесты, друзей и даже домашних питомцев</li>
+            <li>✓ Профессиональная озвучка диктора (от нежного рассказчика до голоса голливудских трейлеров)</li>
+            <li>✓ Разрешение Full HD / 4K для любого экрана, телевизора и проектора</li>
+          </ul>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="openOrderModal('Мультфильм Love Story (Направление 1.1)', 'Горизонтальный фильм 16:9 (Свадебный / Love Story блокбастер)')">Заказать горизонтальный фильм 16:9</button>
+            <a href="#pricing" class="btn btn-outline">Тарифы от 4 900 ₽ ↓</a>
+          </div>
+        </div>
+        <div class="ls-widescreen-video-box">
+          <video controls playsinline preload="metadata" poster="media/love_stories/00_horizontal_poster_16x9.jpg">
+            <source src="media/love_stories/00_horizontal_love_story_16x9.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <!-- 4 ВЕРТИКАЛЬНЫХ ПРИМЕРА 9:16 -->
+      <div style="margin-bottom: 18px;">
+        <h3 style="font-size: 22px; margin-bottom: 6px;">Вертикальные мультфильмы 9:16 — 4 художественных стиля со звуком</h3>
+        <p style="color: var(--text-muted); font-size: 15px;">Идеальный формат, чтобы переслать любимому человеку в личные сообщения или выложить в Reels / Stories</p>
+      </div>
+
+      <div class="ls-phones-grid">
+        <!-- 1. PIXAR -->
+        <div class="ls-phone-card">
+          <div>
+            <div class="ls-phone-video-wrap">
+              <video controls playsinline preload="metadata" poster="media/love_stories/01_poster.jpg">
+                <source src="media/love_stories/01_pixar_hook.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="ls-style-badge">Стиль №1 • 3D Disney / Pixar</span>
+            <h4>«Скинула парню намёк» — Уютная история пары</h4>
+            <p>Знакомство в кофейне, прогулки под одним шарфом, уснула на 5-й минуте фильма и тёплое признание.</p>
+          </div>
+          <button class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;" onclick="openOrderModal('Мультфильм Love Story (Направление 1.1)', 'Стиль 1: 3D Disney / Pixar (Пробный кадр бесплатно)')">Хочу в стиле Pixar →</button>
+        </div>
+
+        <!-- 2. MR & MRS SMITH -->
+        <div class="ls-phone-card">
+          <div>
+            <div class="ls-phone-video-wrap">
+              <video controls playsinline preload="metadata" poster="media/love_stories/02_poster.jpg">
+                <source src="media/love_stories/02_smith_comic.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="ls-style-badge">Стиль №2 • Кино-Комикс 3D</span>
+            <h4>«Мистер и Миссис Смит» — Страсть и юмор</h4>
+            <p>Для пар с огоньком: битва подушками, танго на кухне, ночной кабриолет и примирение через 5 минут.</p>
+          </div>
+          <button class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;" onclick="openOrderModal('Мультфильм Love Story (Направление 1.1)', 'Стиль 2: Кино-Комикс 3D «Мистер и Миссис Смит»')">Хочу такой сюжет →</button>
+        </div>
+
+        <!-- 3. RIVIERA WATERCOLOR -->
+        <div class="ls-phone-card">
+          <div>
+            <div class="ls-phone-video-wrap">
+              <video controls playsinline preload="metadata" poster="media/love_stories/03_poster.jpg">
+                <source src="media/love_stories/03_riviera_watercolor.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="ls-style-badge">Стиль №3 • Акварельная Ривьера</span>
+            <h4>«Путешествие вдвоём» — Море, скутер и закат</h4>
+            <p>Поездки к морю, один чемодан на двоих, мятный ретро-скутер, брызги прибоя и ужин под гирляндами.</p>
+          </div>
+          <button class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;" onclick="openOrderModal('Мультфильм Love Story (Направление 1.1)', 'Стиль 3: Акварельная Ривьера (Путешествие вдвоём)')">Хочу в стиле Акварели →</button>
+        </div>
+
+        <!-- 4. ANIME SHINKAI -->
+        <div class="ls-phone-card">
+          <div>
+            <div class="ls-phone-video-wrap">
+              <video controls playsinline preload="metadata" poster="media/love_stories/04_poster.jpg">
+                <source src="media/love_stories/04_anime_rain.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="ls-style-badge">Стиль №4 • Аниме Макото Синкая</span>
+            <h4>«Случайный взгляд под дождём» — Магия судьбы</h4>
+            <p>Неоновый дождь за окном кофейни, один прозрачный зонт на двоих и встреча, изменившая всю жизнь.</p>
+          </div>
+          <button class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;" onclick="openOrderModal('Мультфильм Love Story (Направление 1.1)', 'Стиль 4: Романтическое аниме Макото Синкая')">Хочу в стиле Аниме →</button>
+        </div>
+      </div>
+
+      <!-- ПОВОДЫ ДЛЯ ЗАКАЗА LOVE STORY -->
+      <div class="ls-occasions-strip">
+        <div class="ls-occasion-box">
+          <strong>💍 На годовщину отношений или свадьбы</strong>
+          <span>Покажите за 30–60 секунд весь ваш путь от первого сообщения и первого свидания до сегодняшнего дня.</span>
+        </div>
+        <div class="ls-occasion-box">
+          <strong>🎂 На день рождения парня, мужа или девушки</strong>
+          <span>Подарок, который вызывает мурашки и слёзы радости — вместо банальных вещей, которые забываются через неделю.</span>
+        </div>
+        <div class="ls-occasion-box">
+          <strong>💒 Фильм 16:9 для показа на свадебном банкете</strong>
+          <span>Гости в зале увидят историю вашего знакомства или весёлый свадебный блокбастер с вами в главных ролях.</span>
+        </div>
+        <div class="ls-occasion-box">
+          <strong>💌 Романтический сюрприз без повода</strong>
+          <span>Отправьте любимому человеку в Telegram или WhatsApp мультфильм, где главные герои — вы вдвоём.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЕДИНЫЕ ТАРИФЫ НАПРАВЛЕНИЯ №1 (МУЛЬТФИЛЬМ ПО ФОТО) -->
+  <section class="section section-alt" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="pill-tag">Единые тарифы направления «1. Персональный мультфильм по фото»</span>
+        <h2>Стоимость создания мультфильма Love Story по вашим фото</h2>
+        <p>Услуга входит в основное направление «Мультфильм по фото» и рассчитывается по единому прозрачному конструктору и пакетным тарифам со скидкой</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div>
+            <div class="service-num">Пакет 1 • Короткая Love Story (9:16 или 16:9)</div>
+            <h3>«Романтический Мини-фильм»</h3>
+            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+              <div class="pricing-price" style="margin-bottom: 0;">5 400 ₽</div>
+              <span style="text-decoration: line-through; color: var(--text-muted); font-size: 16px;">5 900 ₽</span>
+              <span style="background: #E8F5E9; color: #2E7D32; font-size: 12.5px; font-weight: 700; padding: 3px 9px; border-radius: 20px;">Выгода 500 ₽</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+              Без дикторской озвучки (только под вашу любимую песню) — <strong>4 900 ₽</strong>
+            </p>
+            <ul class="pricing-list">
+              <li>✓ Длительность: <strong>до 30 секунд (4–6 ярких сцен вашей пары)</strong></li>
+              <li>✓ <strong>100% портретное сходство</strong> вашей пары по обычным фото с телефона</li>
+              <li>✓ <strong>Профессиональная озвучка рассказчика</strong> + ваша любимая музыка</li>
+              <li>✓ Формат на выбор: <strong>9:16 (для телефона) или 16:9 (для экрана)</strong></li>
+              <li>✓ <strong>Пробный кадр с вашей парой — бесплатно до оплаты!</strong></li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Мультфильм Love Story (Направление 1.1)', 'Пакет 1 «Романтический Мини-фильм» (выгода 500 ₽)', '5 400 ₽')">Заказать за 5 400 ₽ (экономия 500 ₽)</button>
+        </div>
+
+        <div class="pricing-card popular">
+          <div>
+            <div class="service-num">★ Пакет 2 • Хит для годовщины, свадьбы и дня рождения</div>
+            <h3>«История вашей любви»</h3>
+            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+              <div class="pricing-price" style="margin-bottom: 0;">6 500 ₽</div>
+              <span style="text-decoration: line-through; color: var(--text-muted); font-size: 16px;">7 400 ₽</span>
+              <span style="background: #E8F5E9; color: #2E7D32; font-size: 12.5px; font-weight: 700; padding: 3px 9px; border-radius: 20px;">Выгода 900 ₽</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+              По базовому тарифу: 4 900 + 1 500 (+30 сек) + 1 000 (озвучка) = 7 400 ₽
+            </p>
+            <ul class="pricing-list">
+              <li>✓ Длительность: <strong>до 1 минуты (8–12 подробных сцен вашей истории)</strong></li>
+              <li>✓ <strong>Вы вдвоём + при желании дети или домашние питомцы</strong> (до 4 героев)</li>
+              <li>✓ <strong>Индивидуальный сценарий, голос диктора</strong> и любимый трек вашей пары</li>
+              <li>✓ <strong>Именная подарочная веб-страница для второй половинки в подарок</strong></li>
+            </ul>
+          </div>
+          <button class="btn btn-primary" style="width: 100%;" onclick="openOrderModal('Мультфильм Love Story (Направление 1.1)', 'Пакет 2 «История вашей любви» (выгода 900 ₽)', '6 500 ₽')">Заказать за 6 500 ₽ (экономия 900 ₽)</button>
+        </div>
+
+        <div class="pricing-card">
+          <div>
+            <div class="service-num">Пакет 3 • Для свадьбы, предложения и юбилея семьи</div>
+            <h3>«Большой фильм о нас»</h3>
+            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+              <div class="pricing-price" style="margin-bottom: 0;">8 900 ₽</div>
+              <span style="text-decoration: line-through; color: var(--text-muted); font-size: 16px;">10 900 ₽</span>
+              <span style="background: #E8F5E9; color: #2E7D32; font-size: 12.5px; font-weight: 700; padding: 3px 9px; border-radius: 20px;">Выгода 2 000 ₽</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+              Полная экранизация от первого знакомства до свадьбы и семьи
+            </p>
+            <ul class="pricing-list">
+              <li>✓ Длительность: <strong>до 1,5 минут (12–14 сцен)</strong></li>
+              <li>✓ <strong>До 6 персонажей</strong> (пара, дети, родители, друзья, питомцы)</li>
+              <li>✓ <strong>Профессиональная озвучка диктора</strong>, реплики и саундтрек</li>
+              <li>✓ <strong>Подарочная веб-страница + совместный 4K-портрет для холста в подарок!</strong></li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" style="width: 100%;" onclick="openOrderModal('Мультфильм Love Story (Направление 1.1)', 'Пакет 3 «Большой фильм о нас» (выгода 2 000 ₽)', '8 900 ₽')">Заказать за 8 900 ₽ (экономия 2 000 ₽)</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px; text-align: center;">
+        <a href="/cartoon" class="btn btn-outline btn-sm">← Вернуться ко всем форматам Направления №1: Семейные и юбилейные мультфильмы</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ САЙТА -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong style="color: var(--text-main); font-size: 20px; display: block; margin-bottom: 8px;">Студия семейного кино «Тёплый Кадр»</strong>
+          <p style="margin-bottom: 12px;">Создаём персональные мультфильмы по вашей истории и Love Story для пар, бережно оживляем архивные семейные фотографии, делаем художественные портреты и живые 3D видео-приглашения.</p>
+          <p style="margin-bottom: 10px; color: var(--text-main); font-weight: 600; font-size: 14.5px;">
+            ✈️ Заказ и бесплатный пробный кадр: <a href="https://t.me/teplo_kadr" target="_blank" rel="noopener" style="color: var(--accent-warm); text-decoration: underline;">@teplo_kadr</a> (ежедневно с 09:00 до 22:00)
+          </p>
+        </div>
+        <div>
+          <strong style="color: var(--text-main); display: block; margin-bottom: 10px;">Услуги и цены:</strong>
+          <ul class="footer-links">
+            <li><a href="/cartoon">1. Персональные мультфильмы (от 4 900 ₽)</a></li>
+            <li><a href="/love-story">❤️ 1.1. Мультфильмы Love Story для пар (от 4 900 ₽)</a></li>
+            <li><a href="/photo-alive">2. Оживление старых фотографий (от 1 500 ₽)</a></li>
+            <li><a href="/video-edit">3. Короткие видеоролики и эффекты (от 990 ₽)</a></li>
+            <li><a href="/photoshoot">4. Семейные портреты в 9 стилях (от 1 500 ₽)</a></li>
+            <li><a href="/invitations">5. Живые 3D видео-приглашения (от 1 490 ₽)</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong style="color: var(--text-main); display: block; margin-bottom: 10px;">Официальные сообщества и реквизиты:</strong>
+          <ul class="footer-links">
+            <li><a href="https://t.me/teplo_kadr_channel" target="_blank" rel="noopener">✈️ Telegram-канал: @teplo_kadr_channel</a></li>
+            <li><a href="https://vk.com/teplo_kadr" target="_blank" rel="noopener">💙 ВКонтакте: vk.com/teplo_kadr</a></li>
+            <li><a href="https://www.youtube.com/@teplo_kadr" target="_blank" rel="noopener">▶️ YouTube: @teplo_kadr</a></li>
+            <li><a href="https://www.instagram.com/teplo_kadr/" target="_blank" rel="noopener">📸 Instagram: @teplo_kadr</a></li>
+            <li><a href="https://www.tiktok.com/@teplo_kadr" target="_blank" rel="noopener">🎵 TikTok: @teplo_kadr</a></li>
+            <li style="margin-top: 6px;"><a href="/oferta">Публичная оферта и тарифы</a> • <a href="/privacy">Конфиденциальность</a></li>
+            <li>Самозанятый (НПД): Шкляев Богдан Алексеевич (ИНН 253812447035)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Студия семейного кино «Тёплый Кадр» (teplo-kadr.ru). Онлайн по всей России ежедневно с 09:00 до 22:00.</div>
+        <div class="footer-legal-links">
+          <a href="/oferta">Публичная оферта</a>
+          <a href="/privacy">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО ЗАКАЗА -->
+  <div class="modal-backdrop" id="orderModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeOrderModal()" aria-label="Закрыть">×</button>
+      <h3 id="modalTitle">Мультфильм Love Story по фото</h3>
+      <p id="modalSub" style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">Пришлите 1–2 фото для бесплатного пробного кадра</p>
+      <input type="hidden" id="modalService" value="Мультфильм Love Story (Направление 1.1)" />
+      <input type="hidden" id="modalTariff" value="Бесплатный пробный кадр пары по фото" />
+
+      <div class="form-group">
+        <label for="modalClientName">Как к вам обращаться?</label>
+        <input type="text" id="modalClientName" class="form-control" placeholder="Например: Анна" />
+      </div>
+      <div class="form-group">
+        <label for="modalOccasion">Повод или выбранный стиль (по желанию)</label>
+        <input type="text" id="modalOccasion" class="form-control" placeholder="Например: Годовщина, свадьба 16:9, стиль Pixar" />
+      </div>
+      <div class="form-group">
+        <label for="modalComment">Кратко о вашей паре или идее сюжета</label>
+        <textarea id="modalComment" class="form-control" rows="2" placeholder="Например: Хочу сделать сюрприз мужу по нашим фото..."></textarea>
+      </div>
+
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        Выберите удобный мессенджер — откроется диалог с уже заполненным текстом, куда вы сможете прикрепить фотографии:
+      </p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-telegram" style="width: 100%; justify-content: center;" onclick="sendLeadToTelegram()">
+          ✈️ Отправить заявку и фото в Telegram (@teplo_kadr)
+        </button>
+        <button type="button" class="btn btn-whatsapp" style="width: 100%; justify-content: center;" onclick="sendLeadToWhatsApp()">
+          💬 Написать в WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=11"></script>
+</body>
+</html>

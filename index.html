@@ -390,31 +390,46 @@
     .seasonal-mom-section {
       padding: 18px 0 4px;
     }
-    .seasonal-mom-banner {
-      display: block;
+    .top-banner-slider {
       position: relative;
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 14px 36px rgba(44, 26, 16, 0.16);
       border: 1px solid rgba(217, 102, 58, 0.32);
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-      text-decoration: none;
       background: #23140D;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+      cursor: grab;
     }
-    .seasonal-mom-banner:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 44px rgba(44, 26, 16, 0.24);
+    .top-banner-slider:active {
+      cursor: grabbing;
     }
-    .seasonal-mom-banner img {
+    .top-banner-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+    .top-banner-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      display: block;
+      text-decoration: none;
+      position: relative;
+    }
+    .top-banner-slide img {
       width: 100%;
       height: auto;
       display: block;
+      pointer-events: none;
+      -webkit-user-drag: none;
     }
     @media (max-width: 768px) {
       .seasonal-mom-section {
         padding: 12px 0 2px;
       }
-      .seasonal-mom-banner {
+      .top-banner-slider {
         border-radius: 18px;
       }
     }
@@ -435,6 +450,7 @@
       <nav class="nav-links">
         <a href="/" class="active">Главная</a>
         <a href="/cartoon">1. Мультфильмы</a>
+        <a href="/love-story" style="color: var(--accent-warm); font-weight: 700;">❤️ 1.1. Love Story</a>
         <a href="/photo-alive">2. Оживление фото</a>
         <a href="/video-edit">3. Видеоролики</a>
         <a href="/photoshoot">4. Портреты по фото</a>
@@ -463,15 +479,48 @@
     </div>
   </header>
 
-  <!-- СЕЗОННОЕ ПРЕДЛОЖЕНИЕ КО ДНЮ МАТЕРИ (ВЕДЁТ НА СКРЫТУЮ СТРАНИЦУ /mothers-day) -->
+  <!-- АВТОПЕРЕКЛЮЧАЕМЫЙ СВАЙП-СЛАЙДЕР ГЛАВНЫХ БАННЕРОВ (5.5 СЕК + СВАЙП БЕЗ КНОПОК) -->
   <section class="seasonal-mom-section">
     <div class="container">
-      <a href="/mothers-day" class="seasonal-mom-banner" title="Специальное предложение ко Дню матери — Узнать больше">
-        <picture>
-          <source media="(max-width: 768px)" srcset="mothers_day_banner_mobile.jpg" />
-          <img src="mothers_day_banner_desktop.jpg" alt="Подарите маме видео, от которого навернутся слёзы счастья — Ко Дню матери 29 ноября. Узнать больше" />
-        </picture>
-      </a>
+      <div class="top-banner-slider" id="topBannerSlider">
+        <div class="top-banner-track" id="topBannerTrack">
+          <!-- СЛАЙД 1: ДЕНЬ МАТЕРИ -->
+          <a href="/mothers-day" class="top-banner-slide" title="Подарок ко Дню матери 29 ноября — Перейти в раздел">
+            <picture>
+              <source media="(max-width: 768px)" srcset="mothers_day_banner_mobile.jpg" />
+              <img src="mothers_day_banner_desktop.jpg" alt="Подарите маме видео, от которого навернутся слёзы счастья — Ко Дню матери 29 ноября" />
+            </picture>
+          </a>
+          <!-- СЛАЙД 2: LOVE STORY ПО ФОТО -->
+          <a href="/love-story" class="top-banner-slide" title="Мультфильм про историю вашей любви (Love Story по фото) — Перейти в раздел">
+            <picture>
+              <source media="(max-width: 768px)" srcset="love_story_banner_mobile.jpg" />
+              <img src="love_story_banner_desktop.jpg" alt="Мультфильм о вашей паре и любви по фото, от которого мурашки — Love Story" />
+            </picture>
+          </a>
+          <!-- СЛАЙД 3: МУЛЬТФИЛЬМ ПО ВАШЕМУ ПУТЕШЕСТВИЮ (ВЛАДИВОСТОК) -->
+          <a href="/cartoon#travel-movie" class="top-banner-slide" title="Мультфильм по вашему путешествию и отпуску — Смотреть пример про Владивосток">
+            <picture>
+              <source media="(max-width: 768px)" srcset="travel_banner_mobile.jpg" />
+              <img src="travel_banner_desktop.jpg" alt="Мультфильм по вашему путешествию и ярким приключениям по фото" />
+            </picture>
+          </a>
+          <!-- СЛАЙД 4: ПЕРСОНАЛЬНЫЙ МУЛЬТФИЛЬМ НА ЛЮБУЮ ТЕМУ -->
+          <a href="/cartoon#cartoon-themes" class="top-banner-slide" title="Персональный мультфильм на любую тему по вашим фото — Перейти в раздел">
+            <picture>
+              <source media="(max-width: 768px)" srcset="cartoon_banner_mobile.jpg" />
+              <img src="cartoon_banner_desktop.jpg" alt="Персональный фильм на любую тему по вашим фотографиям: биография, свадьба, юбилей" />
+            </picture>
+          </a>
+          <!-- СЛАЙД 5: БЕРЕЖНОЕ ОЖИВЛЕНИЕ СТАРЫХ ФОТО -->
+          <a href="/photo-alive" class="top-banner-slide" title="Бережное оживление и реставрация старых фотографий — Перейти в раздел">
+            <picture>
+              <source media="(max-width: 768px)" srcset="photo_alive_banner_mobile.jpg" />
+              <img src="photo_alive_banner_desktop.jpg" alt="Бережно оживим памятные снимки родителей и близких" />
+            </picture>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -490,11 +539,15 @@
           <a href="#prices" class="btn btn-outline">Посмотреть все цены ↓</a>
         </div>
 
-        <!-- 5 НАПРАВЛЕНИЙ -->
+        <!-- 5 НАПРАВЛЕНИЙ + ВЫДЕЛЕННОЕ ОТВЕТВЛЕНИЕ 1.1 LOVE STORY -->
         <div class="quick-nav-strip">
           <a href="/cartoon" class="quick-nav-tile">
-            <strong>1. Мультфильмы</strong>
-            <span>По вашей истории • от 4 900 ₽ →</span>
+            <strong>1. Мультфильмы на любую тему</strong>
+            <span>Биография, свадьба, поездка • от 4 900 ₽ →</span>
+          </a>
+          <a href="/love-story" class="quick-nav-tile" style="background: linear-gradient(135deg, #FFF6EE 0%, #FDE8D7 100%); border: 1.5px solid var(--accent-warm); box-shadow: 0 6px 18px rgba(217, 102, 58, 0.14);">
+            <strong style="color: #B8421B;">❤️ 1.1. Love Story по фото</strong>
+            <span style="color: #2C1814;">Для пар и на свадьбу • от 4 900 ₽ →</span>
           </a>
           <a href="/photo-alive" class="quick-nav-tile">
             <strong>2. Оживление фото</strong>
@@ -515,14 +568,16 @@
         </div>
       </div>
 
-      <!-- ПЛЕЕР С ПЕРЕКЛЮЧАТЕЛЕМ 5 НАПРАВЛЕНИЙ -->
+      <!-- ПЛЕЕР С ПЕРЕКЛЮЧАТЕЛЕМ НАПРАВЛЕНИЙ -->
       <div>
         <div class="hero-switch-bar">
-          <button type="button" class="hero-switch-btn active" onclick="switchHeroShowcase(0, this)">1. Мультфильм</button>
-          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(1, this)">2. Оживление фото</button>
-          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(2, this)">3. Семейный портрет</button>
-          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(3, this)">4. Видеоролики</button>
-          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(4, this)">5. Приглашения</button>
+          <button type="button" class="hero-switch-btn active" onclick="switchHeroShowcase(0, this)">1. Мультфильм (Юбилей)</button>
+          <button type="button" class="hero-switch-btn" style="border-color: var(--accent-warm); color: #B8421B; font-weight: 700;" onclick="switchHeroShowcase(1, this)">❤️ 1.1. Love Story</button>
+          <button type="button" class="hero-switch-btn" style="border-color: var(--accent-warm); color: #B8421B; font-weight: 700;" onclick="switchHeroShowcase(2, this)">✈️ 1.2. Путешествие</button>
+          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(3, this)">2. Оживление фото</button>
+          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(4, this)">3. Семейный портрет</button>
+          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(5, this)">4. Видеоролики</button>
+          <button type="button" class="hero-switch-btn" onclick="switchHeroShowcase(6, this)">5. Приглашения</button>
         </div>
 
         <div class="video-showcase-card">
@@ -602,6 +657,143 @@
           <div style="display: flex; gap: 10px; flex-wrap: wrap;">
             <a href="/cartoon#templates" class="btn btn-outline btn-sm">Посмотреть сюжеты мультфильмов →</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2.5. НАПРАВЛЕНИЕ №1: МУЛЬТФИЛЬМЫ ПО ВАШИМ ФОТО НА ЛЮБУЮ ТЕМУ (LOVE STORY, СВАДЬБА, ПУТЕШЕСТВИЕ, БИОГРАФИЯ) -->
+  <section class="section" id="love-story-showcase" style="background: linear-gradient(180deg, #FFF8F2 0%, #FDF1E6 100%); border-top: 1px solid rgba(217, 102, 58, 0.22); border-bottom: 1px solid rgba(217, 102, 58, 0.22);">
+    <div class="container">
+      <div class="section-header" id="cartoon-themes" style="margin-bottom: 22px;">
+        <span class="pill-tag" style="background: #2C1814; color: #FFD99B;">🎬 Направление №1 • Мультфильмы по вашим фото на любую тему</span>
+        <h2>Создаём мультфильмы на любую тему: любовь, свадьба, путешествие или биография</h2>
+        <p>Вы присылаете обычные фотографии с телефона и коротко делитесь воспоминаниями — мы превращаем их в персональный фильм с портретным сходством и бесплатным пробным кадром до заказа</p>
+      </div>
+
+      <!-- ПЛАШКИ ТЕМ МУЛЬТФИЛЬМОВ -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 26px;">
+        <a href="/love-story" style="background: #FFFFFF; border: 1.5px solid var(--accent-warm); border-radius: 16px; padding: 14px 16px; text-decoration: none; color: var(--text-main); box-shadow: var(--shadow-sm);">
+          <strong style="display: block; font-size: 15px; color: #B8421B; margin-bottom: 4px;">❤️ 1.1. Любовная история (Love Story)</strong>
+          <span style="font-size: 13px; color: var(--text-muted);">Знакомство пары, свидания, юмор и чувства в 4 стилях (16:9 и 9:16)</span>
+        </a>
+        <a href="/love-story" style="background: #FFFFFF; border: 1px solid var(--border-soft); border-radius: 16px; padding: 14px 16px; text-decoration: none; color: var(--text-main); box-shadow: var(--shadow-sm);">
+          <strong style="display: block; font-size: 15px; margin-bottom: 4px;">💍 Мультфильм к свадьбе</strong>
+          <span style="font-size: 13px; color: var(--text-muted);">История жениха и невесты для показа гостям на экране в банкетном зале</span>
+        </a>
+        <a href="#travel-movie" style="background: #FFFFFF; border: 1.5px solid var(--accent-warm); border-radius: 16px; padding: 14px 16px; text-decoration: none; color: var(--text-main); box-shadow: var(--shadow-sm);">
+          <strong style="display: block; font-size: 15px; color: #B8421B; margin-bottom: 4px;">✈️ 1.2. По вашему путешествию</strong>
+          <span style="font-size: 13px; color: var(--text-muted);">Приключенческий фильм по фото из вашего отпуска (пример: Владивосток)</span>
+        </a>
+        <a href="/cartoon" style="background: #FFFFFF; border: 1px solid var(--border-soft); border-radius: 16px; padding: 14px 16px; text-decoration: none; color: var(--text-main); box-shadow: var(--shadow-sm);">
+          <strong style="display: block; font-size: 15px; margin-bottom: 4px;">🎂 Биография и Юбилей</strong>
+          <span style="font-size: 13px; color: var(--text-muted);">От детства и юности до семьи, друзей, карьеры и праздничного торта</span>
+        </a>
+        <a href="/mothers-day" style="background: #FFFFFF; border: 1px solid var(--border-soft); border-radius: 16px; padding: 14px 16px; text-decoration: none; color: var(--text-main); box-shadow: var(--shadow-sm);">
+          <strong style="display: block; font-size: 15px; margin-bottom: 4px;">💐 Фильм для мамы и близких</strong>
+          <span style="font-size: 13px; color: var(--text-muted);">Трогательная благодарность родителям со всей семьёй в кадре</span>
+        </a>
+      </div>
+
+      <!-- ДВА ГОРИЗОНТАЛЬНЫХ БЛОКБАСТЕРА 16:9: LOVE STORY / СВАДЬБА И ПУТЕШЕСТВИЕ ВО ВЛАДИВОСТОК -->
+      <div id="travel-movie" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; margin-bottom: 26px;">
+        <!-- КАРТОЧКА 1: LOVE STORY И МУЛЬТФИЛЬМ К СВАДЬБЕ 16:9 -->
+        <div style="background: #FFFFFF; border: 2px solid var(--accent-warm); border-radius: 24px; padding: 20px; box-shadow: 0 12px 32px rgba(44, 26, 16, 0.09); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="border-radius: 16px; overflow: hidden; background: #181412; border: 1px solid var(--border-soft); margin-bottom: 14px;">
+              <video controls playsinline preload="metadata" poster="media/love_stories/00_horizontal_poster_16x9.jpg" style="width: 100%; aspect-ratio: 16 / 9; display: block; object-fit: cover;">
+                <source src="media/love_stories/00_horizontal_love_story_16x9.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="mini-phone-tag" style="background: #2C1814; color: #FFD99B; margin-bottom: 8px;">❤️ Направление 1.1 • Свадебный блокбастер и Love Story (16:9)</span>
+            <h3 style="font-size: 20px; margin-bottom: 8px; line-height: 1.28;">Мультфильм про историю вашей любви или к свадьбе на большой экран</h3>
+            <p style="font-size: 14.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px;">
+              Широкоэкранный фильм по вашим фотографиям с озвучкой: от романтики первого свидания до драйвового приключения жениха и невесты для показа на банкете!
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-sm" onclick="openOrderModal('Мультфильм Love Story (Направление 1.1)', 'Горизонтальный фильм 16:9 + бесплатный пробный кадр')">🎁 Пробный кадр бесплатно</button>
+            <a href="/love-story" class="btn btn-outline btn-sm">Все Love Story (от 4 900 ₽) →</a>
+          </div>
+        </div>
+
+        <!-- КАРТОЧКА 2: МУЛЬТФИЛЬМ ПО ПУТЕШЕСТВИЮ (ВЛАДИВОСТОК 16:9) -->
+        <div style="background: #FFFFFF; border: 2px solid var(--accent-warm); border-radius: 24px; padding: 20px; box-shadow: 0 12px 32px rgba(44, 26, 16, 0.09); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="border-radius: 16px; overflow: hidden; background: #181412; border: 1px solid var(--border-soft); margin-bottom: 14px;">
+              <video controls playsinline preload="metadata" poster="media/vladivostok_poster_16x9.jpg" style="width: 100%; aspect-ratio: 16 / 9; display: block; object-fit: cover;">
+                <source src="media/vladivostok_travel_16x9.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="mini-phone-tag" style="background: #2C1814; color: #FFD99B; margin-bottom: 8px;">✈️ Направление 1.2 • Мультфильм по вашему путешествию (16:9)</span>
+            <h3 style="font-size: 20px; margin-bottom: 8px; line-height: 1.28;">Пример: «Большое путешествие семьи во Владивосток» (полный фильм)</h3>
+            <p style="font-size: 14.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px;">
+              Превратили фотографии из семейного отпуска в яркий приключенческий 3D-мультфильм: Золотой мост, бухта Стеклянная, камчатский краб, пян-се и любимая музыка!
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-sm" onclick="openOrderModal('Мультфильм по путешествию', 'Приключенческий фильм по фото из поездки + пробный кадр')">🎁 Заказать по вашей поездке</button>
+            <a href="/cartoon#travel-movie" class="btn btn-outline btn-sm">Все темы и цены →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 ВЕРТИКАЛЬНЫХ ЧИСТЫХ МУЛЬТФИЛЬМА 9:16 -->
+      <div class="mini-phones-grid">
+        <div class="mini-phone-card" style="border-color: rgba(217, 102, 58, 0.28);">
+          <div>
+            <div class="mini-phone-video-wrap">
+              <video controls playsinline preload="metadata" poster="media/love_stories/01_poster.jpg">
+                <source src="media/love_stories/01_pixar_hook.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="mini-phone-tag" style="background: #FFF0E6; color: #B84722;">Стиль 1 • 3D Disney / Pixar</span>
+            <h4>«Скинула парню намёк» — Уютная история пары</h4>
+            <p>Знакомство в кофейне, прогулки под одним шарфом, уснула на 5-й минуте фильма и тёплое признание.</p>
+          </div>
+          <a href="/love-story" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">Хочу в стиле Pixar →</a>
+        </div>
+
+        <div class="mini-phone-card" style="border-color: rgba(217, 102, 58, 0.28);">
+          <div>
+            <div class="mini-phone-video-wrap">
+              <video controls playsinline preload="metadata" poster="media/love_stories/02_poster.jpg">
+                <source src="media/love_stories/02_smith_comic.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="mini-phone-tag" style="background: #FFF0E6; color: #B84722;">Стиль 2 • Кино-Комикс 3D</span>
+            <h4>«Мистер и Миссис Смит» — Страсть и юмор</h4>
+            <p>Для пар с огоньком: битва подушками, танго на кухне, ночной кабриолет и примирение через 5 минут.</p>
+          </div>
+          <a href="/love-story" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">Хочу такой сюжет →</a>
+        </div>
+
+        <div class="mini-phone-card" style="border-color: rgba(217, 102, 58, 0.28);">
+          <div>
+            <div class="mini-phone-video-wrap">
+              <video controls playsinline preload="metadata" poster="media/love_stories/03_poster.jpg">
+                <source src="media/love_stories/03_riviera_watercolor.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="mini-phone-tag" style="background: #FFF0E6; color: #B84722;">Стиль 3 • Акварельная Ривьера</span>
+            <h4>«Путешествие вдвоём» — Море, скутер и закат</h4>
+            <p>Поездки к морю, один чемодан на двоих, мятный ретро-скутер, брызги прибоя и ужин под гирляндами.</p>
+          </div>
+          <a href="/love-story" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">Хочу в стиле Акварели →</a>
+        </div>
+
+        <div class="mini-phone-card" style="border-color: rgba(217, 102, 58, 0.28);">
+          <div>
+            <div class="mini-phone-video-wrap">
+              <video controls playsinline preload="metadata" poster="media/love_stories/04_poster.jpg">
+                <source src="media/love_stories/04_anime_rain.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <span class="mini-phone-tag" style="background: #FFF0E6; color: #B84722;">Стиль 4 • Аниме Макото Синкая</span>
+            <h4>«Случайный взгляд под дождём» — Магия судьбы</h4>
+            <p>Неоновый дождь за окном кофейни, один прозрачный зонт на двоих и встреча, изменившая всю жизнь.</p>
+          </div>
+          <a href="/love-story" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">Хочу в стиле Аниме →</a>
         </div>
       </div>
     </div>
@@ -713,6 +905,10 @@
             <div class="service-num">Направление №1 • Портретное сходство</div>
             <h3>Персональный мультфильм про вашу семью или близких</h3>
             <p>Создаём индивидуальный анимационный фильм по реальной истории жизни (детство, юность, встреча с любовью, семья и друзья) или по любому сказочному сюжету с профессиональной озвучкой диктора.</p>
+            <div style="background: #FFF6EE; border: 1px solid rgba(217, 102, 58, 0.35); border-radius: 14px; padding: 11px 14px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <span style="font-size: 13.5px; color: #2C1814;"><strong>❤️ Ответвление 1.1:</strong> Мультфильм Love Story для пар и на свадьбу (16:9 и 9:16)</span>
+              <a href="/love-story" style="font-size: 13.5px; font-weight: 700; color: #B8421B; text-decoration: underline;">Смотреть примеры Love Story →</a>
+            </div>
           </div>
           <div class="service-footer">
             <div class="price-tag">от 4 900 ₽ <small>Пакеты со скидкой до 2 000 ₽</small></div>
