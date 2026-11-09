@@ -10,18 +10,16 @@ if (window.location.protocol.startsWith("http") && window.location.pathname.ends
 }
 
 /**
- * Интерактивная логика сайта студии «Тёплый Кадр»:
- * 1. Модальное окно заказа с формированием готовой заявки в WhatsApp / MAX / Telegram
- * 2. Переключатель примеров работ на главной странице
- * 3. Переключатели стилей оформления на страницах услуг
- * 4. Быстрый переход по фрагментам в примерах видеороликов и калькулятор оживления фото
+ * Интерактивная логика сайта студии «Тёплый Кадр» (v14):
+ * 1. Модальное окно заказа с отправкой готовой заявки в Telegram (@teplo_kadr)
+ * 2. Управляемый слайдер баннеров (точки, стрелки, свайп, пауза при наведении)
+ * 3. Адаптивный шоурил в первом экране (16:9 и 9:16 без чёрных полей)
+ * 4. Масштабируемая Витрина работ по поводам (PORTFOLIO_ITEMS, клик-загрузка видео без тормозов)
+ * 5. Переключатели стилей портретов/мультфильмов и синхронизированный калькулятор оживления фото
  */
 
 const STUDIO_CONTACTS = {
-  whatsappPhone: "79147173132",
-  maxPhoneDisplay: "+7 (914) 717-31-32",
-  maxUrl: "https://max.ru",
-  telegramUser: "teplo_kadr", // Telegram: @teplo_kadr
+  telegramUser: "teplo_kadr", // Официальный Telegram для заказов: @teplo_kadr
 };
 
 function openOrderModal(serviceName = "Консультация по подарку", tariffName = "Индивидуальный подбор", price = "") {
@@ -53,8 +51,6 @@ function buildLeadMessage() {
   const comment = document.getElementById("modalComment")?.value.trim() || "";
 
   const lines = [];
-
-  // 1. Приветствие
   if (name) {
     lines.push(`Здравствуйте, меня зовут ${name}!`);
   } else {
@@ -71,23 +67,22 @@ function buildLeadMessage() {
     tariff === "Бесплатный пробный кадр по фото" ||
     tariff === "Полный фильм";
 
-  // 2. Основная строка под каждую услугу
   if (sLower.includes("портрет")) {
     const isPaidTariff = tariff.startsWith("Тариф") || tariff.startsWith("Коллекция");
-    let line = `Интересует "${service}"`;
+    let line = `Интересует «${service}»`;
     if (occasion) {
-      line += occasion.toLowerCase().startsWith("стиль") ? ` ${occasion}` : ` стиль ${occasion}`;
+      line += occasion.toLowerCase().startsWith("стиль") ? ` (${occasion})` : ` — ${occasion}`;
     } else if (!isDefaultTariff && !isPaidTariff) {
-      line += ` стиль ${tariff}`;
+      line += ` (${tariff})`;
     }
     if (isPaidTariff) {
-      line += ` (${tariff})`;
+      line += ` [${tariff}]`;
     }
     lines.push(line);
   } else {
-    let line = `Интересует "${service}"`;
+    let line = `Интересует «${service}»`;
     if (occasion) {
-      line += ` ${occasion}`;
+      line += ` — ${occasion}`;
     }
     if (!isDefaultTariff) {
       line += ` (${tariff})`;
@@ -95,7 +90,6 @@ function buildLeadMessage() {
     lines.push(line);
   }
 
-  // 3. Пожелания
   if (comment) {
     lines.push(`Пожелания: ${comment}`);
   }
@@ -103,25 +97,396 @@ function buildLeadMessage() {
   return lines.join("\n");
 }
 
-function sendLeadToWhatsApp() {
-  const msg = encodeURIComponent(buildLeadMessage());
-  window.open(`https://wa.me/${STUDIO_CONTACTS.whatsappPhone}?text=${msg}`, "_blank");
-}
-
-function sendLeadToMax() {
-  const rawMsg = buildLeadMessage();
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(rawMsg).catch(() => {});
-  }
-  alert(
-    `Текст вашей заявки скопирован!\n\nНаш номер в мессенджере MAX:\n${STUDIO_CONTACTS.maxPhoneDisplay}\n\nСейчас откроется MAX — просто вставьте скопированный текст в диалог.`
-  );
-  window.open(STUDIO_CONTACTS.maxUrl, "_blank");
-}
-
 function sendLeadToTelegram() {
   const msg = encodeURIComponent(buildLeadMessage());
   window.open(`https://t.me/${STUDIO_CONTACTS.telegramUser}?text=${msg}`, "_blank");
+}
+
+// Безопасные алиасы на случай вызовов из старого кэша
+const sendLeadToWhatsApp = sendLeadToTelegram;
+const sendLeadToMax = sendLeadToTelegram;
+
+/* ==========================================================================
+   ЕДИНАЯ МАСШТАБИРУЕМАЯ БАЗА РАБОТ ДЛЯ ВИТРИНЫ НА ГЛАВНОЙ
+   Чтобы добавить новый ролик на сайт — просто добавьте 1 объект в массив ниже!
+   ========================================================================== */
+const PORTFOLIO_ITEMS = [
+  {
+    id: "wedding-blockbuster",
+    cats: ["hits", "love"],
+    badge: "🎬 Хит • Свадебный блокбастер",
+    duration: "0:41 • 16:9",
+    isVertical: false,
+    video: "media/wedding_blockbuster_16x9.mp4",
+    poster: "media/wedding_blockbuster_poster_16x9.jpg",
+    title: "Комедийный блокбастер «Операция: Вернуть Жениха»",
+    desc: "Ироничный экшен-фильм для показа на свадебном банкете: жених после бани в гусарском мундире, гусь-свидетель и погоня на кабриолете к ЗАГСу.",
+    price: "от 4 900 ₽",
+    orderService: "Свадебный мультфильм / блокбастер",
+    orderTariff: "Сюжет в стиле «Операция: Вернуть Жениха»",
+    moreUrl: "/love-story",
+  },
+  {
+    id: "pixar-jubilee-max30",
+    cats: ["hits", "friends"],
+    badge: "🎉 Юбилей и биография • 3D Pixar",
+    duration: "2:37 • 16:9",
+    isVertical: false,
+    video: "media/pixar_max30_1080p.mp4",
+    poster: "pixar_poster_1080p.jpg",
+    title: "Биографический 3D-мультфильм «Максу 30 лет!»",
+    desc: "Тёплая история жизни по фотографиям: детство и пирожки у бабушки, школа, университет, встреча с любимой женой, рыжий кот и друзья.",
+    price: "от 4 900 ₽",
+    orderService: "Персональный 3D-мультфильм",
+    orderTariff: "Биографический фильм на День рождения / Юбилей",
+    moreUrl: "/cartoon",
+  },
+  {
+    id: "mom-film-1min",
+    cats: ["hits", "mom"],
+    badge: "🌸 Ко Дню матери и на юбилей",
+    duration: "1:00 • 16:9",
+    isVertical: false,
+    video: "media/mom_styles/film_mom_1min.mp4",
+    poster: "media/mom_styles/film_01.jpg",
+    title: "Трогательный фильм о маме по семейным снимкам",
+    desc: "Душевная история материнской заботы от первых детских шагов до тёплых встреч взрослой семьи — подарок, который хранят всю жизнь.",
+    price: "от 4 900 ₽",
+    orderService: "Фильм-подарок для мамы",
+    orderTariff: "Персональный фильм о маме с озвучкой",
+    moreUrl: "/mothers-day",
+  },
+  {
+    id: "love-story-16x9",
+    cats: ["hits", "love"],
+    badge: "❤️ Для пары и годовщины • 4 стиля",
+    duration: "0:41 • 16:9",
+    isVertical: false,
+    video: "media/love_stories/00_horizontal_love_story_16x9.mp4",
+    poster: "media/love_stories/00_horizontal_poster_16x9.jpg",
+    title: "Мультфильм Love Story по вашим совместным фото",
+    desc: "Знакомство, первые свидания, смешные моменты и предложение руки и сердца в 4 художественных вселенных для ТВ и проектора.",
+    price: "от 4 900 ₽",
+    orderService: "Мультфильм Love Story",
+    orderTariff: "Горизонтальный фильм 16:9 для пары",
+    moreUrl: "/love-story",
+  },
+  {
+    id: "photo-alive-main",
+    cats: ["hits", "mom"],
+    badge: "🕰 Память семьи • Реставрация + цвет",
+    duration: "0:45 • 16:9",
+    isVertical: false,
+    video: "media/photo_alive_1080p.mp4",
+    poster: "media/avito_photo_alive_cover_16x9.png",
+    title: "Бережное оживление старых архивных фотографий",
+    desc: "Убираем трещины, возвращаем цвет и оживляем тёплые улыбки и объятия родителей, бабушек и дедушек под любимую песню семьи.",
+    price: "от 1 500 ₽",
+    orderService: "Оживление старых фотографий",
+    orderTariff: "Реставрация и оживление семейного архива",
+    moreUrl: "/photo-alive",
+  },
+  {
+    id: "invite-ghost-rider",
+    cats: ["hits", "invites"],
+    badge: "🔥 Вау-приглашение за 2–4 часа",
+    duration: "0:24 • 9:16",
+    isVertical: true,
+    video: "media/invitations/01_rider_hth.mp4",
+    poster: "media/invitations/01_rider_hth_poster.jpg",
+    title: "Герой у реального входа в ваш ресторан",
+    desc: "Байкер на огненном чоппере подъезжает к реальному фасаду вашего заведения с карт и харизматичным голосом зовёт гостей на праздник.",
+    price: "1 990 ₽",
+    orderService: "3D Видео-приглашение",
+    orderTariff: "Приглашение с героем у нашего ресторана (1 990 ₽)",
+    moreUrl: "/invitations",
+  },
+  {
+    id: "ls-pixar-hook",
+    cats: ["love"],
+    badge: "❤️ 3D Disney / Pixar • 9:16",
+    duration: "0:28 • 9:16",
+    isVertical: true,
+    video: "media/love_stories/01_pixar_hook.mp4",
+    poster: "media/love_stories/01_poster.jpg",
+    title: "«Не фильм про идеальных — фильм про настоящих»",
+    desc: "Тёплый вертикальный ролик про домашний уют, совместные вечера, шутки и настоящую любовь вашей пары.",
+    price: "от 4 900 ₽",
+    orderService: "Мультфильм Love Story",
+    orderTariff: "Стиль 3D Disney / Pixar (9:16)",
+    moreUrl: "/love-story",
+  },
+  {
+    id: "ls-smith-comic",
+    cats: ["love"],
+    badge: "💥 Кино-комикс • Драйв и юмор",
+    duration: "0:30 • 9:16",
+    isVertical: true,
+    video: "media/love_stories/02_smith_comic.mp4",
+    poster: "media/love_stories/02_poster.jpg",
+    title: "Экшен-история пары в духе «Мистер и Миссис Смит»",
+    desc: "Динамичный сюжет с искромётным юмором для ярких пар, которые любят приключения, скорость и необычные подарки.",
+    price: "от 4 900 ₽",
+    orderService: "Мультфильм Love Story",
+    orderTariff: "Стиль Кино-комикс «Мистер и Миссис Смит»",
+    moreUrl: "/love-story",
+  },
+  {
+    id: "ls-riviera",
+    cats: ["love"],
+    badge: "🌊 Акварель и солнце • 9:16",
+    duration: "0:28 • 9:16",
+    isVertical: true,
+    video: "media/love_stories/03_riviera_watercolor.mp4",
+    poster: "media/love_stories/03_poster.jpg",
+    title: "Нежная акварельная история «Морская Ривьера»",
+    desc: "Воздушная живописная рисовка, морской бриз, прогулки у воды и романтика летнего путешествия вдвоём.",
+    price: "от 4 900 ₽",
+    orderService: "Мультфильм Love Story",
+    orderTariff: "Стиль Акварельная Ривьера",
+    moreUrl: "/love-story",
+  },
+  {
+    id: "ls-anime-rain",
+    cats: ["love"],
+    badge: "✨ Романтическое аниме • 9:16",
+    duration: "0:30 • 9:16",
+    isVertical: true,
+    video: "media/love_stories/04_anime_rain.mp4",
+    poster: "media/love_stories/04_poster.jpg",
+    title: "Вечерний город, дождь и один зонт на двоих",
+    desc: "Атмосферная история знакомства и нежности в эстетике полнометражного японского аниме с глубоким светом неоновых улиц.",
+    price: "от 4 900 ₽",
+    orderService: "Мультфильм Love Story",
+    orderTariff: "Стиль Романтическое аниме",
+    moreUrl: "/love-story",
+  },
+  {
+    id: "mom-card-30s",
+    cats: ["mom"],
+    badge: "💌 Видео-открытка маме • 9:16",
+    duration: "0:30 • 9:16",
+    isVertical: true,
+    video: "media/mom_styles/card_mom_30s.mp4",
+    poster: "media/mom_styles/card_mom_poster_9x16.jpg",
+    title: "Именная музыкальная видео-открытка для мамы",
+    desc: "Короткое трогательное поздравление для отправки маме утром в праздник — со стихами, голосом и ожившими кадрами.",
+    price: "от 1 500 ₽",
+    orderService: "Видео-открытка для мамы",
+    orderTariff: "Музыкальная открытка 30 сек",
+    moreUrl: "/mothers-day",
+  },
+  {
+    id: "mom-looks-30s",
+    cats: ["mom"],
+    badge: "🎨 9 художественных образов",
+    duration: "0:30 • 9:16",
+    isVertical: true,
+    video: "media/mom_styles/looks_mom_30s.mp4",
+    poster: "media/mom_styles/looks_mom_poster_9x16.jpg",
+    title: "Преображение портрета мамы + видеоролик в подарок",
+    desc: "По одной фотографии создаём коллекцию картин 4K (акварель, масло, Pixar, королевский зал) для печати на холсте.",
+    price: "2 900 ₽",
+    orderService: "Портреты для мамы в 9 стилях",
+    orderTariff: "Коллекция 9 стилей + видеоролик (2 900 ₽)",
+    moreUrl: "/mothers-day",
+  },
+  {
+    id: "vladivostok-friends",
+    cats: ["friends"],
+    badge: "✈️ Путешествия и мужская дружба",
+    duration: "8:07 • 16:9",
+    isVertical: false,
+    video: "media/vladivostok_travel_16x9.mp4",
+    poster: "media/vladivostok_poster_16x9.jpg",
+    title: "Приключенческий фильм «Поездка друзей во Владивосток»",
+    desc: "Большой сюжетный мультфильм по фотографиям из отпуска: перелёт, море, крабы, локальные шутки компании и настоящий драйв.",
+    price: "от 4 900 ₽",
+    orderService: "Мультфильм про друзей / путешествие",
+    orderTariff: "Приключенческий фильм по фото поездки",
+    moreUrl: "/cartoon#travel-movie",
+  },
+  {
+    id: "family-9styles-showreel",
+    cats: ["friends"],
+    badge: "🖼 Картины 4K для холста",
+    duration: "0:28 • 16:9",
+    isVertical: false,
+    video: "media/slideshow_7styles_1080p.mp4",
+    poster: "media/avito_cover_16x9.png",
+    title: "Семейный портрет по 1 домашнему фото в 9 стилях",
+    desc: "Наглядное преображение обычного снимка на диване в 9 ярких художественных миров с сохранением узнаваемых черт всей семьи.",
+    price: "от 1 500 ₽",
+    orderService: "Семейный портрет по фото",
+    orderTariff: "Коллекция 9 стилей + видео (2 900 ₽)",
+    moreUrl: "/photoshoot",
+  },
+  {
+    id: "invite-wedding-popup",
+    cats: ["invites"],
+    badge: "💍 Свадебная 3D-книга Pop-Up",
+    duration: "0:22 • 9:16",
+    isVertical: true,
+    video: "media/invitations/02_wedding.mp4",
+    poster: "media/invitations/02_wedding_poster.jpg",
+    title: "Объёмное свадебное приглашение с именами и озвучкой",
+    desc: "Раскрывающаяся 3D-книга с вашей датой, местом банкета и тёплым голосом диктора — готово к рассылке гостям за 2–4 часа.",
+    price: "1 490 ₽",
+    orderService: "3D Видео-приглашение",
+    orderTariff: "Свадебная 3D-открытка Pop-Up (1 490 ₽)",
+    moreUrl: "/invitations",
+  },
+  {
+    id: "invite-jubilee-gold",
+    cats: ["invites"],
+    badge: "🥂 Юбилей • Золотой конверт",
+    duration: "0:24 • 9:16",
+    isVertical: true,
+    video: "media/invitations/04_jubilee.mp4",
+    poster: "media/invitations/04_jubilee_poster.jpg",
+    title: "Торжественное 3D-приглашение на Юбилей 50 / 55 / 60 лет",
+    desc: "Благородный золотой конверт с сургучной печатью, датой торжества, адресом зала и уважительным голосовым обращением к гостям.",
+    price: "1 490 ₽",
+    orderService: "3D Видео-приглашение",
+    orderTariff: "Юбилейный золотой конверт (1 490 ₽)",
+    moreUrl: "/invitations",
+  },
+  {
+    id: "invite-kids-tralalero",
+    cats: ["invites"],
+    badge: "🦈 Детский хит • Мем-вечеринка",
+    duration: "0:25 • 9:16",
+    isVertical: true,
+    video: "media/invitations/03_tralalero.mp4",
+    poster: "media/invitations/03_tralalero_poster.jpg",
+    title: "Весёлое приглашение на детский День рождения",
+    desc: "Любимые мем-персонажи зовут друзей именинника на праздник — дети пересматривают по 10 раз!",
+    price: "1 990 ₽",
+    orderService: "3D Видео-приглашение",
+    orderTariff: "Детское приглашение с героями (1 990 ₽)",
+    moreUrl: "/invitations",
+  },
+  {
+    id: "invite-baby-teddy",
+    cats: ["invites"],
+    badge: "🧸 1 годик малышу • Плюшевый мир",
+    duration: "0:22 • 9:16",
+    isVertical: true,
+    video: "media/invitations/05_teddy.mp4",
+    poster: "media/invitations/05_teddy_poster.jpg",
+    title: "Нежное приглашение на первый День рождения малыша",
+    desc: "Уютная сказочная открытка с плюшевым мишкой, воздушными шарами, именем крохи и тёплой озвучкой для родных.",
+    price: "1 490 ₽",
+    orderService: "3D Видео-приглашение",
+    orderTariff: "Приглашение на 1 годик (1 490 ₽)",
+    moreUrl: "/invitations",
+  },
+  {
+    id: "ai-reels-magic",
+    cats: ["invites"],
+    badge: "⚡ ИИ-Рилсы • Эффект со 2-й секунды",
+    duration: "0:42 • 9:16",
+    isVertical: true,
+    video: "media/video_magic_reels_9x16.mp4",
+    poster: "media/avito_video_magic_cover_16x9.png",
+    title: "Голливудское преображение видео с телефона в движении",
+    desc: "Королевский бал, вечернее платье на ходу, сакура или северное сияние прямо в вашем ролике для соцсетей и поздравлений.",
+    price: "от 990 ₽",
+    orderService: "Короткие ИИ-Рилсы и эффекты",
+    orderTariff: "1 вертикальный ролик с ИИ-преображением (990 ₽)",
+    moreUrl: "/video-edit",
+  },
+];
+
+function pauseAllPageVideos(exceptVideo = null) {
+  document.querySelectorAll("video").forEach((other) => {
+    if (other !== exceptVideo && !other.paused) {
+      other.pause();
+    }
+  });
+}
+
+function bindExclusiveVideoPlay(vid) {
+  if (!vid || vid.dataset.exclusiveBound) return;
+  vid.dataset.exclusiveBound = "1";
+  vid.addEventListener("play", () => pauseAllPageVideos(vid));
+}
+
+function renderPortfolioCards(category = "hits") {
+  const grid = document.getElementById("portfolioGrid");
+  if (!grid) return;
+
+  pauseAllPageVideos();
+
+  const list = PORTFOLIO_ITEMS.filter((item) => item.cats.includes(category));
+  grid.innerHTML = list
+    .map((item) => {
+      const safeTitle = item.orderService.replace(/'/g, "\\'");
+      const safeTariff = item.orderTariff.replace(/'/g, "\\'");
+      const safePrice = item.price.replace(/'/g, "\\'");
+      return `
+      <article class="portfolio-card" data-item-id="${item.id}">
+        <div class="portfolio-media-box" id="pmedia-${item.id}">
+          <span class="portfolio-badge-top">${item.badge}</span>
+          <span class="portfolio-badge-dur">${item.duration}</span>
+          <button type="button" class="portfolio-thumb-trigger ${item.isVertical ? "is-vertical" : ""}" onclick="playPortfolioVideo('${item.id}')" aria-label="Смотреть видео: ${item.title}">
+            <img src="${item.poster}" alt="${item.title}" loading="lazy" />
+            <span class="portfolio-play-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+        </div>
+        <div class="portfolio-body">
+          <div>
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+          </div>
+          <div class="portfolio-actions">
+            <span class="portfolio-price">${item.price}</span>
+            <div class="portfolio-btn-group">
+              <a href="${item.moreUrl}" class="btn btn-outline btn-sm">О формате</a>
+              <button type="button" class="btn btn-primary btn-sm" onclick="openOrderModal('${safeTitle}', '${safeTariff}', '${safePrice}')">Хочу так же</button>
+            </div>
+          </div>
+        </div>
+      </article>`;
+    })
+    .join("");
+}
+
+function filterPortfolio(category, btnEl) {
+  document.querySelectorAll(".portfolio-tab-btn").forEach((b) => b.classList.remove("active"));
+  if (btnEl) btnEl.classList.add("active");
+  renderPortfolioCards(category);
+}
+
+function playPortfolioVideo(itemId) {
+  const item = PORTFOLIO_ITEMS.find((x) => x.id === itemId);
+  const box = document.getElementById(`pmedia-${itemId}`);
+  if (!item || !box) return;
+
+  pauseAllPageVideos();
+
+  box.innerHTML = `
+    <video controls autoplay playsinline poster="${item.poster}">
+      <source src="${item.video}" type="video/mp4" />
+    </video>
+  `;
+  const vid = box.querySelector("video");
+  if (vid) {
+    bindExclusiveVideoPlay(vid);
+    vid.play().catch(() => {});
+  }
+}
+
+// Глобальное управление верхним слайдером баннеров
+let topBannerGoTo = null;
+let topBannerCur = 0;
+
+function stepTopBanner(delta) {
+  if (typeof topBannerGoTo === "function") {
+    topBannerGoTo(topBannerCur + delta, true);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -145,7 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const beforeImg = overlay?.querySelector("img");
 
     const syncWidth = () => {
-      if (beforeImg) {
+      if (beforeImg && container.offsetWidth > 0) {
         beforeImg.style.width = `${container.offsetWidth}px`;
       }
     };
@@ -160,16 +525,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const allVideos = document.querySelectorAll("video");
-  allVideos.forEach((vid) => {
-    vid.addEventListener("play", () => {
-      allVideos.forEach((other) => {
-        if (other !== vid && !other.paused) {
-          other.pause();
-        }
-      });
-    });
-  });
+  document.querySelectorAll("video").forEach(bindExclusiveVideoPlay);
+
+  // Рендерим стартовую вкладку Витрины работ на главной
+  if (document.getElementById("portfolioGrid")) {
+    renderPortfolioCards("hits");
+  }
+
+  // Инициализация калькулятора оживления фото, если он есть на странице
+  if (document.getElementById("photoCountRange")) {
+    updatePhotoAliveCalc();
+  }
 
   const navBar = document.querySelector(".nav-links");
   const activeNav = navBar?.querySelector("a.active");
@@ -200,35 +566,65 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // Автопереключаемый свайп-слайдер главных баннеров (5.5 сек + свайп пальцем/мышью без кнопок)
+  // Управляемый слайдер баннеров (точки + стрелки + свайп + пауза при наведении)
   const topSlider = document.getElementById("topBannerSlider");
   const topTrack = document.getElementById("topBannerTrack");
+  const dotsWrap = document.getElementById("topBannerDots");
   if (topSlider && topTrack) {
     const slides = topTrack.querySelectorAll(".top-banner-slide");
     const totalSlides = slides.length;
-    let curSlide = 0;
     let startX = 0;
     let currentX = 0;
     let isDragging = false;
+    let isHovered = false;
     let movedPx = 0;
     let autoTimer = null;
 
+    if (dotsWrap && totalSlides > 1) {
+      dotsWrap.innerHTML = Array.from({ length: totalSlides })
+        .map(
+          (_, i) =>
+            `<button type="button" class="top-banner-dot ${i === 0 ? "active" : ""}" aria-label="Слайд ${i + 1}" onclick="event.stopPropagation(); topBannerGoTo(${i}, true)"></button>`
+        )
+        .join("");
+    }
+
+    const updateDots = () => {
+      if (!dotsWrap) return;
+      dotsWrap.querySelectorAll(".top-banner-dot").forEach((d, i) => {
+        d.classList.toggle("active", i === topBannerCur);
+      });
+    };
+
     const goToSlide = (idx, animate = true) => {
-      curSlide = ((idx % totalSlides) + totalSlides) % totalSlides;
+      topBannerCur = ((idx % totalSlides) + totalSlides) % totalSlides;
       topTrack.style.transition = animate ? "transform 0.52s cubic-bezier(0.22, 1, 0.36, 1)" : "none";
-      topTrack.style.transform = `translate3d(-${curSlide * 100}%, 0, 0)`;
+      topTrack.style.transform = `translate3d(-${topBannerCur * 100}%, 0, 0)`;
+      updateDots();
+    };
+
+    topBannerGoTo = (idx, animate = true) => {
+      goToSlide(idx, animate);
+      restartAuto();
     };
 
     const restartAuto = () => {
       if (autoTimer) clearInterval(autoTimer);
       autoTimer = setInterval(() => {
-        if (!isDragging) {
-          goToSlide(curSlide + 1, true);
+        if (!isDragging && !isHovered) {
+          goToSlide(topBannerCur + 1, true);
         }
-      }, 4200);
+      }, 5500);
     };
 
     restartAuto();
+
+    topSlider.addEventListener("mouseenter", () => {
+      isHovered = true;
+    });
+    topSlider.addEventListener("mouseleave", () => {
+      isHovered = false;
+    });
 
     const onStart = (x) => {
       isDragging = true;
@@ -245,7 +641,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const dx = currentX - startX;
       movedPx = Math.max(movedPx, Math.abs(dx));
       const width = topSlider.offsetWidth || 1;
-      const offsetPct = -curSlide * 100 + (dx / width) * 100;
+      const offsetPct = -topBannerCur * 100 + (dx / width) * 100;
       topTrack.style.transform = `translate3d(${offsetPct}%, 0, 0)`;
     };
 
@@ -255,11 +651,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const dx = currentX - startX;
       const threshold = Math.min(75, (topSlider.offsetWidth || 300) * 0.14);
       if (dx < -threshold) {
-        goToSlide(curSlide + 1, true);
+        goToSlide(topBannerCur + 1, true);
       } else if (dx > threshold) {
-        goToSlide(curSlide - 1, true);
+        goToSlide(topBannerCur - 1, true);
       } else {
-        goToSlide(curSlide, true);
+        goToSlide(topBannerCur, true);
       }
       restartAuto();
     };
@@ -270,6 +666,7 @@ document.addEventListener("DOMContentLoaded", () => {
     topSlider.addEventListener("touchcancel", onEnd);
 
     topSlider.addEventListener("mousedown", (e) => {
+      if (e.target.closest("button")) return;
       e.preventDefault();
       onStart(e.clientX);
     });
@@ -286,76 +683,80 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Переключатель направлений в первом экране главной страницы
+// Адаптивный переключатель шоурила в первом экране главной страницы
 function switchHeroShowcase(idx, btnEl) {
   const items = [
     {
       video: "media/pixar_max30_1080p.mp4",
       poster: "pixar_poster_1080p.jpg",
-      badge: "1. Мультфильм на любую тему: биография и юбилей (от 4 900 ₽)",
-      caption: "Индивидуальный фильм по фотографиям: семейная биография, юбилей, свадьба, путешествие или история любви.",
+      isVertical: false,
+      badge: "🎬 Персональный 3D-мультфильм на юбилей и для семьи (от 4 900 ₽)",
+      caption: "Индивидуальный фильм по фотографиям и фактам биографии с высокой узнаваемостью героев и озвучкой диктора.",
       linkUrl: "/cartoon",
-      linkText: "Все темы мультфильмов →",
+      linkText: "Подробнее о мультфильмах →",
+    },
+    {
+      video: "media/wedding_blockbuster_16x9.mp4",
+      poster: "media/wedding_blockbuster_poster_16x9.jpg",
+      isVertical: false,
+      badge: "❤️ Новинка: Свадебный блокбастер «Операция: Вернуть Жениха» (от 4 900 ₽)",
+      caption: "Комедийный экшен-фильм по фото молодожёнов для яркого показа гостям на свадебном банкете.",
+      linkUrl: "/love-story",
+      linkText: "Свадебные фильмы и Love Story →",
     },
     {
       video: "media/love_stories/00_horizontal_love_story_16x9.mp4",
       poster: "media/love_stories/00_horizontal_poster_16x9.jpg",
-      badge: "❤️ 1.1. Мультфильм Love Story для пар и к свадьбе (от 4 900 ₽)",
-      caption: "История вашей любви по совместным фото (16:9 для банкета и ТВ или 9:16 для телефона) в 4 стилях.",
+      isVertical: false,
+      badge: "💑 Love Story по вашим совместным фото в 4 стилях (от 4 900 ₽)",
+      caption: "Романтическая история вашей пары (16:9 для экрана на празднике или 9:16 для телефона).",
       linkUrl: "/love-story",
       linkText: "Смотреть все Love Story →",
     },
     {
-      video: "media/vladivostok_travel_16x9.mp4",
-      poster: "media/vladivostok_poster_16x9.jpg",
-      badge: "✈️ 1.2. Мультфильм по вашему путешествию и отпуску (от 4 900 ₽)",
-      caption: "Приключенческий 3D-фильм по фотографиям из вашей поездки: пример фильма «Путешествие во Владивосток».",
-      linkUrl: "/cartoon#travel-movie",
-      linkText: "Подробнее о фильме →",
+      video: "media/mom_styles/film_mom_1min.mp4",
+      poster: "media/mom_styles/film_01.jpg",
+      isVertical: false,
+      badge: "🌸 Трогательный фильм о маме ко Дню матери и юбилею (от 4 900 ₽)",
+      caption: "Душевный подарок маме по детским и семейным фотографиям — от первых шагов до сегодняшнего дня.",
+      linkUrl: "/mothers-day",
+      linkText: "Подарки для мамы →",
     },
     {
       video: "media/photo_alive_1080p.mp4",
       poster: "media/avito_photo_alive_cover_16x9.png",
-      badge: "2. Оживление старых фотографий (от 1 500 ₽)",
-      caption: "Бережно восстанавливаем и оживляем памятные снимки родителей, бабушек и дедушек.",
+      isVertical: false,
+      badge: "🕰 Бережное оживление и реставрация старых фото (от 1 500 ₽)",
+      caption: "Восстанавливаем чёткость лиц, убираем трещины и оживляем памятные снимки родителей, бабушек и дедушек.",
       linkUrl: "/photo-alive",
-      linkText: "Подробнее об оживлении фото →",
-    },
-    {
-      video: "media/slideshow_7styles_1080p.mp4",
-      poster: "media/avito_cover_16x9.png",
-      badge: "3. Семейный портрет в 9 стилях (от 1 500 ₽)",
-      caption: "Превращаем обычную домашнюю фотографию в картины высокого разрешения 4K для печати на холсте.",
-      linkUrl: "/photoshoot",
-      linkText: "Посмотреть стили портретов →",
-    },
-    {
-      video: "media/video_magic_reels_9x16.mp4",
-      poster: "media/avito_video_magic_cover_16x9.png",
-      badge: "4. Короткие видеоролики и видеоэффекты (от 990 ₽)",
-      caption: "Красивый монтаж видеозаписей с телефона и художественное преображение кадра в движении.",
-      linkUrl: "/video-edit",
-      linkText: "Примеры видеороликов →",
+      linkText: "Оживление архивных фото →",
     },
     {
       video: "media/invitations/01_rider_hth.mp4",
-      poster: "media/avito_invitations_cover_16x9.png",
-      badge: "5. Живые 3D видео-приглашения (от 1 490 ₽)",
-      caption: "Именные видео-открытки с озвучкой и приглашения с любимыми героями у входа в ваш ресторан.",
+      poster: "media/invitations/01_rider_hth_poster.jpg",
+      isVertical: true,
+      badge: "💌 Живые 3D видео-приглашения гостям за 2–4 часа (от 1 490 ₽)",
+      caption: "Вертикальные открытки 9:16 с озвучкой на свадьбу, юбилей или день рождения у входа в ваш ресторан.",
       linkUrl: "/invitations",
-      linkText: "Посмотреть приглашения →",
+      linkText: "Все 3D-приглашения →",
     },
   ];
 
   const item = items[idx];
   if (!item) return;
 
+  const cardEl = document.getElementById("heroVideoCard");
   const vidEl = document.getElementById("heroMainVideo");
   const badgeEl = document.getElementById("heroVideoBadge");
   const capEl = document.getElementById("heroVideoCaption");
   const linkEl = document.getElementById("heroVideoLink");
 
+  if (cardEl) {
+    cardEl.classList.toggle("is-vertical", Boolean(item.isVertical));
+  }
+
   if (vidEl) {
+    pauseAllPageVideos(vidEl);
     vidEl.pause();
     vidEl.poster = item.poster;
     vidEl.src = item.video;
@@ -430,7 +831,7 @@ function switchTemplatePreview(tplIdx, btnEl) {
     {
       img: "media/family_styles/style_02.png",
       title: "7. Добрая комедия или любой ваш индивидуальный сюжет",
-      desc: "Хотите весёлую семейную комедию, морское путешествие или фантастическую историю? Мы бережно напишем сценарий и создадим фильм по вашим пожеланиям.",
+      desc: "Хотите свадебный блокбастер, морское путешествие друзей или фантастическую историю? Мы бережно напишем сценарий и создадим фильм по вашим пожеланиям.",
     },
   ];
 
@@ -448,13 +849,13 @@ function switchTemplatePreview(tplIdx, btnEl) {
   if (btnEl) btnEl.classList.add("active");
 }
 
-// Переключатель 10 стилей портретов (9 стилей + исходное фото) с индивидуальным интерактивом До/После
+// Переключатель 10 стилей портретов (9 стилей + исходное фото) с интерактивом До/После
 function switchStyleGallery(styleIdx, btnEl) {
   const styles = [
     {
       img: "media/family_styles/style_06.png",
       title: "1. Объёмная 3D-анимация (в стиле классики Disney / Pixar)",
-      desc: "Тёплый кинематографичный образ: портретное сходство, добрый взгляд, улыбка, причёски, любимая одежда и даже домашний питомец.",
+      desc: "Тёплый кинематографичный образ: узнаваемые черты лица, добрый взгляд, улыбка, причёски, любимая одежда и даже домашний питомец.",
       shortLabel: "После: 3D-портрет 4K",
     },
     {
@@ -509,7 +910,7 @@ function switchStyleGallery(styleIdx, btnEl) {
       img: "media/family_styles/style_07.png",
       title: "10. Исходная домашняя фотография",
       desc: "Вот с такого обычного снимка на диване мы начали работу — без похода в фотостудию и сложной подготовки.",
-      shortLabel: "",
+      shortLabel: "Исходное фото семьи",
     },
   ];
 
@@ -523,7 +924,6 @@ function switchStyleGallery(styleIdx, btnEl) {
   if (titleEl) titleEl.textContent = data.title;
   if (descEl) descEl.textContent = data.desc;
 
-  // Обновляем интерактив До/После под выбранный стиль или скрываем его на вкладке «Исходное фото»
   const compareCard = document.getElementById("styleCompareCard");
   const compareSection = document.getElementById("photoshootCompareSection");
   const compareGrid = document.querySelector(".styles-compare-grid");
@@ -531,17 +931,17 @@ function switchStyleGallery(styleIdx, btnEl) {
   const compareAfterLabel = document.getElementById("styleCompareAfterLabel");
 
   if (styleIdx === 9) {
-    if (compareCard) compareCard.style.display = "none";
+    if (compareCard && imgEl) compareCard.style.display = "none";
     if (compareSection) compareSection.style.display = "none";
-    if (compareGrid) {
+    if (compareGrid && imgEl) {
       compareGrid.style.gridTemplateColumns = "1fr";
       compareGrid.style.maxWidth = "680px";
       compareGrid.style.margin = "0 auto";
     }
   } else {
-    if (compareCard) compareCard.style.display = "flex";
+    if (compareCard) compareCard.style.display = "";
     if (compareSection) compareSection.style.display = "";
-    if (compareGrid) {
+    if (compareGrid && imgEl) {
       compareGrid.style.gridTemplateColumns = "";
       compareGrid.style.maxWidth = "";
       compareGrid.style.margin = "";
@@ -553,7 +953,6 @@ function switchStyleGallery(styleIdx, btnEl) {
     if (compareAfterLabel) {
       compareAfterLabel.textContent = data.shortLabel;
     }
-    // Пересчитываем ширину шторки До/После при возврате видимости
     document.querySelectorAll(".ba-container").forEach((container) => {
       const beforeImg = container.querySelector(".ba-overlay img");
       if (beforeImg && container.offsetWidth > 0) {
@@ -566,33 +965,60 @@ function switchStyleGallery(styleIdx, btnEl) {
   if (btnEl) btnEl.classList.add("active");
 }
 
+/**
+ * Синхронизированный калькулятор оживления фото (100% совпадение с утверждёнными тарифами!):
+ * - Реставрация трещин и цвет включены бесплатно в каждый заказ!
+ * - 3 фото = 1 500 ₽
+ * - 10 фото (видеоальбом с музыкой и страницей) = 4 900 ₽
+ * - 20 фото + диктор (большая семейная летопись) = 9 900 ₽
+ */
 function updatePhotoAliveCalc() {
   const countEl = document.getElementById("photoCountRange");
   const countLabel = document.getElementById("photoCountLabel");
   const voiceCheck = document.getElementById("photoVoiceCheck");
-  const restoreCheck = document.getElementById("photoRestoreCheck");
   const totalEl = document.getElementById("photoCalcTotal");
+  const hintEl = document.getElementById("photoCalcHint");
   const btnEl = document.getElementById("photoCalcOrderBtn");
 
   if (!countEl || !totalEl) return;
   const count = parseInt(countEl.value, 10);
   if (countLabel) countLabel.textContent = `${count} фото`;
 
-  let perPhoto = 500;
-  if (count >= 10) perPhoto = 450;
-  if (count >= 20) perPhoto = 400;
+  let basePrice = 0;
+  let packageNote = "Реставрация трещин, цвет и музыка включены";
 
-  let total = count * perPhoto;
-  if (voiceCheck?.checked) total += 2500;
-  if (restoreCheck?.checked) total += count * 150;
+  if (count <= 9) {
+    basePrice = Math.min(4900, count * 500);
+    if (count === 3) packageNote = "Пакет «Знакомство»: 3 оживших снимка с реставрацией";
+  } else if (count === 10) {
+    basePrice = 4900;
+    packageNote = "Хит «Семейный видеоальбом»: 10 фото + музыка + именная страница";
+  } else if (count < 20) {
+    // Плавный переход от 10 фото (4 900 ₽) к 20 фото (8 400 ₽ без диктора / 9 900 ₽ с диктором)
+    basePrice = 4900 + (count - 10) * 350;
+  } else {
+    basePrice = 8400 + (count - 20) * 350;
+    packageNote = "Масштабный фильм «Семейная летопись»";
+  }
+
+  let total = basePrice;
+  if (voiceCheck?.checked) {
+    // Для 20 фото пакет с диктором ровно 9 900 ₽ (8 400 + 1 500 = 9 900 ₽)
+    total += 1500;
+    if (count === 20) {
+      packageNote = "Пакет «Большая семейная летопись»: 20 фото + сценарий и голос диктора";
+    }
+  }
 
   const formatted = total.toLocaleString("ru-RU") + " ₽";
   totalEl.textContent = formatted;
+  if (hintEl) hintEl.textContent = packageNote;
+
   if (btnEl) {
     btnEl.onclick = () =>
       openOrderModal(
-        "Оживление архивных фотографий",
-        `${count} оживших фото${voiceCheck?.checked ? " + диктор" : ""}`,
+        "Оживление старых фотографий",
+        `${count} оживших фото (реставрация включена)${voiceCheck?.checked ? " + озвучка диктора" : ""}`,
         formatted
       );
   }
