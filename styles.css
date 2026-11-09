@@ -532,10 +532,14 @@ header {
   color: var(--text-main);
 }
 
-.video-caption a {
+.video-caption a:not(.btn) {
   color: var(--accent-warm);
   font-weight: 600;
   text-decoration: none;
+}
+
+.video-caption a.btn-primary {
+  color: #FFFFFF !important;
 }
 
 /* SECTIONS */

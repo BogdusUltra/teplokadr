@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isDragging) {
           goToSlide(curSlide + 1, true);
         }
-      }, 5500);
+      }, 4200);
     };
 
     restartAuto();
