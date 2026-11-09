@@ -13,7 +13,7 @@
   <meta property="og:title" content="Мультфильм про историю вашей любви (Love Story по фото) — Студия «Тёплый Кадр»" />
   <meta property="og:description" content="Превратим ваши любимые фотографии с телефона в трогательный или драйвовый мультфильм о вашей паре (16:9 для свадьбы и ТВ или 9:16 для телефона) с портретным сходством и профессиональной озвучкой." />
   <meta property="og:url" content="https://teplo-kadr.ru/love-story" />
-  <meta property="og:image" content="https://teplo-kadr.ru/media/love_stories/00_horizontal_poster_16x9.jpg" />
+  <meta property="og:image" content="https://teplo-kadr.ru/media/banners/love_story_desktop.jpg" />
   <meta property="og:locale" content="ru_RU" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -235,44 +235,22 @@
     <a href="/">Главная</a> <span>→</span> <a href="/cartoon">Мультфильмы по фото</a> <span>→</span> <strong>Мультфильм Love Story</strong>
   </div>
 
-  <!-- ПЕРВЫЙ ЭКРАН С ГОРИЗОНТАЛЬНЫМ 16:9 ПЛЕЕРОМ -->
+  <!-- ПЕРВЫЙ ЭКРАН LOVE STORY -->
   <section class="ls-hero">
-    <div class="container ls-hero-grid">
-      <div>
-        <div class="ls-branch-pill">❤️ Романтическая экранизация истории вашей пары по фото</div>
-        <h1>Мультфильм про <span>историю вашей любви</span> (Love Story)</h1>
-        <p class="lead">
-          Превратим ваши любимые снимки с телефона (даже если вы на разных фото!) в тёплый романтический мультфильм: первая встреча, ваши смешные привычки, совместные поездки, нежные моменты и мечты о будущем.
-        </p>
-        <ul class="hero-benefits">
-          <li>
-            <span class="check-icon">✓</span>
-            <span><strong>🎁 Бесплатный пробный кадр до заказа:</strong> пришлите нам 1–2 фотографии вашей пары, и мы бесплатно нарисуем пробный эскиз героев до оплаты.</span>
-          </li>
-          <li>
-            <span class="check-icon">✓</span>
-            <span><strong>Два формата на выбор (16:9 и 9:16):</strong> широкий горизонтальный фильм (для совместного просмотра на ТВ или экране праздника) или вертикальный формат для телефона.</span>
-          </li>
-          <li>
-            <span class="check-icon">✓</span>
-            <span><strong>Любой художественный стиль:</strong> 3D Disney/Pixar, комикс «Мистер и Миссис Смит», акварельная Ривьера или романтическое аниме Макото Синкая.</span>
-          </li>
-        </ul>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <button class="btn btn-primary" onclick="openOrderModal('Мультфильм Love Story', 'Бесплатный пробный кадр пары по фото')">🎁 Получить бесплатный пробный кадр пары</button>
-          <a href="#examples" class="btn btn-outline">Смотреть 4 вертикальных стиля ↓</a>
-        </div>
+    <div class="container" style="max-width: 880px; text-align: center;">
+      <div class="ls-branch-pill">❤️ Романтическая экранизация истории вашей пары по фото</div>
+      <h1 style="margin-bottom: 14px;">Мультфильм про <span>историю вашей любви</span> (Love Story)</h1>
+      <p class="lead" style="margin: 0 auto 20px; max-width: 760px;">
+        Превратим ваши любимые снимки с телефона (даже если вы на разных фото!) в тёплый романтический мультфильм: первая встреча, ваши смешные привычки, совместные поездки, нежные моменты и мечты о будущем.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px;">
+        <span class="pill-tag" style="background: #FFFFFF; border: 1px solid var(--border-soft);">🎁 Пробный кадр пары бесплатно до оплаты</span>
+        <span class="pill-tag" style="background: #FFFFFF; border: 1px solid var(--border-soft);">📱 Формат 9:16 или 16:9 на выбор</span>
+        <span class="pill-tag" style="background: #FFFFFF; border: 1px solid var(--border-soft);">🎨 4 романтических стиля со звуком</span>
       </div>
-
-      <!-- ГЛАВНЫЙ ГОРИЗОНТАЛЬНЫЙ ПЛЕЕР 16:9 В ПЕРВОМ ЭКРАНЕ -->
-      <div class="video-showcase-card">
-        <video id="loveStoryHero16x9" controls playsinline preload="metadata" poster="media/love_stories/00_horizontal_poster_16x9.jpg">
-          <source src="media/love_stories/00_horizontal_love_story_16x9.mp4" type="video/mp4" />
-        </video>
-        <div class="video-caption">
-          <span>🎬 <strong>Горизонтальный формат 16:9:</strong> романтическая история вашей пары в 4 художественных вселенных</span>
-          <a href="#examples">Вертикальные стили 9:16 ↓</a>
-        </div>
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <button class="btn btn-primary" onclick="openOrderModal('Мультфильм Love Story', 'Бесплатный пробный кадр пары по фото')">🎁 Получить бесплатный пробный кадр пары</button>
+        <a href="#examples" class="btn btn-outline">Смотреть все 4 стиля со звуком ↓</a>
       </div>
     </div>
   </section>
@@ -552,6 +530,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=15"></script>
+  <script src="app.js?v=16"></script>
 </body>
 </html>
